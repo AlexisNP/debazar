@@ -1,6 +1,25 @@
 {
   "name": "debazar",
-  "version": "0.0.0",
+  "version": "0.1.0",
+  "description": "Community oriented application for boardgames' enthusiasts and exchangers.",
+  "author": "LudoTeam",
+  "license": "ISC",
+  "keywords": [
+    "boardgames",
+    "board",
+    "game",
+    "community",
+    "gamers",
+    "players"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexisNP/debazar.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexisNP/debazar/issues"
+  },
+  "homepage": "https://github.com/AlexisNP/debazar#readme",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
