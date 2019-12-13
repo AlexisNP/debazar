@@ -1,0 +1,12 @@
+// GLOBAL
+@import '_fonts.scss';
+@import '_variables.scss';
+@import '_mixins.scss';
+// NORMALIZE
+@import '/_libs/_normalize.scss';
+
+
+body {
+  font-size: $font-size-base;
+  font-family: $font-family;
+}
