@@ -2,7 +2,7 @@
 A Web Application to connect board-game enthusiasts and allow them to exchange their favourite games !
 
 ## Built with
-* [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
+* [Angular](https://angular.io/docs) - Our Front-end Framework
 
 ## Authors
 * **Yaneck Chareyre** - *Group Management*
