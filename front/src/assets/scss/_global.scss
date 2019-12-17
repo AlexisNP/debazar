@@ -1,25 +1,64 @@
-// GLOBAL
+// File imports
 @import '_fonts.scss';
 @import '_variables.scss';
 @import '_mixins.scss';
-// NORMALIZE
+
+// Normalize library
 @import '/_libs/_normalize.scss';
 
-// RESETS
+// Resets
 * {
   margin: 0;
   padding: 0;
+  outline: none;
+}
+
+html *,
+html *::before,
+html *::after {
   box-sizing: border-box;
 }
+
+html {
+  box-sizing: border-box;
+  font-size: $font-size-root;
+  font-family: $font-family;
+  -ms-overflow-style: scrollbar;
+  height: 100%;
+  -webkit-overflow-scrolling: touch;
+  line-height: 1.15;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: $font-family;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+  color: $black;
+  background-color: $background--fill;
+  min-height: 100vh;
+  position: relative;
+}
+
 ul {
   list-style-type: none;
 }
+
 a {
   color: inherit;
   text-decoration: none;
 }
 
-body {
-  font-size: $font-size-base;
-  font-family: $font-family;
+// Custom classes (soon)
+.btn {
+  background: none;
 }
+
+// Text formatting
+.txt-center {text-align: center}
+.txt-left {text-align: left}
+.txt-right {text-align: right}
+
+.txt-bold {font-weight: $bold}
+.txt-italic {font-style: italic}
