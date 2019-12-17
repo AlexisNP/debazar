@@ -1,11 +1,21 @@
 // VARIABLES
 
-// COLORS
+// Colours
 $black: #000;
 $white: #FFF;
 
-//temp
+$background--fill: #F7FAFF;
+
+// Font weight
+$light: 300;
+$regular: 400;
+$medium: 500;
+$bold: 600;
+
+// temp font thing
 @import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap');
 
-$font-size-base: 14px;
+$font-size-root: 10px !default;
+$font-size-base: 1.5rem !default;
 $font-family: 'Lato', sans-serif;
+$line-height-base: 1.3 !default;
