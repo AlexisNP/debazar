@@ -10,28 +10,32 @@ section.landing {
     text-align: center;
     background-position: center;
     background-size: cover;
-    
+
     h1 {
         margin-bottom: 5rem;
         font-size: 7rem;
     }
+
     p {
         margin-bottom: 3rem;
         font-size: 2rem;
     }
+
     a {
         padding: 2rem 2.5rem;
         font-size: 1.5rem;
     }
-    
+
 }
 
 section.recent-adverts {
+
     h2 {
         margin-bottom: 2.5rem;
         font-size: 3.5rem;
         text-align: center;
     }
+
     .advert-list-container {
         display: flex;
         flex-flow: row wrap;
@@ -44,6 +48,7 @@ section.recent-adverts {
             border: 0.1rem solid rgba($gray, 0.2);
             border-radius: .8rem;
             overflow: hidden;
+
             header {
                 position: relative;
                 figure {
@@ -67,6 +72,7 @@ section.recent-adverts {
                     b {font-size: 1.6rem}
                 }
             }
+
             footer {
                 padding: 1.5rem;
                 p {
@@ -78,6 +84,7 @@ section.recent-adverts {
                     }
                 }
             }
+            
         }
     }
 }

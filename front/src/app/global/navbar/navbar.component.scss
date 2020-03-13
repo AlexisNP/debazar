@@ -1,0 +1,37 @@
+@import "../scss/_variables.scss";
+
+header.global {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $gray--ghost;
+    box-shadow: .2rem .2rem 1rem rgba($gray, 0.2);
+    z-index: 9999;
+
+    nav {
+        display: flex;
+        align-items: center;
+
+        ul {
+            height: 5rem;
+            display: flex;
+            > * {
+                margin-left: .5rem;
+                line-height: 5rem;
+            }
+            a {
+                display: block;
+                height: 100%;
+                padding: 0 1.5rem;
+                &:hover {
+                    color: $white;
+                    background: $orange;
+                }
+            }
+        }
+        .menu {
+            flex: 1;
+        }
+    }
+
+}
