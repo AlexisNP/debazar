@@ -68,11 +68,6 @@ public class UserController {
 		}
 		return ResponseEntity.ok().body(users);
 	}
-
-	@GetMapping
-	public List<User> list() {
-		return repository.findAll();
-	}
 	
 	@GetMapping("/findById")
 	public User findById(@Valid @RequestBody Long id) {
