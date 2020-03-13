@@ -1,14 +1,8 @@
 <header class="global">
     <nav>
-        <div class="logo-container">
-            <a [routerLink]="['/']" routerLinkActive="active" >Accueil</a>
-        </div>
         <ul class="menu">
-            <li>
-                <a [routerLink]="['/nos-jeux']" routerLinkActive="active" >Nos Jeux</a>
-            </li>
-            <li>
-                <a [routerLink]="['/les-annonces']" routerLinkActive="active" >Annonces</a>
+            <li *ngFor="let item of menu; let i = index">
+                <a [routerLink]="[item.url]" routerLinkActive="active" >{{ item.text }}</a>
             </li>
         </ul>
         <ul class="social-links">

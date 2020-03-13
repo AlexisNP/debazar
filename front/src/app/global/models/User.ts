@@ -2,23 +2,119 @@ import Game from "./Game";
 
 class User {
 
-    private id: string;
-    private username: string;
-    private firstname: string;
-    private lastname: string;
-    private email: string;
-    private gender: string;
-    private avatar: Blob;
-    private colour: string
-    private verified: boolean;
-    private banned: boolean;
-    private gamebox: Array<Game>;
-    private wishlist: Array<Game>;
+    // Attributes
+    private _id: string;
+    private _username: string;
+    private _firstname: string;
+    private _lastname: string;
+    private _email: string;
+    private _gender: string;
+    private _avatar: Blob;
+    private _colour: string;
+    private _verified: boolean;
+    private _banned: boolean;
+    private _gamebox: Array<Game>;
+    private _wishlist: Array<Game>;
 
-    constructor(username: string, email: string) {
-        
+    // Constructor
+    constructor(id: string, username: string, firstname: string, lastname: string, email: string, gender: string, avatar: Blob, colour: string, verified: boolean, banned: boolean, gamebox: Array<Game>, wishlist: Array<Game>) {
+        this.id = id;
+        this.username = username;
+        this.firstname = firstname;
+        this.lastname = lastname;
+        this.email = email;
+        this.gender = gender;
+        this.colour = colour;
+        this.verified = verified;
+        this.banned = banned;
+        this.gamebox = gamebox;
+        this.wishlist = wishlist;
     }
 
+    // Getters / Setters
+    public get id(): string {
+        return this._id;
+    }
+    public set id(value: string) {
+        this._id = value;
+    }
+
+    public get username(): string {
+        return this._username;
+    }
+    public set username(value: string) {
+        this._username = value;
+    }
+
+    public get firstname(): string {
+        return this._firstname;
+    }
+    public set firstname(value: string) {
+        this._firstname = value;
+    }
+
+    public get lastname(): string {
+        return this._lastname;
+    }
+    public set lastname(value: string) {
+        this._lastname = value;
+    }
+
+    public get email(): string {
+        return this._email;
+    }
+    public set email(value: string) {
+        this._email = value;
+    }
+
+    public get gender(): string {
+        return this._gender;
+    }
+    public set gender(value: string) {
+        this._gender = value;
+    }
+
+    public get avatar(): Blob {
+        return this._avatar;
+    }
+    public set avatar(value: Blob) {
+        this._avatar = value;
+    }
+
+    public get colour(): string {
+        return this._colour;
+    }
+    public set colour(value: string) {
+        this._colour = value;
+    }
+
+    public get verified(): boolean {
+        return this._verified;
+    }
+    public set verified(value: boolean) {
+        this._verified = value;
+    }
+
+    public get banned(): boolean {
+        return this._banned;
+    }
+    public set banned(value: boolean) {
+        this._banned = value;
+    }
+
+    public get gamebox(): Array<Game> {
+        return this._gamebox;
+    }
+    public set gamebox(value: Array<Game>) {
+        this._gamebox = value;
+    }
+
+    public get wishlist(): Array<Game> {
+        return this._wishlist;
+    }
+    public set wishlist(value: Array<Game>) {
+        this._wishlist = value;
+    }
 
 }
 

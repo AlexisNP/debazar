@@ -6,7 +6,8 @@ import { AdvertsComponent } from "../app/pages/adverts/adverts.component";
 
 const routes: Routes = [
     { path: '', component: IndexComponent },
-    { path: 'les-annonces', component: AdvertsComponent },
+    { path: 'annonces', component: AdvertsComponent },
+    { path: 'jeux', component: AdvertsComponent },
 ];
 
 @NgModule({
