@@ -10,6 +10,6 @@ import fr.mds.debazar.authentication.model.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, String> {
 
-	User findById(@Valid Long id);
+	User getById(@Valid Long id);
 
 }

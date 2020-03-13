@@ -1,61 +1,35 @@
 package fr.mds.debazar.authentication.model;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
-
-import lombok.Getter;
-import lombok.Setter;
-
-@Getter
-@Setter
-@Entity
-@Table(name= "USERS")
-public class User {
-	
-	@Id
-	@GenericGenerator(name = "increment", strategy = "increment") 
-	@GeneratedValue(generator = "increment") 
-	private Long id;
+public class UserSummary {
 
 	private String username;
-	private String password;
-
-	private String mail_address;
 	private String firstname;
 	private String lastname;
+	private String mail_address;
 	private String gender;
 	private String avatar;
 	private String colour;
 	private Boolean verified;
 	private Boolean banned;
 	
-	public Long getId() {
-		return id;
+	public UserSummary(String username, String firstname, String lastname, String mail_address, 
+			String gender, String avatar, String colour, Boolean verified, Boolean banned) {
+		this.username = username;
+		this.firstname = firstname;
+		this.lastname = lastname;
+		this.mail_address = mail_address;
+		this.gender = gender;
+		this.avatar = avatar;
+		this.colour = colour;
+		this.verified = verified;
+		this.banned = banned;
 	}
-	public void setId(Long id) {
-		this.id = id;
-	}
+	
 	public String getUsername() {
 		return username;
 	}
 	public void setUsername(String username) {
 		this.username = username;
-	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
-	public String getMail_address() {
-		return mail_address;
-	}
-	public void setMail_address(String mail_address) {
-		this.mail_address = mail_address;
 	}
 	public String getFirstname() {
 		return firstname;
@@ -68,6 +42,12 @@ public class User {
 	}
 	public void setLastname(String lastname) {
 		this.lastname = lastname;
+	}
+	public String getMail_address() {
+		return mail_address;
+	}
+	public void setMail_address(String mail_address) {
+		this.mail_address = mail_address;
 	}
 	public String getGender() {
 		return gender;
@@ -101,5 +81,5 @@ public class User {
 	}
 	
 	
-
+	
 }
