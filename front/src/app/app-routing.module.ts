@@ -1,10 +1,20 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-const routes: Routes = [];
+import { IndexComponent } from '../app/pages/index/index.component';
+import { AdvertsComponent } from "../app/pages/adverts/adverts.component";
+
+const routes: Routes = [
+    { path: '', component: IndexComponent },
+    { path: 'les-annonces', component: AdvertsComponent },
+];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+    imports: [RouterModule.forRoot(
+        routes,
+        // Debug stuff
+        { enableTracing: true }
+        )],
+    exports: [RouterModule]
 })
 export class AppRoutingModule { }
