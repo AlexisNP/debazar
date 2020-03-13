@@ -1,12 +1,20 @@
 package fr.mds.debazar.authentication.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import fr.mds.debazar.core.model.Game;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -32,6 +40,20 @@ public class User {
 	private String colour;
 	private Boolean verified;
 	private Boolean banned;
+
+	@ManyToMany(fetch= FetchType.LAZY)
+	@JoinTable(
+			name = "gamebox",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "game_id"))
+	private Set<Game> gamebox = new HashSet<>();
+
+	@ManyToMany(fetch= FetchType.LAZY)
+	@JoinTable(
+			name = "whishlist",
+			joinColumns = @JoinColumn(name = "user_id"),
+			inverseJoinColumns = @JoinColumn(name = "game_id"))
+	private Set<Game> whishlist = new HashSet<>();
 	
 	public Long getId() {
 		return id;
@@ -99,7 +121,17 @@ public class User {
 	public void setBanned(Boolean banned) {
 		this.banned = banned;
 	}
+	public Set<Game> getGamebox() {
+		return gamebox;
+	}
+	public void setGamebox(Set<Game> games) {
+		this.gamebox = games;
+	}
+	public Set<Game> getWhishlist() {
+		return whishlist;
+	}
+	public void setWhishlist(Set<Game> games) {
+		this.whishlist = games;
+	}
 	
-	
-
 }

@@ -4,16 +4,16 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import fr.mds.debazar.core.repository.OfferRepository;
+import fr.mds.debazar.core.repository.AuthorRepository;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api/offer")
-public class OfferController {
+@RequestMapping("/api/author")
+public class AuthorController {
 	
-	private OfferRepository repository;
+	private AuthorRepository repository;
 	
-	public OfferController(OfferRepository repository) {
+	public AuthorController(AuthorRepository repository) {
 		this.repository = repository;
 	}
 

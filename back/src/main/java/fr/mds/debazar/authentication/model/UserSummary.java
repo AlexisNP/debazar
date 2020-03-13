@@ -1,5 +1,10 @@
 package fr.mds.debazar.authentication.model;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import fr.mds.debazar.core.model.Game;
+
 public class UserSummary {
 
 	private String username;
@@ -11,9 +16,12 @@ public class UserSummary {
 	private String colour;
 	private Boolean verified;
 	private Boolean banned;
+	private Set<Game> gamebox = new HashSet<>();
+	private Set<Game> whishlist = new HashSet<>();
 	
 	public UserSummary(String username, String firstname, String lastname, String mail_address, 
-			String gender, String avatar, String colour, Boolean verified, Boolean banned) {
+			String gender, String avatar, String colour, Boolean verified, Boolean banned, 
+			Set<Game> gamebox, Set<Game> whishlist) {
 		this.username = username;
 		this.firstname = firstname;
 		this.lastname = lastname;
@@ -23,6 +31,8 @@ public class UserSummary {
 		this.colour = colour;
 		this.verified = verified;
 		this.banned = banned;
+		this.gamebox = gamebox;
+		this.whishlist = whishlist;
 	}
 	
 	public String getUsername() {
@@ -79,7 +89,17 @@ public class UserSummary {
 	public void setBanned(Boolean banned) {
 		this.banned = banned;
 	}
-	
-	
+	public Set<Game> getGamebox() {
+		return gamebox;
+	}
+	public void setGamebox(Set<Game> gamebox) {
+		this.gamebox = gamebox;
+	}
+	public Set<Game> getWishlist() {
+		return whishlist;
+	}
+	public void setWhishlist(Set<Game> whishlist) {
+		this.whishlist = whishlist;
+	}
 	
 }
