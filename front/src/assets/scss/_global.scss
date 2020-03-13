@@ -23,7 +23,6 @@ html {
   box-sizing: border-box;
   font-size: $font-size-root;
   font-family: $font-family;
-  -ms-overflow-style: scrollbar;
   height: 100%;
   -webkit-overflow-scrolling: touch;
   line-height: 1.15;
@@ -50,9 +49,23 @@ a {
   text-decoration: none;
 }
 
+img {
+  display: block;
+}
+
 // Custom classes (soon)
 .btn {
-  background: none;
+  display: inline-block;
+  padding: .75rem 1rem;
+  border: 1px solid transparent;
+  &.btn-primary {
+    color: $white;
+    background: $orange;
+  }
+  &.btn-secondary {
+    color: $orange;
+    border: 1px solid $orange;
+  }
 }
 
 // Text formatting

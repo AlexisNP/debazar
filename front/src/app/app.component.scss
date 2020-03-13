@@ -1,0 +1,191 @@
+@import "../scss/_variables.scss";
+
+header.global {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: $gray--ghost;
+  box-shadow: .2rem .2rem 1rem rgba($gray, 0.2);
+  z-index: 9999;
+  nav {
+    display: flex;
+    align-items: center;
+    ul {
+      height: 5rem;
+      display: flex;
+      > * {
+        margin-left: .5rem;
+        line-height: 5rem;
+      }
+      a {
+        display: block;
+        height: 100%;
+        padding: 0 1.5rem;
+        &:hover {
+          color: $white;
+          background: $orange;
+        }
+      }
+    }
+    .menu {
+      flex: 1;
+    }
+  }
+}
+
+section {
+  min-height: 100vh;
+  padding: 7rem 5rem;
+}
+
+section.landing {
+  padding: 20rem 10rem 0;
+  position: relative;
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+  color: $white;
+  text-align: center;
+  background-position: center;
+  background-size: cover;
+  animation-name: disco;
+  animation-duration: .2s;
+  animation-iteration-count: infinite;
+
+  h1 {
+    margin-bottom: 5rem;
+    font-size: 7rem;
+  }
+  p {
+    margin-bottom: 3rem;
+    font-size: 2rem;
+  }
+  a {
+    padding: 2rem 2.5rem;
+    font-size: 1.5rem;
+  }
+
+}
+
+section.recent-adverts {
+  h2 {
+    margin-bottom: 2.5rem;
+    font-size: 3.5rem;
+    text-align: center;
+  }
+  .advert-list-container {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: space-between;
+
+    .advert-item {
+      width: 23%;
+      margin: 0 .5rem 2rem;
+      background: rgba($gray--light, 0.1);
+      border: 0.1rem solid rgba($gray, 0.2);
+      border-radius: .8rem;
+      overflow: hidden;
+      header {
+        position: relative;
+        figure {
+          img {
+            width: 100%;
+          }
+        }
+        figcaption {
+          height: 100%;
+          width: 100%;
+          padding: 1rem;
+          display: flex;
+          align-items: flex-end;
+          justify-content: space-between;
+          position: absolute;
+          bottom: 0;
+          color: $white;
+          background: linear-gradient(0deg, rgba($black, 0.5) 0%, rgba($black, 0.5) 3%, transparent);
+
+          h3 {font-size: 2rem}
+          b {font-size: 1.6rem}
+        }
+      }
+      footer {
+        padding: 1.5rem;
+        p {
+          margin-bottom: 1rem;
+        }
+        .btn {
+          &:last-child {
+            float: right;
+          }
+        }
+      }
+    }
+  }
+
+}
+
+@keyframes disco {
+    0% {
+        background-color: red;
+    }
+    5% {
+        background-color: orange;
+    }
+    10% {
+        background-color: black;
+    }
+    15% {
+        background-color: blueviolet;
+    }
+    20% {
+        background-color: blue;
+    }
+    25% {
+        background-color: yellowgreen;
+    }
+    30% {
+        background-color: green;
+    }
+    35% {
+        background-color: red;
+    }
+    40% {
+        background-color: white;
+    }
+    45% {
+        background-color: lightsalmon;
+    }
+    50% {
+        background-color: royalblue;
+    }
+    55% {
+        background-color: aqua;
+    }
+    60% {
+        background-color: purple;
+    }
+    65% {
+        background-color: gray;
+    }
+    70% {
+        background-color: hotpink;
+    }
+    75% {
+        background-color: forestgreen;
+    }
+    80% {
+        background-color: chartreuse;
+    }
+    85% {
+        background-color: crimson;
+    }
+    90% {
+        background-color: goldenrod;
+    }
+    95% {
+        background-color: black;
+    }
+    100% {
+        background-color: honeydew;
+    }
+}
