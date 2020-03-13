@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.Valid;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -22,6 +23,17 @@ public class Editor {
 	private Long id;
 	
 	private String name;
+
+	public Editor() {}
+
+	public Editor(String name) {
+		this.name = name;
+	}
+
+	public Editor(Long id,String name) {
+		this.id = id;
+		this.name = name;
+	}
 
 	public Long getId() {
 		return id;
