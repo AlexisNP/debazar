@@ -48,9 +48,6 @@ section.landing {
   text-align: center;
   background-position: center;
   background-size: cover;
-  animation-name: disco;
-  animation-duration: .2s;
-  animation-iteration-count: infinite;
 
   h1 {
     margin-bottom: 5rem;
@@ -122,70 +119,4 @@ section.recent-adverts {
     }
   }
 
-}
-
-@keyframes disco {
-    0% {
-        background-color: red;
-    }
-    5% {
-        background-color: orange;
-    }
-    10% {
-        background-color: black;
-    }
-    15% {
-        background-color: blueviolet;
-    }
-    20% {
-        background-color: blue;
-    }
-    25% {
-        background-color: yellowgreen;
-    }
-    30% {
-        background-color: green;
-    }
-    35% {
-        background-color: red;
-    }
-    40% {
-        background-color: white;
-    }
-    45% {
-        background-color: lightsalmon;
-    }
-    50% {
-        background-color: royalblue;
-    }
-    55% {
-        background-color: aqua;
-    }
-    60% {
-        background-color: purple;
-    }
-    65% {
-        background-color: gray;
-    }
-    70% {
-        background-color: hotpink;
-    }
-    75% {
-        background-color: forestgreen;
-    }
-    80% {
-        background-color: chartreuse;
-    }
-    85% {
-        background-color: crimson;
-    }
-    90% {
-        background-color: goldenrod;
-    }
-    95% {
-        background-color: black;
-    }
-    100% {
-        background-color: honeydew;
-    }
 }
