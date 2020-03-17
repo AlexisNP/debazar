@@ -1,14 +1,47 @@
+<input type="checkbox" name="sidenav-toggle" id="sidenav-toggle">
 <header class="global">
-    <nav>
-        <ul class="menu">
+    <nav role="navigation">
+        <div class="burger-container">
+            <label for="sidenav-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.17 14.17">
+                    <g>
+                        <g id="main_layer_svg" data-name="main layer">
+                            <rect class="cls-1" width="14.17" height="14.17" rx="2.13"/>
+                            <circle class="cls-2" cx="7.09" cy="7.09" r="1.42"/>
+                            <circle class="cls-2" cx="3.19" cy="3.19" r="1.42"/>
+                            <circle class="cls-2" cx="3.19" cy="11.34" r="1.42"/>
+                            <circle class="cls-2" cx="10.98" cy="3.19" r="1.42"/>
+                            <circle class="cls-2" cx="10.98" cy="11.34" r="1.42"/>
+                        </g>
+                    </g>
+                </svg>
+            </label>
+        </div>
+        <ul class="top-menu">
             <li *ngFor="let item of menu; let i = index">
                 <a [routerLink]="[item.url]" routerLinkActive="active" >{{ item.text }}</a>
             </li>
         </ul>
-        <ul class="social-links">
+        <ul class="top-right-menu">
             <li>
                 <a [routerLink]="['/connexion']" routerLinkActive="active" >Connexion</a>
             </li>
         </ul>
     </nav>
 </header>
+<aside class="side-menu" role="navigation">
+    <nav>
+        <div class="title">Catégories</div>
+        <ul>
+            <li><a href="#">Jeux de plateau</a></li>
+            <li><a href="#">Jeux à deux</a></li>
+            <li><a href="#">Jeux pour enfants</a></li>
+            <li><a href="#">Jeux de cartes</a></li>
+            <li><a href="#">Jeux de coopération</a></li>
+            <li><a href="#">Jeux en bois</a></li>
+            <li><a href="#">Jeux de dessin</a></li>
+            <li><a href="#">Jeux de stratégie</a></li>
+            <li><a href="#">Escape game</a></li>
+        </ul>
+    </nav>
+</aside>

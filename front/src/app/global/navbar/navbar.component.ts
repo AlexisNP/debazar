@@ -23,8 +23,12 @@ export class NavbarComponent implements OnInit {
                 text: "Annonces"
             },
             {
-                url: "/jeux",
-                text: "Jeux"
+                url: "/vendre-mon-jeu",
+                text: "Vendre mon jeu"
+            },
+            {
+                url: "/autour-de-moi",
+                text: "Autour de moi"
             }
         ]
     }
