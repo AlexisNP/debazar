@@ -1,12 +1,13 @@
 import Editor from "./Editor";
 
-class Game {
+export class Game {
 
     // Attributes
+    private _id: number;
     private _name: string;
     private _image: Blob;
     private _description: string;
-    private _players: string;
+    private _players: number;
     private _duration: string;
     private _published: Date;
     private _age: number;
@@ -14,19 +15,26 @@ class Game {
     private _editor: Editor;
 
     // Constructor
-    constructor(name: string, image: Blob, description: string, players: string, duration: string, published: Date, age: number, price: number, editor: Editor) {
-        this.name = name;
-        this.image = image;
-        this.description = "";
-        this.players = players;
-        this.duration = duration;
-        this.published = published;
-        this.age = age;
-        this.price = price;
-        this.editor = editor;
+    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, price: number, editor: Editor) {
+        this._name = name;
+        this._image = image;
+        this._description = "";
+        this._players = players;
+        this._duration = duration;
+        this._published = published;
+        this._age = age;
+        this._price = price;
+        this._editor = editor;
     }
 
     // Getters / Setters
+    public get id(): number {
+        return this._id;
+    }
+    public set id(value: number) {
+        this._id = value;
+    }
+
     public get name(): string {
         return this._name;
     }
@@ -48,10 +56,10 @@ class Game {
         this._description = value;
     }
 
-    public get players(): string {
+    public get players(): number {
         return this._players;
     }
-    public set players(value: string) {
+    public set players(value: number) {
         this._players = value;
     }
 
@@ -89,7 +97,6 @@ class Game {
     public set editor(value: Editor) {
         this._editor = value;
     }
-
 }
 
 export default Game;

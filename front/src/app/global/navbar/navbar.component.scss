@@ -52,23 +52,53 @@ header.global {
 
 // Side menu (with trigger)
 .side-menu {
-    height: 100vh;
     width: 25rem;
     position: fixed;
-    top: 5rem;
-    z-index: 1900;
+    top: 7.5rem;
+    left: 2.5rem;
+    z-index: 2000;
     color: $black;
-    background: $orange--ghost;
-    box-shadow: .2rem .2rem 1rem rgba($gray, 0.2);
+    border-radius: .5rem;
+    
     .title {
-
+        padding: 1rem 1.5rem;
+        color: $white;
+        background: $orange;
+        border-top-left-radius: .5rem;
+        border-top-right-radius: .5rem;
+    }
+    .element {
+        background: $white;
+        a {
+            padding: 1rem 1.5rem;
+            display: block;
+        }
+        &:hover {
+            background: $orange--ghost;
+        }
+        &:last-of-type {
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
     }
 }
 // Behaviour when off...
 #sidenav-toggle {
+    visibility: hidden;
     ~ .side-menu {
-        left: -25rem;
-        transition: left .75s cubic-bezier(0.39, 0.575, 0.565, 1);
+        nav {
+            > * {
+                opacity: 0;
+                transform: translateX(-10rem);
+                transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+                pointer-events: none;
+                @for $i from 1 through 20 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: calc(#{$i} * .05s);
+                    }
+                }
+            }
+        }
     }
     ~ header.global {
         nav {
@@ -95,8 +125,16 @@ header.global {
     // ..and on
     &:checked {
         ~ .side-menu {
-            left: 0;
-            transition: left .5s ease-in-out;
+            box-shadow: .5rem .5rem 1rem rgba($gray, 0.2);
+            transition: box-shadow 0.5s linear;
+            transition-delay: 1s;
+            nav {
+                > * {
+                    opacity: 1;
+                    transform: translateX(0);
+                    pointer-events: initial;
+                }
+            }
         }
         ~ header.global {
             nav {

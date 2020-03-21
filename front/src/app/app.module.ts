@@ -10,6 +10,8 @@ import { LoginComponent } from './pages/login/login.component';
 import { SellGameComponent } from './pages/sell-game/sell-game.component';
 import { SearchBarComponent } from './global/navbar/search-bar/search-bar.component';
 import { ButtonComponent } from './global/button/button.component';
+import { NearMeComponent } from './pages/near-me/near-me.component';
+import { GameCardComponent } from './global/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { ButtonComponent } from './global/button/button.component';
     LoginComponent,
     SellGameComponent,
     SearchBarComponent,
-    ButtonComponent
+    ButtonComponent,
+    NearMeComponent,
+    GameCardComponent
   ],
   imports: [
     BrowserModule,

@@ -10,55 +10,6 @@
 <section class="recent-adverts full-height">
   <h2>Annonces récentes</h2>
     <div class="advert-list-container">
-
-        <article class="advert-item">
-            <header>
-                <figure>
-                    <img src="https://fakeimg.pl/850x500/?text=Image du jeu">
-                </figure>
-                <figcaption>
-                    <h3>Titre du jeu</h3>
-                    <b>25,99 €</b>
-                </figcaption>
-            </header>
-            <footer>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus in hac habitasse platea. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin.</p>
-                <a href="#" class="btn btn-primary">Voir l'annonce</a>
-                <a href="#" class="btn btn-secondary">Fiche du jeu</a>
-            </footer>
-        </article>
-        <article class="advert-item">
-            <header>
-                <figure>
-                    <img src="https://fakeimg.pl/850x500/?text=Image du jeu">
-                </figure>
-                <figcaption>
-                    <h3>Titre du jeu</h3>
-                    <b>25,99 €</b>
-                </figcaption>
-            </header>
-            <footer>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus in hac habitasse platea. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin.</p>
-                <a href="#" class="btn btn-primary">Voir l'annonce</a>
-                <a href="#" class="btn btn-secondary">Fiche du jeu</a>
-            </footer>
-        </article>
-        <article class="advert-item">
-            <header>
-                <figure>
-                    <img src="https://fakeimg.pl/850x500/?text=Image du jeu">
-                </figure>
-                <figcaption>
-                    <h3>Titre du jeu</h3>
-                    <b>25,99 €</b>
-                </figcaption>
-            </header>
-            <footer>
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Tellus in hac habitasse platea. Cursus metus aliquam eleifend mi in nulla posuere sollicitudin.</p>
-                <a href="#" class="btn btn-primary">Voir l'annonce</a>
-                <a href="#" class="btn btn-secondary">Fiche du jeu</a>
-            </footer>
-        </article>
-
+        <app-game-card *ngFor="let game of gameList" [game]=game></app-game-card>
     </div>
 </section>
