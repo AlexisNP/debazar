@@ -12,10 +12,16 @@ import Editor from 'src/app/global/models/Editor';
 export class GameCardComponent implements OnInit {
 
     @Input() game: Game;
+    private flipped: boolean;
 
     constructor() { }
 
     ngOnInit() {
+        this.flipped = true;
+    }
+
+    flipCard() {
+        this.flipped = !this.flipped;
     }
 
 }

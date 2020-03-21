@@ -86,12 +86,12 @@ header.global {
 #sidenav-toggle {
     visibility: hidden;
     ~ .side-menu {
+        pointer-events: none;
         nav {
             > * {
                 opacity: 0;
                 transform: translateX(-10rem);
                 transition: opacity .5s ease-in-out, transform .5s ease-in-out;
-                pointer-events: none;
                 @for $i from 1 through 20 {
                     &:nth-child(#{$i}) {
                         transition-delay: calc(#{$i} * .05s);
@@ -125,6 +125,8 @@ header.global {
     // ..and on
     &:checked {
         ~ .side-menu {
+            display: block;
+            opacity: 1;
             box-shadow: .5rem .5rem 1rem rgba($gray, 0.2);
             transition: box-shadow 0.5s linear;
             transition-delay: 1s;

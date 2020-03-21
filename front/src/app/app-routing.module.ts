@@ -1,16 +1,19 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IndexComponent } from '../app/pages/index/index.component';
-import { SellGameComponent } from "../app/pages/sell-game/sell-game.component";
-import { AdvertsComponent } from "../app/pages/adverts/adverts.component";
-import { LoginComponent } from "../app/pages/login/login.component";
+import { IndexComponent } from './pages/index/index.component';
+import { SellGameComponent } from "./pages/sell-game/sell-game.component";
+import { AdvertsComponent } from "./pages/adverts/adverts.component";
+import { LoginComponent } from "./pages/login/login.component";
+import { NearMeComponent } from './pages/near-me/near-me.component';
 
 const routes: Routes = [
     { path: '', component: IndexComponent },
     { path: 'annonces', component: AdvertsComponent },
     { path: 'vendre-mon-jeu', component: SellGameComponent },
     { path: 'connexion', component: LoginComponent },
+    { path: 'autour-de-moi', component: NearMeComponent},
+    { path: '**', component: IndexComponent}
 ];
 
 @NgModule({
