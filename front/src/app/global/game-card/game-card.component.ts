@@ -1,8 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import Game from 'src/app/global/models/Game'
-import Editor from 'src/app/global/models/Editor';
-
 
 @Component({
   selector: 'app-game-card',
@@ -12,12 +10,12 @@ import Editor from 'src/app/global/models/Editor';
 export class GameCardComponent implements OnInit {
 
     @Input() game: Game;
-    private flipped: boolean;
+    flipped: boolean;
 
     constructor() { }
 
     ngOnInit() {
-        this.flipped = true;
+        this.flipped = false;
     }
 
     flipCard() {
