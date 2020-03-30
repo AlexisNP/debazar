@@ -1,0 +1,17 @@
+<div class="advert-card">
+    <div class="advert-card-inner">
+        <div class="advert-card-front">
+            <header>
+                <figure>
+                    <img src="https://www.cdiscount.com/pdt2/6/5/7/1/700x700/auc1765081743657/rw/jeu-d-echecs-professionnel-no-5-acajou-echiqui.jpg" alt="">
+                </figure>
+            </header>
+            <div>
+                <h2>{{ game.name }}</h2>
+                <p>Proposé par {{ user.username }}</p>
+                <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small">Voir l'annonce</a>
+                <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
+            </div>
+        </div>
+    </div>
+</div>

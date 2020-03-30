@@ -11,7 +11,7 @@ import { SellGameComponent } from './pages/sell-game/sell-game.component';
 import { SearchBarComponent } from './global/navbar/search-bar/search-bar.component';
 import { ButtonComponent } from './global/button/button.component';
 import { NearMeComponent } from './pages/near-me/near-me.component';
-import { GameCardComponent } from './global/game-card/game-card.component';
+import { AdvertCardComponent } from './global/advert-card/advert-card.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +24,7 @@ import { GameCardComponent } from './global/game-card/game-card.component';
     SearchBarComponent,
     ButtonComponent,
     NearMeComponent,
-    GameCardComponent
+    AdvertCardComponent
   ],
   imports: [
     BrowserModule,

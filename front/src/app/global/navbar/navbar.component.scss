@@ -54,18 +54,16 @@ header.global {
 .side-menu {
     width: 25rem;
     position: fixed;
-    top: 7.5rem;
-    left: 2.5rem;
+    top: 5rem;
+    left: 0;
     z-index: 2000;
     color: $black;
-    border-radius: .5rem;
+    border-bottom-right-radius: .5rem;
     
     .title {
         padding: 1rem 1.5rem;
         color: $white;
         background: $orange;
-        border-top-left-radius: .5rem;
-        border-top-right-radius: .5rem;
     }
     .element {
         background: $white;

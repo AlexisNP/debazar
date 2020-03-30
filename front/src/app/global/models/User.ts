@@ -3,7 +3,7 @@ import Game from "./Game";
 class User {
 
     // Attributes
-    private _id: string;
+    private _id: number;
     private _username: string;
     private _firstname: string;
     private _lastname: string;
@@ -17,25 +17,23 @@ class User {
     private _wishlist: Array<Game>;
 
     // Constructor
-    constructor(id: string, username: string, firstname: string, lastname: string, email: string, gender: string, avatar: Blob, colour: string, verified: boolean, banned: boolean, gamebox: Array<Game>, wishlist: Array<Game>) {
-        this.id = id;
-        this.username = username;
-        this.firstname = firstname;
-        this.lastname = lastname;
-        this.email = email;
-        this.gender = gender;
-        this.colour = colour;
-        this.verified = verified;
-        this.banned = banned;
-        this.gamebox = gamebox;
-        this.wishlist = wishlist;
+    constructor(id: number, username: string, firstname: string, lastname: string, email: string, gender: string, avatar: Blob, colour: string, verified: boolean, banned: boolean) {
+        this._id = id;
+        this._username = username;
+        this._firstname = firstname;
+        this._lastname = lastname;
+        this._email = email;
+        this._gender = gender;
+        this._colour = colour;
+        this._verified = verified;
+        this._banned = banned;
     }
 
     // Getters / Setters
-    public get id(): string {
+    public get id(): number {
         return this._id;
     }
-    public set id(value: string) {
+    public set id(value: number) {
         this._id = value;
     }
 

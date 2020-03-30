@@ -11,11 +11,11 @@ export class Game {
     private _duration: string;
     private _published: Date;
     private _age: number;
-    private _price: number;
     private _editor: Editor;
 
     // Constructor
-    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, price: number, editor: Editor) {
+    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, editor: Editor) {
+        this._id = id;
         this._name = name;
         this._image = image;
         this._description = "";
@@ -23,7 +23,6 @@ export class Game {
         this._duration = duration;
         this._published = published;
         this._age = age;
-        this._price = price;
         this._editor = editor;
     }
 
@@ -82,13 +81,6 @@ export class Game {
     }
     public set age(value: number) {
         this._age = value;
-    }
-
-    public get price(): number {
-        return this._price;
-    }
-    public set price(value: number) {
-        this._price = value;
     }
 
     public get editor(): Editor {
