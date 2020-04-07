@@ -1,17 +1,23 @@
 <div class="advert-card">
-    <div class="advert-card-inner">
-        <div class="advert-card-front">
-            <header>
+    <div class="card-wrapper">
+        <div class="main-container">
+            <aside>
+                <header>
+                    <h2>{{ game.name }}</h2>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </header>
                 <figure>
-                    <img src="https://www.cdiscount.com/pdt2/6/5/7/1/700x700/auc1765081743657/rw/jeu-d-echecs-professionnel-no-5-acajou-echiqui.jpg" alt="">
+                    <img src="https://www.kroger.com/product/images/xlarge/front/0063050951263" alt="">
                 </figure>
-            </header>
-            <div>
-                <h2>{{ game.name }}</h2>
-                <p>Proposé par {{ user.username }}</p>
-                <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small">Voir l'annonce</a>
-                <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
+            </aside>
+            <div class="informations">
+                <h4>Proposé par {{ user.username }}</h4>
+                <p>{{ advert.text }}</p>
             </div>
         </div>
+        <footer>
+            <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
+            <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small">Voir l'annonce</a>
+        </footer>
     </div>
 </div>

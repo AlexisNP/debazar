@@ -26,15 +26,15 @@ export class IndexComponent implements OnInit {
             new User(684, "UltimatorLeBronzeux", "Jean-Pierre", "Kevin", "yahoo@yahoo.com", "Non-renseigné", null, "#f5274c", true, false),
         ];
         this.gameList = [
-            new Game(942, "Game 1", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor("Bob")),
-            new Game(14887, "Game 2", null, "Description", 8, "Éternité", new Date(), 4, new Editor("Jean-Luc Games")),
-            new Game(6148, "Game 3", null, "Description", 2, "Éternité", new Date(), 4, new Editor("Monsieur Poulpe")),
+            new Game(942, "Monopoly", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor("Bob")),
+            new Game(14887, "Uno", null, "Description", 8, "Éternité", new Date(), 4, new Editor("Jean-Luc Games")),
+            new Game(6148, "Échecs traditionnels", null, "Description", 2, "Éternité", new Date(), 4, new Editor("Monsieur Poulpe")),
         ];
         this.advertList = [
-            new Advert(1461, this.gameList[0], this.userList[0], new Date(), 845),
-            new Advert(7942367, this.gameList[2], this.userList[3], new Date(), 41.99),
-            new Advert(16596, this.gameList[1], this.userList[2], new Date(), 0.99),
-            new Advert(6969, this.gameList[2], this.userList[1], new Date(), 15),
+            new Advert(1461, this.gameList[0], this.userList[0], new Date(), 845, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
+            new Advert(7942367, this.gameList[2], this.userList[3], new Date(), 41.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
+            new Advert(16596, this.gameList[1], this.userList[2], new Date(), 0.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
+            new Advert(6969, this.gameList[2], this.userList[1], new Date(), 15, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
         ];
     }
 

@@ -17,14 +17,28 @@
                 </svg>
             </label>
         </div>
-        <ul class="top-menu">
+        <ul class="navigation-menu">
             <li *ngFor="let item of menu; let i = index">
                 <a [routerLink]="[item.url]" routerLinkActive="active" >{{ item.text }}</a>
             </li>
         </ul>
-        <ul class="top-right-menu">
+        <ul class="actions-menu">
+            <li class="search-bar-wrapper">
+                <app-search-bar></app-search-bar>
+            </li>
             <li>
-                <a [routerLink]="['/connexion']" routerLinkActive="active" >Connexion</a>
+                <div class="btn btn-primary btn-round">
+                    <a [routerLink]="['/connexion']" routerLinkActive="active" >
+                        <fa-icon [icon]="faBoxOpen" size="lg"></fa-icon>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="btn btn-primary btn-round">
+                    <a [routerLink]="['/connexion']" routerLinkActive="active" >
+                        <fa-icon [icon]="faUser" size="lg"></fa-icon>
+                    </a>
+                </div>
             </li>
         </ul>
     </nav>

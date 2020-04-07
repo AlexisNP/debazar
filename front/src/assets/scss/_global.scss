@@ -66,6 +66,7 @@ img {
     border: 1px solid transparent;
     border-radius: 5rem;
     box-shadow: 0 0 .1rem .1rem $orange;
+    cursor: pointer;
 
     &.btn-primary {
         color: $white;
@@ -80,6 +81,15 @@ img {
         margin: 0 .2rem;
         padding: 1rem 2.5rem;
         font-size: 1.15rem;
+    }
+
+    &.btn-round {
+        height: 3.5rem;
+        width: 3.5rem;
+        padding: 0;
+        line-height: 3.5rem;
+        text-align: center;
+        border-radius: 50%;
     }
 }
 

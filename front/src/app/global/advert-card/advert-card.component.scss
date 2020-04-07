@@ -1,46 +1,86 @@
 @import "../scss/_variables.scss";
 
 .advert-card {
-    width: 35rem;
-    height: 45rem;
-    margin: 0 0 2rem 2rem;
-    border-radius: 1rem;
-    background-color: transparent;
-    perspective: 100rem;
+    width: calc(33% - 1.5rem);
+    min-width: 40rem;
+    display: inline-block;
+    margin: 0 0 1.5rem 1.5rem;
+    padding: 1.5rem;
+    position: relative;
+    background: $white;
+    border-top-right-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: .5rem solid rgba($orange, .35);
+    box-shadow: .2rem .2rem 1rem rgba($black, .15);
 
-    .advert-card-inner {
+    .card-wrapper {
         position: relative;
-        width: 100%;
-        height: 100%;
-        transition: transform .75s cubic-bezier(0.39, 0.575, 0.565, 1);
-        transform-style: preserve-3d;
-        > * {
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            -webkit-backface-visibility: hidden;
-            backface-visibility: hidden;
-            border-radius: 1rem;
-            overflow: hidden;
-        }
+        display: flex;
+        flex-flow: column;
+        justify-content: space-between;
+        overflow: hidden;
 
-        .advert-card-front {
-            header {
-                height: 50%;
-                width: 100%;
-                position: relative;
-                overflow: hidden;
+        .main-container {
+            flex-grow: 1;
+            margin-top: 2rem;
+            padding: 1rem .5rem;
+            display: flex;
+
+            &:before {
+                display: block;
+                content: '';
+                position: absolute;
+                top: -2.5rem;
+                left: -2.5rem;
+                height: 5rem;
+                width: 5rem;
+                background: $orange;
+                border-radius: 50%;
+            }
+
+            > * {
+                width: 50%;
+            }
+            
+            aside {
+                padding-right: 1rem;
+                display: flex;
+                flex-flow: column;
+                header {
+                    font-family: 'Nunito', sans-serif;
+                    h2 {
+                        font-size: 2.25rem;
+                        font-weight: $heavy;
+                        color: $orange;
+                    }
+                    p {
+                        margin-bottom: 2rem;
+                    }
+                }
                 figure {
                     img {
                         height: auto;
-                        max-width: 100%;
-                        position: absolute;
-                        top: 50%;
-                        left: 50%;
-                        transform: translate(-50%, -50%);
+                        max-width: 70%;
+                        display: block;
+                        margin: auto;
                     }
+                }
+            }
+            .informations {
+                padding-left: 1rem;
+                
+            }
+        }
+        footer {
+            padding-top: 1rem;
+            .btn {
+                margin-bottom: .2rem;
+                &.btn-primary {
+                    float: right;
                 }
             }
         }
     }
+
 }

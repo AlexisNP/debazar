@@ -18,7 +18,7 @@ export class Game {
         this._id = id;
         this._name = name;
         this._image = image;
-        this._description = "";
+        this._description = description;
         this._players = players;
         this._duration = duration;
         this._published = published;
