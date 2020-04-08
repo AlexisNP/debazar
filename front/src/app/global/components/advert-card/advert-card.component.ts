@@ -1,8 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 import Advert from 'src/app/global/models/Advert';
-import Game from '../models/Game';
-import User from '../models/User';
+import Game from '../../models/Game';
+import User from '../../models/User';
 
 @Component({
   selector: 'app-advert-card',

@@ -43,13 +43,40 @@ header.global {
                 line-height: 6rem;
             }
             a {
+                position: relative;
                 display: block;
                 height: 100%;
                 padding: 0 1.5rem;
                 white-space: nowrap;
-                &:hover {
-                    color: $white;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 3px;
                     background: $orange;
+                    transform: translateX(-50%);
+                    z-index: -1;
+                }
+                &:hover {
+                    color: $orange;
+                    transition: color .4s ease-in-out;
+                    &:after {
+                        width: 100%;
+                        transition: width .3s ease-in-out;
+                    }
+                }
+                &.active {
+                    color: $white;
+                    transition: color .4s ease-in-out;
+                    &:after {
+                        height: 100%;
+                        width: 100%;
+                        transition: height .4s ease-in-out;
+                    }
                 }
             }
         }

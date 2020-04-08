@@ -1,3 +1,20 @@
-<p>
-  login works!
-</p>
+<section class="login-wrapper">
+    <header>
+        <img src="../../../assets/images/logo.svg" alt="">
+        <h1><span class="txt-orange">Débazar</span> est ravi de vous revoir !</h1>
+    </header>
+    <form action="login" method="POST">
+        <div class="input-group">
+            <label for="login_user_name_mail">Pseudo ou addresse mail</label>
+            <input type="text">
+        </div>
+        <div class="input-group">
+            <label for="login_user_password">Mot de passe</label>
+            <input type="text">
+        </div>
+        <footer class="input-group">
+            <button type="submit" class="btn btn-primary btn-small">Connexion</button>
+            <button [routerLink]="['/mdp-oublie']" class="btn btn-secondary btn-small">Mot de passe oublié ?</button>
+        </footer>
+    </form>
+</section>

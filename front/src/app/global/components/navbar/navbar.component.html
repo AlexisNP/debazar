@@ -18,8 +18,17 @@
             </label>
         </div>
         <ul class="navigation-menu">
-            <li *ngFor="let item of menu; let i = index">
-                <a [routerLink]="[item.url]" routerLinkActive="active" >{{ item.text }}</a>
+            <li>
+                <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+            </li>
+            <li>
+                <a [routerLink]="['/annonces']" routerLinkActive="active">Annonces</a>
+            </li>
+            <li>
+                <a [routerLink]="['/vendre-mon-jeu']" routerLinkActive="active">Vendre mon jeu</a>
+            </li>
+            <li>
+                <a [routerLink]="['/autour-de-moi']" routerLinkActive="active">Autour de moi</a>
             </li>
         </ul>
         <ul class="actions-menu">
@@ -28,7 +37,7 @@
             </li>
             <li>
                 <div class="btn btn-primary btn-round">
-                    <a [routerLink]="['/connexion']" routerLinkActive="active" >
+                    <a [routerLink]="['/gamebox']" routerLinkActive="active" >
                         <fa-icon [icon]="faBoxOpen" size="lg"></fa-icon>
                     </a>
                 </div>

@@ -10,8 +10,6 @@ import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
 })
 export class NavbarComponent implements OnInit {
 
-    public menu: Array<Object>;
-
     faUser = faUser;
     faBoxOpen = faBoxOpen;
 
@@ -19,24 +17,7 @@ export class NavbarComponent implements OnInit {
     }
 
     ngOnInit() {
-        this.menu = [
-            {
-                url: "/",
-                text: "Accueil"
-            },
-            {
-                url: "/annonces",
-                text: "Annonces"
-            },
-            {
-                url: "/vendre-mon-jeu",
-                text: "Vendre mon jeu"
-            },
-            {
-                url: "/autour-de-moi",
-                text: "Autour de moi"
-            }
-        ]
+
     }
 
 }

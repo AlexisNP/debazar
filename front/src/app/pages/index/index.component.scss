@@ -10,23 +10,34 @@ section.landing {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
-    color: $black;
     text-align: center;
     background-position: center;
     background-size: cover;
 
+    > * {
+        margin-bottom: 1rem;
+    }
+
     h1 {
         font-family: 'Nunito', sans-serif;
-        margin-bottom: 2.5rem;
         font-size: 7rem;
         font-weight: $heavy;
         font-style: italic;
+        color: $orange;
     }
 
     h2 {
-        margin-bottom: 3rem;
         font-size: 1.8rem;
-        font-weight: normal;
+        font-weight: $bold;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: $medium;
+    }
+
+    .connect-to-us {
+        margin-top: 2rem;
     }
 
 }

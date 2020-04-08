@@ -34,7 +34,7 @@ body {
     font-family: $font-family;
     font-size: $font-size-base;
     line-height: $line-height-base;
-    color: $black;
+    color: $blue--dark;
     background-color: $background--fill;
     min-height: 100vh;
     position: relative;
@@ -75,6 +75,7 @@ img {
     &.btn-secondary {
         color: $orange;
         font-weight: $heavy;
+        background: none;
     }
 
     &.btn-small {
@@ -91,6 +92,33 @@ img {
         text-align: center;
         border-radius: 50%;
     }
+    
+    &.btn-full {
+        width: 100%;
+    }
+}
+
+// Forms
+.input-group {
+    input[type=text],
+    input[type=mail],
+    input[type=password],
+    input[type=tel] {
+        width: 100%;
+        padding: 1rem 2.5rem;
+        color: $orange;
+        font-weight: $bold;
+        border: 1px solid $orange--light;
+        border-radius: 5rem;
+        background: none;
+    }
+    label {
+        display: block;
+        margin-bottom: .5rem;
+        padding: 0 .5rem;
+        font-size: 1.4rem;
+        font-weight: $bold;
+    }
 }
 
 // Text formatting
@@ -100,5 +128,7 @@ img {
 
 .txt-bold {font-weight: $bold}
 .txt-italic {font-style: italic}
+
+.txt-orange {color: $orange}
 
 section.full-height { min-height: 100vh }
