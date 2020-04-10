@@ -3,11 +3,12 @@ import Game from "./Game";
 class User {
 
     // Attributes
-    private _id: number;
+    private _id?: number;
     private _username: string;
     private _firstname: string;
     private _lastname: string;
     private _email: string;
+    private _password: string;
     private _gender: string;
     private _avatar: Blob;
     private _colour: string;
@@ -16,13 +17,13 @@ class User {
     private _gamebox: Array<Game>;
     private _wishlist: Array<Game>;
 
-    // Constructor
-    constructor(id: number, username: string, firstname: string, lastname: string, email: string, gender: string, avatar: Blob, colour: string, verified: boolean, banned: boolean) {
-        this._id = id;
+    // Constructor w/out ID
+    constructor(username: string, firstname: string, lastname: string, email: string, gender: string, avatar: Blob, colour: string, verified: boolean, banned: boolean, password: string) {
         this._username = username;
         this._firstname = firstname;
         this._lastname = lastname;
         this._email = email;
+        this._password = password;
         this._gender = gender;
         this._colour = colour;
         this._verified = verified;
@@ -63,6 +64,13 @@ class User {
     }
     public set email(value: string) {
         this._email = value;
+    }
+
+    public get password(): string {
+        return this._password;
+    }
+    public set password(value: string) {
+        this._password = value;
     }
 
     public get gender(): string {

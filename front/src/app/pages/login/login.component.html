@@ -1,20 +1,31 @@
-<section class="login-wrapper">
-    <header>
-        <img src="../../../assets/images/logo.svg" alt="">
-        <h1><span class="txt-orange">Débazar</span> est ravi de vous revoir !</h1>
-    </header>
-    <form action="login" method="POST">
-        <div class="input-group">
-            <label for="login_user_name_mail">Pseudo ou addresse mail</label>
-            <input type="text">
-        </div>
-        <div class="input-group">
-            <label for="login_user_password">Mot de passe</label>
-            <input type="text">
-        </div>
-        <footer class="input-group">
-            <button type="submit" class="btn btn-primary btn-small">Connexion</button>
-            <button [routerLink]="['/mdp-oublie']" class="btn btn-secondary btn-small">Mot de passe oublié ?</button>
-        </footer>
-    </form>
+<section class="login-page">
+
+    <div class="wrapper">
+        <header>
+            <img src="../../../assets/images/logo.svg" alt="">
+            <h1><span class="txt-orange">Débazar</span> est ravi de vous revoir !</h1>
+        </header>
+    
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+    
+            <div class="input-group" [ngClass]="{ 'is-invalid': submitted && f.login_mail.errors }">
+                <label for="login_mail">Addresse mail</label>
+                <input type="text" name="login_mail" formControlName="login_mail" placeholder="jean.kevin@laposte.fr">
+                <small *ngIf="submitted && f.login_mail.errors">L'email n'est pas valide</small>
+            </div>
+    
+            <div class="input-group" [ngClass]="{ 'is-invalid': submitted && f.login_password.errors }">
+                <label for="login_password">Mot de passe</label>
+                <input type="password" name="login_password" formControlName="login_password">
+                <small *ngIf="submitted && f.login_password.errors">Le mot de passe doit être renseigné</small>
+            </div>
+    
+            <footer class="input-group">
+                <button type="submit" class="btn btn-primary btn-small">Connexion</button>
+                <button [routerLink]="['/inscription']" class="btn btn-secondary btn-small">Inscription</button>
+            </footer>
+    
+        </form>
+    </div>
+
 </section>

@@ -111,6 +111,9 @@ img {
         border: 1px solid $orange--light;
         border-radius: 5rem;
         background: none;
+        &::placeholder {
+            color: $orange;
+        }
     }
     label {
         display: block;
@@ -118,6 +121,16 @@ img {
         padding: 0 .5rem;
         font-size: 1.4rem;
         font-weight: $bold;
+    }
+    @for $i from 1 through 12 {
+        &.#{$i}-col {
+            .col {
+                width: calc(100% / #{$i});
+            }
+        }
+    }
+    &.2-col {
+        background: red !important;
     }
 }
 

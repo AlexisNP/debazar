@@ -20,10 +20,10 @@ export class IndexComponent implements OnInit {
 
     ngOnInit() {
         this.userList = [
-            new User(3154, "Leviathan69", "John", "Doe", "user.name@doe.org", "Homme", null, "#596d7f", true, false),
-            new User(468731, "Moltenein", "Sarah", "Connor", "user.name@sarah.org", "Femme", null, "#a2ec77", true, false),
-            new User(1721, "Pascal", "Titto", "Surfshack", "user.name@lel.net", "Autre", null, "#903b70", true, false),
-            new User(684, "UltimatorLeBronzeux", "Jean-Pierre", "Kevin", "yahoo@yahoo.com", "Non-renseigné", null, "#f5274c", true, false),
+            new User("Leviathan69", "John", "Doe", "user.name@doe.org", "Homme", null, "#596d7f", true, false, "poulet"),
+            new User("Moltenein", "Sarah", "Connor", "user.name@sarah.org", "Femme", null, "#a2ec77", true, false, "braisé"),
+            new User("Pascal", "Titto", "Surfshack", "user.name@lel.net", "Autre", null, "#903b70", true, false, "aux frites"),
+            new User("UltimatorLeBronzeux", "Jean-Pierre", "Kevin", "yahoo@yahoo.com", "Non-renseigné", null, "#f5274c", true, false, "SECURITE"),
         ];
         this.gameList = [
             new Game(942, "Monopoly", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor("Bob")),
