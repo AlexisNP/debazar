@@ -1,5 +1,91 @@
 package fr.mds.debazar.core.model;
 
-public class Offer {
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
+import org.hibernate.annotations.GenericGenerator;
+
+import fr.mds.debazar.authentication.model.User;
+import lombok.Getter;
+import lombok.Setter;
+
+@Getter
+@Setter
+@Entity
+@Table(name= "OFFER")
+public class Offer {
+	
+	@Id
+	@GenericGenerator(name = "increment", strategy = "increment") 
+	@GeneratedValue(generator = "increment") 
+	private Long id;
+	@NotNull
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "game",referencedColumnName = "id")
+	private Game game;
+	@NotNull
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "seller",referencedColumnName = "id")
+	private User seller;
+	@NotNull
+	@ManyToOne(optional = false)
+	@JoinColumn(name = "state",referencedColumnName = "id")
+	private State state;
+	
+	private String detail;
+	private float price;
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Game getGame() {
+		return game;
+	}
+
+	public void setGame(Game game) {
+		this.game = game;
+	}
+
+	public User getSeller() {
+		return seller;
+	}
+
+	public void setSeller(User seller) {
+		this.seller = seller;
+	}
+
+	public State getState() {
+		return state;
+	}
+
+	public void setState(State state) {
+		this.state = state;
+	}
+
+	public String getDetail() {
+		return detail;
+	}
+
+	public void setDetail(String detail) {
+		this.detail = detail;
+	}
+
+	public float getPrice() {
+		return price;
+	}
+
+	public void setPrice(float price) {
+		this.price = price;
+	}
+	
 }
