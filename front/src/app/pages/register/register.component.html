@@ -1,9 +1,10 @@
 <section class="register-page">
     <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="wrapper">
+
         <div class="step step-1">
-            <div class="title">
-                <h2>Parles nous de toi !</h2>
-                <div class="input-group 2-col">
+            <div class="title"><h2>Inscris-toi !</h2></div>
+            <fieldset>
+                <div class="input-group col-2">
                     <div class="col">
                         <label for="register_first_name">Prénom</label>
                         <input type="text" name="register_first_name" formControlName="register_first_name">
@@ -13,7 +14,7 @@
                         <input type="text" name="register_last_name" formControlName="register_last_name">
                     </div>
                 </div>
-                <div class="input-group 2-col">
+                <div class="input-group col-2">
                     <div class="col">
                         <label for="register_mail">Adresse mail</label>
                         <input type="text" name="register_mail" formControlName="register_mail">
@@ -27,7 +28,7 @@
                     <label for="register_pseudo">Pseudo</label>
                     <input type="text" name="register_pseudo" formControlName="register_pseudo">
                 </div>
-                <div class="input-group 2-col">
+                <div class="input-group col-2">
                     <div class="col">
                         <label for="register_password">Mot de passe</label>
                         <input type="password" name="register_password" formControlName="register_password">
@@ -37,7 +38,7 @@
                         <input type="password" name="register_password_check" formControlName="register_password_check">
                     </div>
                 </div>
-                <div class="input-group 2-col">
+                <div class="input-group col-2">
                     <div class="col">
                         <label for="register_address">Adresse</label>
                         <input type="text" name="register_address" formControlName="register_address">
@@ -51,7 +52,8 @@
                     <label for="register_phone">Téléphone</label>
                     <input type="text" name="register_phone" formControlName="register_phone">
                 </div>
-            </div>
+            </fieldset>
         </div>
+
     </form>
 </section>

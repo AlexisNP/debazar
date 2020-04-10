@@ -31,6 +31,10 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
+    get f() {
+        return this.loginForm.controls;
+    }
+
     public data = new FormGroup({
         mail: new FormControl(),
         password: new FormControl()
@@ -38,10 +42,6 @@ export class LoginComponent implements OnInit {
 
     ngOnInit() {
 
-    }
-
-    get f() {
-        return this.loginForm.controls;
     }
 
     onSubmit() {

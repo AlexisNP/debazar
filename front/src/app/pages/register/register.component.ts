@@ -41,6 +41,10 @@ export class RegisterComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
+    get f() {
+        return this.registerForm.controls;
+    }
+
     public data = new FormGroup({
         first_name: new FormControl(),
         last_name: new FormControl(),
