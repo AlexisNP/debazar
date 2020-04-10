@@ -17,61 +17,58 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.mds.debazar.authentication.exception.MailExistsException;
 import fr.mds.debazar.authentication.model.User;
 import fr.mds.debazar.authentication.model.UserDTO;
+import fr.mds.debazar.authentication.model.UserSimple;
 import fr.mds.debazar.authentication.model.UserSummary;
 import fr.mds.debazar.authentication.repository.UserRepository;
+import fr.mds.debazar.authentication.service.UserService;
 
 @RestController
 @CrossOrigin
 @RequestMapping("/api/user")
 public class UserController {
-	
-	private UserRepository repository;
-	private PasswordEncoder passwordEncoder;
-	
-	public UserController(UserRepository repository, PasswordEncoder passwordEncoder) {
-		this.repository = repository;
-		this.passwordEncoder = passwordEncoder;
-	}
-	
-	public UserSummary getSummary(User user) {
-		return new UserSummary(user.getUsername(), user.getFirstname(), user.getLastname(), user.getMail_address(), 
-				user.getGender(), user.getAvatar(), user.getColour(), user.getVerified(), user.getBanned(), 
-				user.getGamebox(), user.getWhishlist());
-	}
 
-	@PostMapping("/register")
-	public User createUser(@Valid @RequestBody UserDTO user) throws MailExistsException {
-//		return userService.registerNewUserAccount(user);
-		return null;
-	}
+    private UserRepository repository;
+    private PasswordEncoder passwordEncoder;
+    private UserService userService;
 
-	@GetMapping("/login")
-	public ResponseEntity<UserSummary> connexion(@Valid @RequestBody String[] data) {
-		User user = repository.getById(Long.parseLong(data[0]));
-		if (user != null && passwordEncoder.matches(data[1], user.getPassword())) {
-			UserSummary summary = getSummary(user);
-			return ResponseEntity.ok(summary);
-		} else {
+    public UserController(UserRepository repository, PasswordEncoder passwordEncoder, UserService userService) {
+        this.repository = repository;
+        this.passwordEncoder = passwordEncoder;
+        this.userService = userService;
+    }
+
+    @PostMapping("/register")
+    public User createUser(@Valid @RequestBody UserDTO user) throws MailExistsException {
+        return userService.registerNewUser(user);
+    }
+
+    @GetMapping("/login")
+    public ResponseEntity<UserSimple> connexion(@Valid @RequestBody String[] data) {
+        User user = repository.getById(Long.parseLong(data[0]));
+        if (user != null && passwordEncoder.matches(data[1], user.getPassword())) {
+            UserSimple summary = new UserSimple(user);
+            return ResponseEntity.ok(summary);
+        } else {
 //			return ResponseEntity.notFound().build(); // return error 404, undefined
 //			return ResponseEntity.badRequest().build(); // return error 400, undefined
-			return ResponseEntity.noContent().build(); // return null
-		}
+            return ResponseEntity.noContent().build(); // return null
+        }
 
-	}
-	
-	@GetMapping("/findAll")
-	public ResponseEntity<List<UserSummary>> getAllUsers() {
-		List<User> registeredUsers = repository.findAll();
-		List<UserSummary> users = new ArrayList<>();
-		for (User user : registeredUsers) {
-			users.add(getSummary(user));
-		}
-		return ResponseEntity.ok().body(users);
-	}
-	
-	@GetMapping("/findById")
-	public User findById(@Valid @RequestBody Long id) {
-		User user = repository.getById(id);
-		return user;
-	}
+    }
+
+    @GetMapping("/findAll")
+    public ResponseEntity<List<UserSummary>> getAllUsers() {
+        List<User> registeredUsers = repository.findAll();
+        List<UserSummary> users = new ArrayList<>();
+        for (User user : registeredUsers) {
+            users.add(new UserSummary(user));
+        }
+        return ResponseEntity.ok().body(users);
+    }
+
+    @GetMapping("/findById")
+    public User findById(@Valid @RequestBody Long id) {
+        User user = repository.getById(id);
+        return user;
+    }
 }

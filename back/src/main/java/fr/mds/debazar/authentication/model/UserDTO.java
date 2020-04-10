@@ -11,66 +11,127 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 //@PasswordMatches
 public class UserDTO {
-	
-	@NotNull
-	@NotEmpty
-	private String firstname;
-	
-	@NotNull
-	@NotEmpty
-	private String lastname;
-	
-	@NotNull
-	@NotEmpty
-	private String password;
-	
-	@NotNull
-	@NotEmpty
-	private String matchingPassword;
-	
-	@ValidEmail
-	@NotNull
-	@NotEmpty
-	private String mailAddress;
 
-	public String getFirstname() {
-		return firstname;
-	}
+    @NotNull
+    @NotEmpty
+    private String firstname;
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+    @NotNull
+    @NotEmpty
+    private String lastname;
 
-	public String getLastname() {
-		return lastname;
-	}
+    @ValidEmail
+    @NotNull
+    @NotEmpty
+    private String mailAddress;
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+    @ValidEmail
+    @NotNull
+    @NotEmpty
+    private String matchingMail;
 
-	public String getPassword() {
-		return password;
-	}
+    @NotNull
+    @NotEmpty
+    private String username;
 
-	public void setPassword(String password) {
-		this.password = password;
-	}
+    @NotNull
+    @NotEmpty
+    private String password;
 
-	public String getMatchingPassword() {
-		return matchingPassword;
-	}
+    @NotNull
+    @NotEmpty
+    private String matchingPassword;
 
-	public void setMatchingPassword(String matchingPassword) {
-		this.matchingPassword = matchingPassword;
-	}
+    @NotNull
+    @NotEmpty
+    private String address;
 
-	public String getMailAddress() {
-		return mailAddress;
-	}
+    @NotNull
+    @NotEmpty
+    private String city;
 
-	public void setMailAddress(String mailAddress) {
-		this.mailAddress = mailAddress;
-	}
-	
+    @NotNull
+    @NotEmpty
+    private String phone;
+
+    public String getFirstname() {
+        return firstname;
+    }
+
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
+
+    public String getLastname() {
+        return lastname;
+    }
+
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
+
+    public String getMailAddress() {
+        return mailAddress;
+    }
+
+    public void setMailAddress(String mailAddress) {
+        this.mailAddress = mailAddress;
+    }
+
+    public String getMatchingMail() {
+        return matchingMail;
+    }
+
+    public void setMatchingMail(String matchingMail) {
+        this.matchingMail = matchingMail;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getMatchingPassword() {
+        return matchingPassword;
+    }
+
+    public void setMatchingPassword(String matchingPassword) {
+        this.matchingPassword = matchingPassword;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+
+    public String getPhone() {
+        return phone;
+    }
+
+    public void setPhone(String phone) {
+        this.phone = phone;
+    }
+
 }
