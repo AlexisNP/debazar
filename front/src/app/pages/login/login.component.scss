@@ -1,0 +1,55 @@
+@import "../scss/_variables.scss";
+
+.login-page {
+    height: 100vh;
+    padding-top: 12.5vh;
+
+    .wrapper {
+
+        header {
+            margin-bottom: 3rem;
+            h1 {
+                font-size: 3rem;
+                text-align: center;
+                font-family: 'Nunito', sans-serif;
+            }
+            img {
+                max-width: 15%;
+                margin: 0 auto 1rem;
+                display: block;
+            }
+        }
+        form {
+            width: 50%;
+            margin: auto;
+
+            .input-group {
+                margin-bottom: 1.5rem;
+                padding: 0 3rem;
+            }
+
+            footer {
+                margin-top: 2rem;
+                text-align: center;
+                .btn {
+                    margin: 0;
+                    padding: 1.5rem;
+                    border: 1px solid $orange;
+                    box-shadow: none;
+    
+                    &:first-child {
+                        border-bottom-right-radius: 0;
+                        border-top-right-radius: 0;
+                        padding: 1.5rem 2.5rem;
+                    }
+                    &:last-child {
+                        border-bottom-left-radius: 0;
+                        border-top-left-radius: 0;
+                    }
+                }
+            }
+
+        }
+    }
+
+}

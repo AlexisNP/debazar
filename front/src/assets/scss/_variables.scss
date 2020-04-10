@@ -4,24 +4,30 @@
 $black: #000;
 $white: #FFF;
 $gray: #777;
-$gray--light: #CCC;
+$gray--light: #E1D4C6;
 $gray--ghost: #FAFAFA;
+$blue--dark: #2A3D45;
 
-$background--fill: #FFF;
+$background--fill: $white;
 
 // Theme
 $orange: #F19F45;
+$orange--light: #FFCC94;
+$orange--ghost: #FEF7E7;
+
+// Validations
+$valid: #54a700;
+$warning: #ff9e1f;
+$danger: #ff3425;
 
 // Font weight
 $light: 300;
 $regular: 400;
 $medium: 500;
 $bold: 600;
-
-// temp font thing
-@import url('https://fonts.googleapis.com/css?family=Lato:300,300i,400,400i,700,700i&display=swap');
+$heavy: 700;
 
 $font-size-root: 10px !default;
-$font-size-base: 1.5rem !default;
-$font-family: 'Lato', sans-serif;
+$font-size-base: 1.4rem !default;
+$font-family: 'Lato', Arial, Helvetica, sans-serif;
 $line-height-base: 1.3 !default;

@@ -1,0 +1,68 @@
+<input type="checkbox" name="sidenav-toggle" id="sidenav-toggle" hidden>
+<header class="global">
+    <nav role="navigation">
+        <div class="burger-container">
+            <label for="sidenav-toggle">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 14.17 14.17">
+                    <g>
+                        <g id="main_layer_svg" data-name="main layer">
+                            <rect class="cls-1" width="14.17" height="14.17" rx="2.13"/>
+                            <circle class="cls-2" cx="7.09" cy="7.09" r="1.42"/>
+                            <circle class="cls-2" cx="3.19" cy="3.19" r="1.42"/>
+                            <circle class="cls-2" cx="3.19" cy="11.34" r="1.42"/>
+                            <circle class="cls-2" cx="10.98" cy="3.19" r="1.42"/>
+                            <circle class="cls-2" cx="10.98" cy="11.34" r="1.42"/>
+                        </g>
+                    </g>
+                </svg>
+            </label>
+        </div>
+        <ul class="navigation-menu">
+            <li>
+                <a [routerLink]="['/']" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">Accueil</a>
+            </li>
+            <li>
+                <a [routerLink]="['/annonces']" routerLinkActive="active">Annonces</a>
+            </li>
+            <li>
+                <a [routerLink]="['/vendre-mon-jeu']" routerLinkActive="active">Vendre mon jeu</a>
+            </li>
+            <li>
+                <a [routerLink]="['/autour-de-moi']" routerLinkActive="active">Autour de moi</a>
+            </li>
+        </ul>
+        <ul class="actions-menu">
+            <li class="search-bar-wrapper">
+                <app-search-bar></app-search-bar>
+            </li>
+            <li>
+                <div class="btn btn-primary btn-round">
+                    <a [routerLink]="['/gamebox']" routerLinkActive="active" >
+                        <fa-icon [icon]="faBoxOpen" size="lg"></fa-icon>
+                    </a>
+                </div>
+            </li>
+            <li>
+                <div class="btn btn-primary btn-round">
+                    <a [routerLink]="['/connexion']" routerLinkActive="active" >
+                        <fa-icon [icon]="faUser" size="lg"></fa-icon>
+                    </a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</header>
+<aside class="side-menu" role="navigation">
+    <nav>
+        <div class="title">Nos Catégories</div>
+        <div class="element"><a href="#">Jeux de plateau</a></div>
+        <div class="element"><a href="#">Jeux à deux</a></div>
+        <div class="element"><a href="#">Jeux pour enfants</a></div>
+        <div class="element"><a href="#">Jeux de cartes</a></div>
+        <div class="element"><a href="#">Jeux de coopération</a></div>
+        <div class="element"><a href="#">Jeux en bois</a></div>
+        <div class="element"><a href="#">Jeux de dessin</a></div>
+        <div class="element"><a href="#">Jeux de stratégie</a></div>
+        <div class="element"><a href="#">Escape game</a></div>
+    </nav>
+</aside>

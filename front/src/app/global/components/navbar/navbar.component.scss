@@ -1,0 +1,200 @@
+@import "../scss/_variables.scss";
+
+// Global header (and navbar)
+header.global {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: $gray--ghost;
+    box-shadow: .2rem .2rem 1rem rgba($gray, 0.2);
+    z-index: 2000;
+
+    nav {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        ul {
+            display: flex;
+            li {
+                margin-right: 1.5rem;
+            }
+        }
+
+        .burger-container {
+            margin: 0 1.5rem;
+            label {
+                display: block;
+                padding: .5rem;
+                cursor: pointer;
+                svg {
+                    display: block;
+                    min-width: 3rem;
+                }
+            }
+        }
+
+        .navigation-menu {
+            height: 6rem;
+            display: flex;
+            flex: 1;
+            > * {
+                margin-right: 1.5rem;
+                line-height: 6rem;
+            }
+            a {
+                position: relative;
+                display: block;
+                height: 100%;
+                padding: 0 1.5rem;
+                white-space: nowrap;
+
+                &:after {
+                    content: '';
+                    display: block;
+                    position: absolute;
+                    bottom: 0;
+                    left: 50%;
+                    width: 0;
+                    height: 3px;
+                    background: $orange;
+                    transform: translateX(-50%);
+                    z-index: -1;
+                }
+                &:hover {
+                    color: $orange;
+                    transition: color .4s ease-in-out;
+                    &:after {
+                        width: 100%;
+                        transition: width .3s ease-in-out;
+                    }
+                }
+                &.active {
+                    color: $white;
+                    transition: color .4s ease-in-out;
+                    &:after {
+                        height: 100%;
+                        width: 100%;
+                        transition: height .4s ease-in-out;
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Side menu (with trigger)
+.side-menu {
+    width: 25rem;
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    z-index: 2000;
+    color: $black;
+    border-bottom-right-radius: .5rem;
+    
+    .title {
+        padding: 1rem 1.5rem;
+        color: $white;
+        background: $orange;
+    }
+    .element {
+        background: $white;
+        a {
+            padding: 1rem 1.5rem;
+            display: block;
+        }
+        &:hover {
+            background: $orange--ghost;
+        }
+        &:last-of-type {
+            border-bottom-left-radius: .5rem;
+            border-bottom-right-radius: .5rem;
+        }
+    }
+}
+// Behaviour when off...
+#sidenav-toggle {
+    visibility: hidden;
+    ~ .side-menu {
+        pointer-events: none;
+        nav {
+            > * {
+                opacity: 0;
+                transform: translateX(-10rem);
+                transition: opacity .5s ease-in-out, transform .5s ease-in-out;
+                @for $i from 1 through 20 {
+                    &:nth-child(#{$i}) {
+                        transition-delay: calc(#{$i} * .05s);
+                    }
+                }
+            }
+        }
+    }
+    ~ header.global {
+        nav {
+            #main_layer_svg {
+                .cls-1 { fill: none }
+                .cls-2 { fill: $orange }
+                circle {
+                    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+                    &:nth-of-type(2) {
+                        cy: 7.09;
+                    }
+                    &:nth-of-type(3), &:nth-of-type(4) {
+                        cx: 7.09;
+                        cy: 7.09;
+                    }
+                    &:nth-of-type(5) {
+                        cy: 7.09;
+                    }
+                }
+            }
+        }
+    }
+
+    // ..and on
+    &:checked {
+        ~ .side-menu {
+            display: block;
+            opacity: 1;
+            box-shadow: .5rem .5rem 1rem rgba($gray, 0.2);
+            transition: box-shadow 0.5s linear;
+            transition-delay: 1s;
+            nav {
+                > * {
+                    opacity: 1;
+                    transform: translateX(0);
+                    pointer-events: initial;
+                }
+            }
+        }
+        ~ header.global {
+            nav {
+                // Animation stuffs
+                #main_layer_svg {
+                    .cls-1 { fill: $orange }
+                    .cls-2 { fill: $white }
+                    circle {
+                        &:nth-of-type(2) {
+                            cx: 3.19;
+                            cy: 3.19;
+                        }
+                        &:nth-of-type(3) {
+                            cx: 3.19;
+                            cy: 11.34;
+                        }
+                        &:nth-of-type(4) {
+                            cx: 10.98;
+                            cy: 3.19;
+                        }
+                        &:nth-of-type(5) {
+                            cx: 10.98;
+                            cy: 11.34;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

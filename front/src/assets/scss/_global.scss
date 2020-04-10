@@ -8,64 +8,130 @@
 
 // Resets
 * {
-  margin: 0;
-  padding: 0;
-  outline: none;
+    margin: 0;
+    padding: 0;
+    outline: none;
 }
 
 html *,
 html *::before,
 html *::after {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 html {
-  box-sizing: border-box;
-  font-size: $font-size-root;
-  font-family: $font-family;
-  height: 100%;
-  -webkit-overflow-scrolling: touch;
-  line-height: 1.15;
-  -ms-text-size-adjust: 100%;
-  -webkit-text-size-adjust: 100%;
+    box-sizing: border-box;
+    font-size: $font-size-root;
+    font-family: $font-family;
+    height: 100%;
+    -webkit-overflow-scrolling: touch;
+    line-height: 1.15;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
 }
 
 body {
-  font-family: $font-family;
-  font-size: $font-size-base;
-  line-height: $line-height-base;
-  color: $black;
-  background-color: $background--fill;
-  min-height: 100vh;
-  position: relative;
+    font-family: $font-family;
+    font-size: $font-size-base;
+    line-height: $line-height-base;
+    color: $blue--dark;
+    background-color: $background--fill;
+    min-height: 100vh;
+    position: relative;
 }
 
 ul {
-  list-style-type: none;
+    list-style-type: none;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+    color: inherit;
+    text-decoration: none;
 }
 
 img {
-  display: block;
+    display: block;
 }
 
 // Custom classes (soon)
 .btn {
-  display: inline-block;
-  padding: .75rem 1rem;
-  border: 1px solid transparent;
-  &.btn-primary {
-    color: $white;
-    background: $orange;
-  }
-  &.btn-secondary {
-    color: $orange;
-    border: 1px solid $orange;
-  }
+    display: inline-block;
+    margin: 0 .5rem;
+    padding: 1.5rem 4rem;
+    vertical-align: middle;
+    font-size: 1.35rem;
+    font-weight: $bold;
+    font-family: 'Nunito', sans-serif;
+    text-transform: uppercase;
+    border: 1px solid transparent;
+    border-radius: 5rem;
+    box-shadow: 0 0 .1rem .1rem $orange;
+    cursor: pointer;
+
+    &.btn-primary {
+        color: $white;
+        background: $orange;
+    }
+    &.btn-secondary {
+        color: $orange;
+        font-weight: $heavy;
+        background: none;
+    }
+
+    &.btn-small {
+        margin: 0 .2rem;
+        padding: 1rem 2.5rem;
+        font-size: 1.15rem;
+    }
+
+    &.btn-round {
+        height: 3.5rem;
+        width: 3.5rem;
+        padding: 0;
+        line-height: 3.5rem;
+        text-align: center;
+        border-radius: 50%;
+    }
+    
+    &.btn-full {
+        width: 100%;
+    }
+}
+
+// Forms
+.input-group {
+    input[type=text],
+    input[type=mail],
+    input[type=password],
+    input[type=tel] {
+        width: 100%;
+        padding: 1rem 2.5rem;
+        color: $orange;
+        font-weight: $bold;
+        border: 1px solid $orange--light;
+        border-radius: 5rem;
+        background: none;
+        &::placeholder {
+            color: $orange;
+        }
+    }
+    label {
+        display: block;
+        margin-bottom: .5rem;
+        padding: 0 .5rem;
+        font-size: 1.4rem;
+        font-weight: $bold;
+    }
+    @for $i from 1 through 12 {
+        &.#{$i}-col {
+            .col {
+                width: calc(100% / #{$i});
+            }
+        }
+    }
+    &.2-col {
+        background: red !important;
+    }
 }
 
 // Text formatting
@@ -75,3 +141,7 @@ img {
 
 .txt-bold {font-weight: $bold}
 .txt-italic {font-style: italic}
+
+.txt-orange {color: $orange}
+
+section.full-height { min-height: 100vh }

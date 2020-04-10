@@ -1,0 +1,31 @@
+@import "../scss/_variables.scss";
+
+form {
+
+    .form-container {
+        width: 25rem;
+        position: relative;
+        display: inline-block;
+        input {
+            height: 3.5rem;
+            width: 100%;
+            padding: .45rem 4.5rem .45rem 1.5rem;
+            font-size: 1.4rem;
+            font-weight: $bold;
+            color: $orange;
+            border: 1px solid $orange--light;
+            border-radius: 5rem;
+            transition: box-shadow .25s ease-in-out;
+            &:focus {
+                box-shadow: 0 0 .5rem rgba($orange, .75);
+            }
+        }
+        button {
+            margin: 0;
+            position: absolute;
+            top: 50%;
+            right: 0;
+            transform: translateY(-50%);
+        }
+    }
+}
