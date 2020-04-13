@@ -17,13 +17,14 @@ import org.springframework.web.bind.annotation.RestController;
 import fr.mds.debazar.authentication.exception.MailExistsException;
 import fr.mds.debazar.authentication.model.User;
 import fr.mds.debazar.authentication.model.UserDTO;
+import fr.mds.debazar.authentication.model.UserLogin;
 import fr.mds.debazar.authentication.model.UserSimple;
 import fr.mds.debazar.authentication.model.UserSummary;
 import fr.mds.debazar.authentication.repository.UserRepository;
 import fr.mds.debazar.authentication.service.UserService;
 
 @RestController
-@CrossOrigin
+@CrossOrigin(origins = "*")
 @RequestMapping("/api/user")
 public class UserController {
 
@@ -42,15 +43,19 @@ public class UserController {
         return userService.registerNewUser(user);
     }
 
-    @GetMapping("/login")
-    public ResponseEntity<UserSimple> connexion(@Valid @RequestBody String[] data) {
-        User user = repository.getById(Long.parseLong(data[0]));
-        if (user != null && passwordEncoder.matches(data[1], user.getPassword())) {
+    @PostMapping("/login")
+    public ResponseEntity<UserSimple> connexion(@Valid @RequestBody UserLogin login) {
+        System.out.println(login.getEmail());
+
+        User user = repository.findByMailAddress(login.getEmail());
+        if (user != null && passwordEncoder.matches(login.getPassword(), user.getPassword())) {
             UserSimple summary = new UserSimple(user);
+            System.out.println("checked");
             return ResponseEntity.ok(summary);
         } else {
 //			return ResponseEntity.notFound().build(); // return error 404, undefined
 //			return ResponseEntity.badRequest().build(); // return error 400, undefined
+            System.out.println("not checked");
             return ResponseEntity.noContent().build(); // return null
         }
 
@@ -70,5 +75,17 @@ public class UserController {
     public User findById(@Valid @RequestBody Long id) {
         User user = repository.getById(id);
         return user;
+    }
+
+    @PostMapping("/reset")
+    public void resetPassword() {
+        User user = new User();
+        String password = "toto"; // génération aléatoire à faire
+        userService.changePassword(user, password);
+    }
+
+    @PostMapping("/password")
+    public void changePassword() {
+//    	userService.changePassword(user, password);
     }
 }

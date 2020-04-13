@@ -40,11 +40,18 @@ public class UserService {
         newUser.setAddress(userDto.getAddress());
         newUser.setCity(userDto.getCity());
         newUser.setPhone(userDto.getPhone());
+        newUser.setBanned(false);
+        newUser.setVerified(false);
 
         return newUser;
     }
 
     private boolean mailExist(String mailAddress) {
         return userRepository.findByMailAddress(mailAddress) != null;
+    }
+
+    public void changePassword(final User user, final String password) {
+        user.setPassword(passwordEncoder.encode(password));
+        userRepository.save(user);
     }
 }

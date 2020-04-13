@@ -21,23 +21,37 @@ export class AuthService {
      * @param user_data
      */
     public loginUser(user_data: any) {
-        return this.http.get<any>(`${this.baseUrl}/user/login`, user_data.value).subscribe(data => {
+        this.logoutUser();
+        console.log('2', user_data);
+        return this.http.post<any>(`${this.baseUrl}/user/login`, user_data).subscribe(data => {
+            console.log('3', data),
+            this.authenticate(data);
             data = user_data;
-            // console.log(data);
           }, error => {console.log('Error', error);
         });
     }
 
     public registerUser(user_data: any) {
-        return this.http.get<any>(`${this.baseUrl}/user/register`, user_data.value).subscribe(data => {
+        console.log('2', user_data);
+        return this.http.post<any>(`${this.baseUrl}/user/register`, user_data).subscribe(data => {
+            // console.log(data),
             data = user_data;
-            // console.log(data);
           }, error => {console.log('Error', error);
         });
     }
 
+    public authenticate(data: any) {
+        if (data !== null) {
+            sessionStorage.setItem('username', data.username);
+            sessionStorage.setItem('gamebox', data.gamebox);
+            sessionStorage.setItem('verified', data.verified);
+            sessionStorage.setItem('banned', data.banned);
+        }
+    }
+
     public logoutUser() {
-        localStorage.removeItem('loggedUser');
+        sessionStorage.clear();
+        // localStorage.removeItem('loggedUser');
     }
 
 }
