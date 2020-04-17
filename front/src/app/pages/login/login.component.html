@@ -20,6 +20,10 @@
                 <small *ngIf="submitted && f.login_password.errors">Le mot de passe doit être renseigné</small>
             </div>
     
+            <div class="input-group">
+                <small *ngIf="submitted && wrongIds">Le couple email - mot de passe en correspond pas à un compte connu</small>
+            </div>
+    
             <footer class="input-group">
                 <button type="submit" class="btn btn-primary btn-small">Connexion</button>
                 <button [routerLink]="['/inscription']" class="btn btn-secondary btn-small">Inscription</button>

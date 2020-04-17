@@ -42,11 +42,13 @@ export class RegisterComponent implements OnInit {
     }
 
     public data = new FormGroup({
-        first_name: new FormControl(),
-        last_name: new FormControl(),
-        mail: new FormControl(),
+        firstname: new FormControl(),
+        lastname: new FormControl(),
+        mailAddress: new FormControl(),
+        matchingMail: new FormControl(),
+        username: new FormControl(),
         password: new FormControl(),
-        pseudo: new FormControl(),
+        matchingPassword: new FormControl(),
         address: new FormControl(),
         city: new FormControl(),
         phone: new FormControl(),
@@ -57,7 +59,21 @@ export class RegisterComponent implements OnInit {
     }
 
     onSubmit() {
-        console.log("inscription")
+        this.data.get('firstname').setValue(this.registerForm.get('register_first_name').value);
+        this.data.get('lastname').setValue(this.registerForm.get('register_last_name').value);
+        this.data.get('mailAddress').setValue(this.registerForm.get('register_mail').value);
+        this.data.get('matchingMail').setValue(this.registerForm.get('register_mail_check').value);
+        this.data.get('username').setValue(this.registerForm.get('register_pseudo').value);
+        this.data.get('password').setValue(this.registerForm.get('register_password').value);
+        this.data.get('matchingPassword').setValue(this.registerForm.get('register_password_check').value);
+        this.data.get('address').setValue(this.registerForm.get('register_address').value);
+        this.data.get('city').setValue(this.registerForm.get('register_city').value);
+        this.data.get('phone').setValue(this.registerForm.get('register_phone').value);
+        setTimeout(() => {
+            console.log("inscription");
+            console.log(this.data.value);
+            this.auth.registerUser(this.data.value);
+        }, 1000);
     }
 
 }
