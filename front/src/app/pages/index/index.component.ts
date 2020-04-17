@@ -4,6 +4,7 @@ import Game from 'src/app/global/models/Game'
 import Editor from 'src/app/global/models/Editor';
 import Advert from 'src/app/global/models/Advert';
 import User from 'src/app/global/models/User';
+import Category from 'src/app/global/models/Category';
 
 @Component({
     selector: 'app-index',
@@ -26,9 +27,9 @@ export class IndexComponent implements OnInit {
             new User("UltimatorLeBronzeux", "Jean-Pierre", "Kevin", "yahoo@yahoo.com", "Non-renseigné", null, "#f5274c", true, false, "SECURITE"),
         ];
         this.gameList = [
-            new Game(942, "Monopoly", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor("Bob")),
-            new Game(14887, "Uno", null, "Description", 8, "Éternité", new Date(), 4, new Editor("Jean-Luc Games")),
-            new Game(6148, "Échecs traditionnels", null, "Description", 2, "Éternité", new Date(), 4, new Editor("Monsieur Poulpe")),
+            new Game(942, "Monopoly", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor(1, "Bob"), new Category(1, "Jeu de plateau")),
+            new Game(14887, "Uno", null, "Description", 8, "Éternité", new Date(), 4, new Editor(2, "Jean-Luc Games"), new Category(2, "Jeu à deux")),
+            new Game(6148, "Échecs traditionnels", null, "Description", 2, "Éternité", new Date(), 4, new Editor(3, "Monsieur Poulpe"), new Category(3, "Jeu de rôles")),
         ];
         this.advertList = [
             new Advert(1461, this.gameList[0], this.userList[0], new Date(), 845, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),

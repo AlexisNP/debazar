@@ -2,16 +2,15 @@
     <div class="card-wrapper">
         <div class="main-container">
             <aside>
-                <header>
-                    <h2>{{ game.name }}</h2>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-                </header>
                 <figure>
                     <img src="https://www.kroger.com/product/images/xlarge/front/0063050951263" alt="">
                 </figure>
             </aside>
             <div class="informations">
-                <h4>Proposé par {{ user.username }}</h4>
+                <header>
+                    <h2>{{ game.name }}</h2><var class="float-right">{{ advert.price }}€</var>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                </header>
                 <p>{{ advert.text }}</p>
             </div>
         </div>

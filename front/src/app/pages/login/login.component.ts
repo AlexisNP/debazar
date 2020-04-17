@@ -33,6 +33,10 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
+    get f() {
+        return this.loginForm.controls;
+    }
+
     public data = new FormGroup({
         email: new FormControl(),
         password: new FormControl()
@@ -46,10 +50,6 @@ export class LoginComponent implements OnInit {
         this.loading = true;
         this.submitted = false;
         this.wrongIds = false;
-    }
-
-    get f() {
-        return this.loginForm.controls;
     }
 
     onSubmit() {

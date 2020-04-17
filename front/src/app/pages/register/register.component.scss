@@ -1,0 +1,25 @@
+@import '_variables.scss';
+
+.register-page {
+    .step {
+        height: 100vh;
+        width: 100vw;
+        padding: 12.5vh 2rem 2rem;
+        .title {
+            h2 {
+                font-size: 4rem;
+                font-family: 'Nunito', sans-serif;
+                text-align: center;
+            }
+        }
+        &.step-1 {
+            color: $white;
+            background: $orange;
+            .input-group {
+                input {
+                    background: $white;
+                }
+            }
+        }
+    }
+}
