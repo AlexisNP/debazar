@@ -1,83 +1,35 @@
 @import "../scss/_variables.scss";
 
 .advert-card {
-    width: calc(33% - 1.5rem);
-    min-width: 40rem;
     display: inline-block;
     margin: 0 0 1.5rem 1.5rem;
     padding: 1.5rem;
     position: relative;
     background: $white;
-    border-top-right-radius: 1rem;
-    border-bottom-left-radius: 1rem;
-    border-bottom-right-radius: 1rem;
+    border-radius: 1rem;
     border: .5rem solid rgba($orange, .35);
     box-shadow: .2rem .2rem 1rem rgba($black, .15);
 
     .card-wrapper {
-        position: relative;
-        display: flex;
-        flex-flow: column;
-        justify-content: space-between;
-        overflow: hidden;
-
         .main-container {
-            flex-grow: 1;
-            margin-top: 2rem;
-            padding: 1rem .5rem;
             display: flex;
-
-            &:before {
-                display: block;
-                content: '';
-                position: absolute;
-                top: -2.5rem;
-                left: -2.5rem;
-                height: 5rem;
-                width: 5rem;
-                background: $orange;
-                border-radius: 50%;
-            }
-
-            > * {
-                width: 50%;
-            }
-            
+            justify-content: space-between;
+            align-items: center;
             aside {
-                padding-right: 1rem;
-                display: flex;
-                flex-flow: column;
-                header {
-                    font-family: 'Nunito', sans-serif;
-                    h2 {
-                        font-size: 2.25rem;
-                        font-weight: $heavy;
-                        color: $orange;
-                    }
-                    p {
-                        margin-bottom: 2rem;
-                    }
-                }
+                max-width: 40%;
                 figure {
+                    max-height: 15rem;
+                    max-width: 15rem;
                     img {
-                        height: auto;
-                        max-width: 70%;
-                        display: block;
-                        margin: auto;
+                        max-height: 100%;
+                        max-width: 100%;
                     }
                 }
             }
             .informations {
-                padding-left: 1rem;
-                
-            }
-        }
-        footer {
-            padding-top: 1rem;
-            .btn {
-                margin-bottom: .2rem;
-                &.btn-primary {
-                    float: right;
+                max-width: 60%;
+                header {
+                    
                 }
             }
         }

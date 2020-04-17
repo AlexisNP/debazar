@@ -1,10 +1,12 @@
 class Editor {
 
     // Attributes
+    private _id: number;
     private _name: string;
 
     // Constructor
-    constructor(name: string) {
+    constructor(id: number, name: string) {
+        this._id = id;
         this._name = name;
     }
 

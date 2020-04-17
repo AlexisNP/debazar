@@ -1,4 +1,5 @@
 import Editor from "./Editor";
+import Category from "./Category";
 
 export class Game {
 
@@ -12,9 +13,10 @@ export class Game {
     private _published: Date;
     private _age: number;
     private _editor: Editor;
+    private _category: Category;
 
     // Constructor
-    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, editor: Editor) {
+    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, editor: Editor, category: Category) {
         this._id = id;
         this._name = name;
         this._image = image;
@@ -24,6 +26,7 @@ export class Game {
         this._published = published;
         this._age = age;
         this._editor = editor;
+        this._category = category;
     }
 
     // Getters / Setters
@@ -88,6 +91,13 @@ export class Game {
     }
     public set editor(value: Editor) {
         this._editor = value;
+    }
+
+    public get category(): Category {
+        return this._category;
+    }
+    public set category(value: Category) {
+        this._category = value;
     }
 }
 
