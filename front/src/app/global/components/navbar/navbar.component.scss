@@ -23,14 +23,12 @@ header.global {
 
         .burger-container {
             margin: 0 1.5rem;
-            label {
+            display: block;
+            padding: .5rem;
+            cursor: pointer;
+            svg {
                 display: block;
-                padding: .5rem;
-                cursor: pointer;
-                svg {
-                    display: block;
-                    min-width: 3rem;
-                }
+                min-width: 3rem;
             }
         }
 
@@ -83,94 +81,27 @@ header.global {
     }
 }
 
-// Side menu (with trigger)
-.side-menu {
-    width: 25rem;
-    position: fixed;
-    top: 6rem;
-    left: 0;
-    z-index: 2000;
-    color: $black;
-    border-bottom-right-radius: .5rem;
-    
-    .title {
-        padding: 1rem 1.5rem;
-        color: $white;
-        background: $orange;
-    }
-    .element {
-        background: $white;
-        a {
-            padding: 1rem 1.5rem;
-            display: block;
-        }
-        &:hover {
-            background: $orange--ghost;
-        }
-        &:last-of-type {
-            border-bottom-left-radius: .5rem;
-            border-bottom-right-radius: .5rem;
-        }
-    }
-}
-// Behaviour when off...
-#sidenav-toggle {
-    visibility: hidden;
-    ~ .side-menu {
-        pointer-events: none;
-        nav {
-            > * {
-                opacity: 0;
-                transform: translateX(-10rem);
-                transition: opacity .5s ease-in-out, transform .5s ease-in-out;
-                @for $i from 1 through 20 {
-                    &:nth-child(#{$i}) {
-                        transition-delay: calc(#{$i} * .05s);
-                    }
+// Conditionnal scss (toggle active)
+header.global {
+    .burger-container {
+        #main_layer_svg {
+            .cls-1 { fill: none }
+            .cls-2 { fill: $orange }
+            circle {
+                transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
+                &:nth-of-type(2) {
+                    cy: 7.09;
+                }
+                &:nth-of-type(3), &:nth-of-type(4) {
+                    cx: 7.09;
+                    cy: 7.09;
+                }
+                &:nth-of-type(5) {
+                    cy: 7.09;
                 }
             }
         }
-    }
-    ~ header.global {
-        nav {
-            #main_layer_svg {
-                .cls-1 { fill: none }
-                .cls-2 { fill: $orange }
-                circle {
-                    transition: all .5s cubic-bezier(0.23, 1, 0.320, 1);
-                    &:nth-of-type(2) {
-                        cy: 7.09;
-                    }
-                    &:nth-of-type(3), &:nth-of-type(4) {
-                        cx: 7.09;
-                        cy: 7.09;
-                    }
-                    &:nth-of-type(5) {
-                        cy: 7.09;
-                    }
-                }
-            }
-        }
-    }
-
-    // ..and on
-    &:checked {
-        ~ .side-menu {
-            display: block;
-            opacity: 1;
-            box-shadow: .5rem .5rem 1rem rgba($gray, 0.2);
-            transition: box-shadow 0.5s linear;
-            transition-delay: 1s;
-            nav {
-                > * {
-                    opacity: 1;
-                    transform: translateX(0);
-                    pointer-events: initial;
-                }
-            }
-        }
-        ~ header.global {
-            nav {
+        &.active {
                 // Animation stuffs
                 #main_layer_svg {
                     .cls-1 { fill: $orange }
@@ -194,7 +125,6 @@ header.global {
                         }
                     }
                 }
-            }
         }
     }
 }

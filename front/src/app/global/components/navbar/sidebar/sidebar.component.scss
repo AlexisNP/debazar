@@ -1,0 +1,83 @@
+@import "../scss/_variables.scss";
+
+// Side menu (with trigger)
+.side-menu {
+    display: none;
+    width: 25rem;
+    position: fixed;
+    top: 6rem;
+    left: 0;
+    z-index: 2000;
+    color: $black;
+
+    nav {
+        border-bottom-right-radius: 1rem;
+        .title {
+            padding: 1rem 1.5rem;
+            color: $white;
+            background: $orange;
+        }
+        .element {
+            background: $white;
+            a {
+                padding: 1rem 1.5rem;
+                display: block;
+            }
+            &:hover {
+                background: $orange--ghost;
+            }
+            &:last-of-type {
+                border-bottom-left-radius: .5rem;
+                border-bottom-right-radius: .5rem;
+            }
+        }
+    }
+}
+
+.side-menu {
+    pointer-events: none;
+    nav {
+        > * {
+            opacity: 0;
+        }
+    }
+    &.active {
+        display: block;
+        nav {
+            animation-name: menuShadow;
+            animation-duration: .5s;
+            animation-delay: 1.5s;
+            animation-fill-mode: forwards;
+            > * {
+                pointer-events: initial;
+                animation-name: menuElementSlideIn;
+                animation-duration: .5s;
+                animation-fill-mode: forwards;
+                @for $i from 1 through 20 {
+                    &:nth-child(#{$i}) {
+                        animation-delay: calc(#{$i} * .05s);
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes menuElementSlideIn {
+    0% {
+        opacity: 0;
+        transform: translateX(-10rem);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+@keyframes menuShadow {
+    0% {
+        box-shadow: none;
+    }
+    100% {
+        box-shadow: .5rem .5rem 1rem rgba($gray, 0.2);
+    }
+}

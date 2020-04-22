@@ -27,15 +27,15 @@ export class IndexComponent implements OnInit {
             new User("UltimatorLeBronzeux", "Jean-Pierre", "Kevin", "yahoo@yahoo.com", "Non-renseigné", null, "#f5274c", true, false, "SECURITE"),
         ];
         this.gameList = [
-            new Game(942, "Monopoly", null, "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 4, new Editor(1, "Bob"), new Category(1, "Jeu de plateau")),
-            new Game(14887, "Uno", null, "Description", 8, "Éternité", new Date(), 4, new Editor(2, "Jean-Luc Games"), new Category(2, "Jeu à deux")),
-            new Game(6148, "Échecs traditionnels", null, "Description", 2, "Éternité", new Date(), 4, new Editor(3, "Monsieur Poulpe"), new Category(3, "Jeu de rôles")),
+            new Game(942, "Monopoly", "https://www.kroger.com/product/images/xlarge/front/0063050951263", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 3, 4, new Editor(1, "Bob"), new Category(1, "Jeu de plateau")),
+            new Game(14887, "Uno", "https://images-na.ssl-images-amazon.com/images/I/810US3NaiqL._AC_SX425_.jpg", "Description", 8, "Éternité", new Date(), 2, 4, new Editor(2, "Jean-Luc Games"), new Category(2, "Jeu à deux")),
+            new Game(6148, "Échecs traditionnels", "https://images-na.ssl-images-amazon.com/images/I/810US3NaiqL._AC_SX425_.jpg", "Description", 2, "Éternité", new Date(), 5, 4, new Editor(3, "Monsieur Poulpe"), new Category(3, "Jeu de rôles")),
         ];
         this.advertList = [
-            new Advert(1461, this.gameList[0], this.userList[0], new Date(), 845, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
-            new Advert(7942367, this.gameList[2], this.userList[3], new Date(), 41.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
-            new Advert(16596, this.gameList[1], this.userList[2], new Date(), 0.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
-            new Advert(6969, this.gameList[2], this.userList[1], new Date(), 15, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc."),
+            new Advert(1461, this.gameList[0], this.userList[0], new Date(), 845, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc.", "Abimé"),
+            new Advert(7942367, this.gameList[2], this.userList[3], new Date(), 41.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc.", "Presque neuf"),
+            new Advert(16596, this.gameList[1], this.userList[2], new Date(), 0.99, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc.", "Neuf"),
+            new Advert(6969, this.gameList[2], this.userList[1], new Date(), 15, "Description de l'annonce, ici, on pourra caser un petit texte descriptif comme l'état du truc.", "Usé"),
         ];
     }
 

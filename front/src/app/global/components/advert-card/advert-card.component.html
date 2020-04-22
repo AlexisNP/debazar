@@ -2,21 +2,48 @@
     <div class="card-wrapper">
         <div class="main-container">
             <aside>
-                <figure>
-                    <img src="https://www.kroger.com/product/images/xlarge/front/0063050951263" alt="">
-                </figure>
+                <figure [ngStyle]="{'background-image': 'url(' + game.image + ')'}"></figure>
             </aside>
             <div class="informations">
                 <header>
-                    <h2>{{ game.name }}</h2><var class="float-right">{{ advert.price }}€</var>
-                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+                    <div class="title">
+                        <h2>{{ game.name }}</h2>
+                        <var>{{ advert.price }}€</var>
+                    </div>
                 </header>
-                <p>{{ advert.text }}</p>
+                <div class="row">
+                    <p class="genre">{{ game.category.name }}</p>
+                </div>
+                <div class="row">
+                    <div class="state float-right">
+                        <p>{{ advert.state }}</p>
+                    </div>
+                    <div class="rating">
+                        <ul class="stars">
+                            <li *ngFor="let star of ratingStars(game.rating)">
+                                <span *ngIf="star; else emptyStar">
+                                    <fa-icon [icon]="fasStar"></fa-icon>
+                                </span>
+                                <ng-template #emptyStar>
+                                    <span>
+                                        <fa-icon [icon]="farStar"></fa-icon>
+                                    </span>
+                                </ng-template>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="row">
+                    <p class="location">Rennes</p>
+                </div>
+                <div class="row">
+                    <time class="date">Aujourd'hui, 11h58</time>
+                </div>
+                <footer>
+                    <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
+                    <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small float-right">Voir l'annonce</a>
+                </footer>
             </div>
         </div>
-        <footer>
-            <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
-            <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small">Voir l'annonce</a>
-        </footer>
     </div>
 </div>

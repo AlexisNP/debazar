@@ -10,15 +10,17 @@ class Advert {
     private _publishedAt: Date;
     private _price: number;
     private _text: string;
+    private _state: string;
 
     // Constructor
-    constructor(id: number, game: Game, user: User, publishedAt: Date, price: number, text: string) {
+    constructor(id: number, game: Game, user: User, publishedAt: Date, price: number, text: string, state: string) {
         this._id = id;
         this._game = game;
         this._user = user;
         this._publishedAt = publishedAt;
         this._price = price;
         this._text = text;
+        this._state = state;
     }
 
     // Getters / Setters
@@ -62,6 +64,13 @@ class Advert {
     }
     public set text(value: string) {
         this._text = value;
+    }
+
+    public get state(): string {
+        return this._state;
+    }
+    public set state(value: string) {
+        this._state = value;
     }
 
 }
