@@ -12,6 +12,7 @@ import { NavbarComponent } from './global/components/navbar/navbar.component';
 import { SearchBarComponent } from './global/components/navbar/search-bar/search-bar.component';
 import { ButtonComponent } from './global/components/button/button.component';
 import { AdvertCardComponent } from './global/components/advert-card/advert-card.component';
+import { SidebarComponent } from './global/components/navbar/sidebar/sidebar.component';
 
 import { IndexComponent } from './pages/index/index.component';
 import { AdvertsComponent } from './pages/adverts/adverts.component';
@@ -37,7 +38,8 @@ import { RegisterComponent } from './pages/register/register.component';
     NearMeComponent,
     AdvertCardComponent,
     GameboxComponent,
-    RegisterComponent
+    RegisterComponent,
+    SidebarComponent
   ],
   imports: [
     BrowserModule,

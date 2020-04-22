@@ -6,17 +6,18 @@ export class Game {
     // Attributes
     private _id: number;
     private _name: string;
-    private _image: Blob;
+    private _image: string;
     private _description: string;
     private _players: number;
     private _duration: string;
     private _published: Date;
+    private _rating: number;
     private _age: number;
     private _editor: Editor;
     private _category: Category;
 
     // Constructor
-    constructor(id: number, name: string, image: Blob, description: string, players: number, duration: string, published: Date, age: number, editor: Editor, category: Category) {
+    constructor(id: number, name: string, image: string, description: string, players: number, duration: string, published: Date, rating: number, age: number, editor: Editor, category: Category) {
         this._id = id;
         this._name = name;
         this._image = image;
@@ -24,6 +25,7 @@ export class Game {
         this._players = players;
         this._duration = duration;
         this._published = published;
+        this._rating = rating;
         this._age = age;
         this._editor = editor;
         this._category = category;
@@ -44,10 +46,10 @@ export class Game {
         this._name = value;
     }
 
-    public get image(): Blob {
+    public get image(): string {
         return this._image;
     }
-    public set image(value: Blob) {
+    public set image(value: string) {
         this._image = value;
     }
 
@@ -77,6 +79,13 @@ export class Game {
     }
     public set published(value: Date) {
         this._published = value;
+    }
+
+    public get rating(): number {
+        return this._rating;
+    }
+    public set rating(value: number) {
+        this._rating = value;
     }
 
     public get age(): number {

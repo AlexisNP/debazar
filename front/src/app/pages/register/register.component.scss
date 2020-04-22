@@ -3,8 +3,10 @@
 .register-page {
     .step {
         height: 100vh;
-        width: 100vw;
-        padding: 12.5vh 2rem 2rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-flow: column;
         .title {
             h2 {
                 font-size: 4rem;
@@ -13,11 +15,14 @@
             }
         }
         &.step-1 {
-            color: $white;
-            background: $orange;
-            .input-group {
-                input {
-                    background: $white;
+
+            fieldset {
+                width: 60%;
+                border: none;
+                .input-group {
+                    input {
+                        background: $white;
+                    }
                 }
             }
         }

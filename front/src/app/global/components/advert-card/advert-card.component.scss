@@ -3,33 +3,78 @@
 .advert-card {
     display: inline-block;
     margin: 0 0 1.5rem 1.5rem;
-    padding: 1.5rem;
+    padding: 2rem;
     position: relative;
     background: $white;
-    border-radius: 1rem;
-    border: .5rem solid rgba($orange, .35);
+    border-radius: 1.25rem;
+    border: .5rem solid rgba($orange, .4);
     box-shadow: .2rem .2rem 1rem rgba($black, .15);
 
     .card-wrapper {
+        
         .main-container {
             display: flex;
             justify-content: space-between;
             align-items: center;
+
             aside {
-                max-width: 40%;
+                padding-right: .75rem;
+
                 figure {
-                    max-height: 15rem;
-                    max-width: 15rem;
-                    img {
-                        max-height: 100%;
-                        max-width: 100%;
-                    }
+                    height: 15rem;
+                    width: 20rem;
+                    margin: auto;
+                    background-repeat: no-repeat;
+                    background-position: center center;
+                    background-size: contain;
+                    float: left;
                 }
             }
+
             .informations {
-                max-width: 60%;
+                padding-left: .75rem;
+
                 header {
-                    
+                    color: $orange;
+
+                    .title {
+                        padding-bottom: .5rem;
+                        margin-bottom: 1rem;
+                        display: flex;
+                        justify-content: space-between;
+                        align-items: center;
+                        border-bottom: 2px solid $orange;
+
+                        h2 {
+                            font-size: 2.5rem;
+                            font-family: 'Nunito', sans-serif;
+                            font-weight: $heavy;
+                        }
+
+                        var {
+                            font-weight: $bold;
+                            font-style: normal;
+                            font-size: 1.6rem;
+                        }
+                    }
+                }
+                .row {
+                    margin-bottom: 1.5rem;
+
+                    .genre {
+                        font-size: 1.6rem;
+                        font-weight: $bold;
+                    }
+
+                    .rating {
+                        color: $orange;
+
+                        ul {
+                            > * {
+                                display: inline-block;
+                            }
+                        }
+                    }
                 }
             }
         }
