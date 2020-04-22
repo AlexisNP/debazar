@@ -65,16 +65,16 @@ export class LoginComponent implements OnInit {
         this.data.get('password').setValue(this.loginForm.get('login_password').value);
 
         setTimeout(() => {
-            console.log("connexion");
-            console.log(this.data.value);
             this.auth.loginUser(this.data.value);
-
             setTimeout(() => {
                 if(sessionStorage.getItem('username')) {
-                    console.log(sessionStorage.getItem('username'));
+                    if (this.auth.redirectUrl != null && this.auth.redirectUrl != undefined) {
+                        this.router.navigate([this.auth.redirectUrl]);
+                    } else {
+                        this.router.navigate(['']);
+                    }
                 } else {
                     this.wrongIds = true;
-                    console.log("wrong");
                 }
             }, 2000);
         }, 1000);

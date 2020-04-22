@@ -74,9 +74,12 @@ export class RegisterComponent implements OnInit {
         this.data.get('city').setValue(this.registerForm.get('register_city').value);
         this.data.get('phone').setValue(this.registerForm.get('register_phone').value);
         setTimeout(() => {
-            console.log("inscription");
-            console.log(this.data.value);
+            // console.log("inscription");
+            // console.log(this.data.value);
             this.auth.registerUser(this.data.value);
+            setTimeout(() => {
+                this.router.navigate(['']);
+            }, 2000);
         }, 1000);
     }
 
