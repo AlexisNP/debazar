@@ -7,8 +7,20 @@
     position: relative;
     background: $white;
     border-radius: 1.25rem;
-    border: .5rem solid rgba($orange, .4);
-    box-shadow: .2rem .2rem 1rem rgba($black, .15);
+    box-shadow: 0 0 1.5rem rgba($black, .2);
+    overflow: hidden;
+
+    &:before {
+        content: '';
+        display: block;
+        position: absolute;
+        top: -2.5rem;
+        left: -2.5rem;
+        height: 5rem;
+        width: 5rem;
+        background: $orange;
+        transform: rotate(45deg);
+    }
 
     .card-wrapper {
         

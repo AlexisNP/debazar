@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 import Game from 'src/app/global/models/Game'
 import Editor from 'src/app/global/models/Editor';
@@ -16,8 +17,11 @@ export class IndexComponent implements OnInit {
     private userList: User[];
     private gameList: Game[];
     private advertList: Advert[];
+    private username: string;
 
-    constructor() { }
+    constructor(private userService: UserService) {
+        this.username = userService.getUser();
+    }
 
     ngOnInit() {
         this.userList = [
