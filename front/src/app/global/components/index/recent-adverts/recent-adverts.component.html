@@ -1,0 +1,8 @@
+<section class="recent-adverts full-height">
+    <h2>Annonces récentes</h2>
+    <div class="advert-list-container">
+        <div *ngFor="let advert of adverts">
+            <app-advert-card [advert]=advert></app-advert-card>
+        </div>
+    </div>
+</section>

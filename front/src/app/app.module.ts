@@ -26,6 +26,11 @@ import { RegisterComponent } from './Authentication/components/register/register
 import { AccountComponent } from './user/components/account/account.component';
 import { AdminHomeComponent } from './administration/components/admin-home/admin-home.component';
 import { ManagementComponent } from './administration/components/management/management.component';
+import { LandingComponent } from './global/components/index/landing/landing.component';
+import { RecentAdvertsComponent } from './global/components/index/recent-adverts/recent-adverts.component';
+import { PopularGamesComponent } from './global/components/index/popular-games/popular-games.component';
+import { GameSpotlightComponent } from './global/components/index/game-spotlight/game-spotlight.component';
+import { GameCardComponent } from './global/components/game-card/game-card.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +50,11 @@ import { ManagementComponent } from './administration/components/management/mana
     AccountComponent,
     AdminHomeComponent,
     ManagementComponent,
+    LandingComponent,
+    RecentAdvertsComponent,
+    PopularGamesComponent,
+    GameSpotlightComponent,
+    GameCardComponent,
   ],
   imports: [
     BrowserModule,
