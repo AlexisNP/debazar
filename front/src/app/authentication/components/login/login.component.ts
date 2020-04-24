@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder, FormGroup, Validators, FormControl } from '@angular/forms';
-import { first } from 'rxjs/operators';
+import { FormGroup, Validators, FormControl } from '@angular/forms';
 
-import { AuthService } from 'src/app/global/services/auth.service';
+import { AuthService } from 'src/app/Authentication/services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -21,8 +20,7 @@ export class LoginComponent implements OnInit {
 
     public wrongIds: Boolean;
 
-    constructor( private formBuilder: FormBuilder, private route: ActivatedRoute, private router: Router, private auth: AuthService ) {
-
+    constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService ) {
         this.loginForm = new FormGroup({
             login_mail: new FormControl('', [
                 Validators.required,

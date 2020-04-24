@@ -14,16 +14,18 @@ import { ButtonComponent } from './global/components/button/button.component';
 import { AdvertCardComponent } from './global/components/advert-card/advert-card.component';
 import { SidebarComponent } from './global/components/navbar/sidebar/sidebar.component';
 
-import { IndexComponent } from './pages/index/index.component';
-import { AdvertsComponent } from './pages/adverts/adverts.component';
-import { NearMeComponent } from './pages/near-me/near-me.component';
-import { SellGameComponent } from './pages/sell-game/sell-game.component';
-import { GameboxComponent } from './pages/gamebox/gamebox.component';
+import { IndexComponent } from './global/components/index/index.component';
+import { AdvertsComponent } from "./global/components/adverts/adverts.component";
 
-import { LoginComponent } from './pages/login/login.component';
-import { RegisterComponent } from './pages/register/register.component';
+import { SellGameComponent } from "./user/components/sell-game/sell-game.component";
+import { NearMeComponent } from './user/components/near-me/near-me.component';
+import { GameboxComponent } from "./user/components/gamebox/gamebox.component";
 
-
+import { LoginComponent } from './Authentication/components/login/login.component';
+import { RegisterComponent } from './Authentication/components/register/register.component';
+import { AccountComponent } from './user/components/account/account.component';
+import { AdminHomeComponent } from './administration/components/admin-home/admin-home.component';
+import { ManagementComponent } from './administration/components/management/management.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +41,10 @@ import { RegisterComponent } from './pages/register/register.component';
     AdvertCardComponent,
     GameboxComponent,
     RegisterComponent,
-    SidebarComponent
+    SidebarComponent,
+    AccountComponent,
+    AdminHomeComponent,
+    ManagementComponent,
   ],
   imports: [
     BrowserModule,
