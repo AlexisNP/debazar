@@ -51,5 +51,4 @@ export class AuthService {
         this.isLogged = false;
         sessionStorage.clear();
     }
-
 }
