@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { UserService } from '../../services/user.service';
 
 import Game from 'src/app/global/models/Game'
@@ -20,8 +21,9 @@ export class IndexComponent implements OnInit {
     private advertsList: Advert[];
     private username: string;
 
-    constructor(private userService: UserService) {
-        this.username = userService.getUser();
+    constructor(private userService: UserService, private titleService: Title) {
+        this.username = this.userService.getUser();
+        this.titleService.setTitle("Accueil - Débazar");
     }
 
     ngOnInit() {

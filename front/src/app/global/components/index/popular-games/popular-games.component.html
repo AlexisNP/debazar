@@ -1,8 +1,10 @@
-<section class="popular-games full-height">
-    <h2>Jeux les PLUS populaires</h2>
-    <div class="advert-list-container">
-        <div *ngFor="let game of games">
-            <app-game-card [game]=game></app-game-card>
+<section class="popular-games full-height index">
+    <div>
+        <h2>Jeux les PLUS populaires</h2>
+        <div class="advert-list-container">
+            <div *ngFor="let game of games">
+                <app-game-card [game]=game></app-game-card>
+            </div>
         </div>
     </div>
 </section>

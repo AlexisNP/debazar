@@ -1,8 +1,5 @@
 @import "../scss/_variables.scss";
 
-section {
-    padding-top: 6rem;
-    h1, h2 {
-        font-family: 'Nunito', sans-serif;
-    }
+.horizontal-slider-wrapper {
+    display: flex;
 }

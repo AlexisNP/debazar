@@ -24,6 +24,7 @@ export class AdvertCardComponent implements OnInit {
     farStar = farStar;
 
     constructor() {
+        
     }
 
     ngOnInit() {

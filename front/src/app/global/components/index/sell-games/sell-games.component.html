@@ -1,0 +1,19 @@
+<section class="sell-games full-height index">
+    <div class="center-flex">
+        <h2>Vendre mes jeux</h2>
+        <p>Tu es ici sur la page dédiée à la mise en vente d’un jeu en ta possession !</p>
+        <p>Cependant, il semble que tu ne sois pas connecté, hors c’est une étape nécéssaire pour que la mise en vente de ton jeu se passe manière optimale !</p>
+        <p>N’hésite donc pas à t’inscrire ou à te connecter pour poster une annonce !</p>
+        <div class="connect-to-us">
+            <div *ngIf="username; else noUser">
+                <a [routerLink]="['/annonces']" class="btn btn-primary">Mon espace</a>
+            </div>
+            <ng-template #noUser>
+                <div>
+                    <a [routerLink]="['/connexion']" class="btn btn-secondary">Me connecter</a>
+                    <a [routerLink]="['/inscription']" class="btn btn-primary">M'inscrire</a>
+                </div>
+            </ng-template>
+        </div>
+    </div>
+</section>

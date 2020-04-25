@@ -1,4 +1,4 @@
-import { BrowserModule } from '@angular/platform-browser';
+import { BrowserModule, Title } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
@@ -31,6 +31,7 @@ import { RecentAdvertsComponent } from './global/components/index/recent-adverts
 import { PopularGamesComponent } from './global/components/index/popular-games/popular-games.component';
 import { GameSpotlightComponent } from './global/components/index/game-spotlight/game-spotlight.component';
 import { GameCardComponent } from './global/components/game-card/game-card.component';
+import { SellGamesComponent } from './global/components/index/sell-games/sell-games.component';
 
 @NgModule({
   declarations: [
@@ -55,6 +56,7 @@ import { GameCardComponent } from './global/components/game-card/game-card.compo
     PopularGamesComponent,
     GameSpotlightComponent,
     GameCardComponent,
+    SellGamesComponent,
   ],
   imports: [
     BrowserModule,
@@ -63,7 +65,9 @@ import { GameCardComponent } from './global/components/game-card/game-card.compo
     HttpClientModule,
     FontAwesomeModule
   ],
-  providers: [],
+  providers: [
+      Title
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
