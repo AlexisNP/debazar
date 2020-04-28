@@ -1,8 +1,7 @@
 @import "../scss/_variables.scss";
 
-.advert-card {
-    display: inline-block;
-    margin: 0 0 1.5rem 1.5rem;
+.card {
+    display: block;
     padding: 2rem;
     position: relative;
     background: $white;
@@ -23,11 +22,7 @@
     }
 
     .card-wrapper {
-        
         .main-container {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
 
             aside {
                 padding-right: .75rem;
@@ -39,7 +34,6 @@
                     background-repeat: no-repeat;
                     background-position: center center;
                     background-size: contain;
-                    float: left;
                 }
             }
 
@@ -72,15 +66,12 @@
                 }
                 .row {
                     margin-bottom: 1.5rem;
-
                     .genre {
                         font-size: 1.6rem;
                         font-weight: $bold;
                     }
-
                     .rating {
                         color: $orange;
-
                         ul {
                             > * {
                                 display: inline-block;

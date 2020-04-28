@@ -166,11 +166,14 @@ section.full-height {
 // Templating
 section {
     position: relative;
-    > h2 {
-        margin-bottom: 2.5rem;
-        font-size: 3.5rem;
-        text-align: center;
-        color: $orange;
+    .wrapper {
+        > h2 {
+            margin-bottom: 2.5rem;
+            font-size: 3.5rem;
+            font-family: 'Nunito', sans-serif;
+            text-align: center;
+            color: $orange;
+        }
     }
     &.index {
         height: 100vh;
@@ -186,7 +189,6 @@ section {
             position: absolute;
             top: 0;
             bottom: 0;
-            width: 50rem;
             border-top: calc(50vh - 7.5rem) solid transparent;
             border-bottom: 50vh solid transparent;
         }

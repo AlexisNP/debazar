@@ -1,4 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
+
+import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
+
 import Game from '../../models/Game';
 
 @Component({
@@ -10,12 +14,28 @@ export class GameCardComponent implements OnInit {
 
     @Input() private game: Game;
 
+    fasStar = fasStar;
+    farStar = farStar;
+
     constructor() {
 
     }
 
     ngOnInit() {
         
+    }
+
+    ratingStars(stars: number) {
+        let output = [];
+        for (let index = 0; index < 5; index++) {
+            if (stars > 0) {
+                output.push(1);
+            } else {
+                output.push(0);
+            }
+            stars--;
+        }
+        return output;
     }
 
 }
