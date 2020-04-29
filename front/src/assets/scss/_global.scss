@@ -2,6 +2,7 @@
 @import '_fonts.scss';
 @import '_variables.scss';
 @import '_mixins.scss';
+@import '_cards.scss';
 
 // Normalize library
 @import '/_libs/_normalize.scss';
@@ -31,6 +32,7 @@ html {
 }
 
 body {
+    padding-top: 7.5rem;
     font-family: $font-family;
     font-size: $font-size-base;
     line-height: $line-height-base;
@@ -156,4 +158,48 @@ img {
 }
 
 // Utilities
-section.full-height { min-height: 100vh }
+section.full-height {
+    min-height: calc(100vh - 7.5rem);
+    max-height: calc(100vh - 7.5rem);
+}
+
+// Templating
+section {
+    position: relative;
+    .wrapper {
+        padding-top: 5vh;
+        > h2 {
+            margin-bottom: 2.5rem;
+            font-size: 3.5rem;
+            font-family: 'Nunito', sans-serif;
+            text-align: center;
+            color: $orange;
+        }
+    }
+    &.index {
+        height: 100vh;
+        width: 100vw;
+    }
+    
+    &.index:not(.landing) {
+        padding: 0 7.5rem;
+
+        &:before, &:after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            border-top: calc(50vh - 7.5rem) solid transparent;
+            border-bottom: 50vh solid transparent;
+        }
+        &:before {
+            left: 0;
+            border-left: 7.5rem solid rgba($orange, 0.5);
+        }
+        &:after {
+            right: 0;
+            border-right: 7.5rem solid $orange;
+        }
+    }
+}

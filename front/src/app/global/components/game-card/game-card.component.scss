@@ -1,0 +1,27 @@
+@import "../scss/_variables.scss";
+
+.game-card {
+    height: 100%;
+    .card-wrapper {
+        height: 100%;
+        .main-container {
+            height: 100%;
+            display: flex;
+            flex-flow: column nowrap;
+            .informations {
+                flex-grow: 1;
+                display: flex;
+                flex-flow: column nowrap;
+                .description {
+                    flex-grow: 1;
+                }
+                footer {
+                    .btn-primary {
+                        display: block;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+    }
+}

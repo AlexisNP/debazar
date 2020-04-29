@@ -1,0 +1,17 @@
+@import "../scss/_variables.scss";
+
+.popular-games {
+    .wrapper {
+        .popular-games-list-container {
+            padding: 0 2.5rem;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-around;
+            align-items: stretch;
+            > * {
+                width: 33%;
+                padding: 0 2.5rem;
+            }
+        }
+    }
+}

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 
@@ -20,7 +21,8 @@ export class LoginComponent implements OnInit {
 
     public wrongIds: Boolean;
 
-    constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService ) {
+    constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService, private titleService: Title) {
+        this.titleService.setTitle("Connexion - Débazar");
         this.loginForm = new FormGroup({
             login_mail: new FormControl('', [
                 Validators.required,
@@ -77,5 +79,4 @@ export class LoginComponent implements OnInit {
             }, 2000);
         }, 1000);
     }
-
 }

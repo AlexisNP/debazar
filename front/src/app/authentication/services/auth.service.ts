@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+import { UserService } from 'src/app/global/services/user.service';
 
 @Injectable({ providedIn: 'root' })
 
@@ -10,7 +11,7 @@ export class AuthService {
     public redirectUrl: string;
     baseUrl = environment.baseUrl;
     
-    constructor(private http: HttpClient) {
+    constructor(private http: HttpClient, private userService: UserService) {
         this.isLogged = false;
     }
 
@@ -45,6 +46,7 @@ export class AuthService {
             sessionStorage.setItem('banned', data.banned);
         }
         this.isLogged = true;
+        this.userService.setUser();
     }
 
     public logoutUser() {

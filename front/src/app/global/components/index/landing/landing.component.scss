@@ -1,0 +1,39 @@
+@import "../scss/_variables.scss";
+
+.landing {
+    padding: 20vh 10rem 0;
+    position: relative;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    text-align: center;
+    background-position: center;
+    background-size: cover;
+
+    > * {
+        margin-bottom: 1rem;
+    }
+
+    h1 {
+        font-family: 'Nunito', sans-serif;
+        font-size: 7rem;
+        font-weight: $heavy;
+        font-style: italic;
+        color: $orange;
+    }
+
+    h2 {
+        font-size: 3rem;
+        font-weight: $bold;
+    }
+
+    p {
+        font-size: 1.5rem;
+        font-weight: $medium;
+    }
+
+    .connect-to-us {
+        margin-top: 2rem;
+    }
+
+}

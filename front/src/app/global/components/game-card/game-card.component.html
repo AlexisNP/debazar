@@ -1,4 +1,4 @@
-<div class="card advert-card">
+<div class="card game-card">
     <div class="card-wrapper">
         <div class="main-container">
             <aside>
@@ -8,16 +8,12 @@
                 <header>
                     <div class="title">
                         <h2>{{ game.name }}</h2>
-                        <var>{{ advert.price }}€</var>
                     </div>
                 </header>
                 <div class="row">
                     <p class="genre">{{ game.category.name }}</p>
                 </div>
                 <div class="row">
-                    <div class="state float-right">
-                        <p>{{ advert.state }}</p>
-                    </div>
                     <div class="rating">
                         <ul class="stars">
                             <li *ngFor="let star of ratingStars(game.rating)">
@@ -33,15 +29,11 @@
                         </ul>
                     </div>
                 </div>
-                <div class="row">
-                    <p class="location">Rennes</p>
-                </div>
-                <div class="row">
-                    <time class="date">Aujourd'hui, 11h58</time>
+                <div class="row description">
+                    <p>{{ game.description }}</p>
                 </div>
                 <footer>
-                    <a href="/jeu/{{ game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
-                    <a href="/annonce/{{ advert.id }}" class="btn btn-primary btn-small float-right">Voir l'annonce</a>
+                    <a href="/jeux/{{ game.id }}" class="btn btn-primary btn-small">Voir les annonces pour ce jeu</a>
                 </footer>
             </div>
         </div>
