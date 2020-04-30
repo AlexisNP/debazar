@@ -1,17 +1,24 @@
 <section class="landing full-height index">
-    <h1>DÉBAZAR</h1>
-    <h2><span class="txt-bold">Débazar</span> : des jeux de société d’occasion de qualité au meilleur prix !</h2>
-    <p>Voici un nouveau concept dans le monde du jeu de plateau ! <span class="txt-bold">Débazar</span>, c’est VOTRE espace pour mettre en vente les jeux qui encombrent vos étagères. Faites de la place chez vous tout en gagnant de l’argent pour acheter de nouveaux jeux.</p>
-    <p>Oui, nous sommes machiavéliques chez <span class="txt-bold">Débazar</span> ! Vous vous inscrivez ?</p>
-    <div class="connect-to-us">
-        <div *ngIf="username; else noUser">
-            <a [routerLink]="['/annonces']" class="btn btn-primary">Mon espace</a>
-        </div>
-        <ng-template #noUser>
-            <div>
-                <a [routerLink]="['/connexion']" class="btn btn-secondary">Me connecter</a>
-                <a [routerLink]="['/inscription']" class="btn btn-primary">Rejoignez-nous !</a>
+    <div class="wrapper center-flex">
+        <h1>DÉBAZAR</h1>
+        <h2><span class="txt-bold">Débazar</span> : des jeux de société d’occasion de qualité au meilleur prix !</h2>
+        <p>Voici un nouveau concept dans le monde du jeu de plateau ! <span class="txt-bold">Débazar</span>, c’est VOTRE espace pour mettre en vente les jeux qui encombrent vos étagères. Faites de la place chez vous tout en gagnant de l’argent pour acheter de nouveaux jeux.</p>
+        <p>Oui, nous sommes machiavéliques chez <span class="txt-bold">Débazar</span> ! Vous vous inscrivez ?</p>
+        <div class="connect-to-us">
+            <div *ngIf="username; else noUser">
+                <a [routerLink]="['/annonces']" class="btn btn-primary">Mon espace</a>
             </div>
-        </ng-template>
+            <ng-template #noUser>
+                <div>
+                    <a [routerLink]="['/connexion']" class="btn btn-secondary">Me connecter</a>
+                    <a [routerLink]="['/inscription']" class="btn btn-primary">Rejoignez-nous !</a>
+                </div>
+            </ng-template>
+        </div>
+        <div class="btn btn-primary btn-round">
+            <a [routerLink]="['/annonces-jeux-recentes']" routerLinkActive="active" >
+                <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
+            </a>
+        </div>
     </div>
 </section>
