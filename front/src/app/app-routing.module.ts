@@ -45,8 +45,8 @@ const routes: Routes = [
                 children: [
                     { path: 'mon-compte', component: AccountComponent},
                     { path: 'gamebox', component: GameboxComponent},
-            //     ]
-            // }
+                ]
+            }
         ]
     },
     { path: 'vendre-mon-jeu', component: SellGameComponent, canActivate: [AuthGuard] },

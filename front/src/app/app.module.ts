@@ -59,6 +59,8 @@ import { AddGameComponent } from './administration/components/add-game/add-game.
     GameSpotlightComponent,
     GameCardComponent,
     SellGamesComponent,
+    ScrollerComponent,
+    AddGameComponent,
   ],
   imports: [
     BrowserModule,
