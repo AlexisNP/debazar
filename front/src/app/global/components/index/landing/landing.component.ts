@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 
 @Component({
   selector: 'app-landing',
@@ -7,9 +9,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
+    faChevronRight = faChevronRight;
 
-  ngOnInit() {
-  }
+    constructor(private titleService: Title) {
+        this.titleService.setTitle("Accueil - Débazar");
+    }
+
+    ngOnInit() {
+
+    }
 
 }

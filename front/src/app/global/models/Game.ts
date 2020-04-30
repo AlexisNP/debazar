@@ -1,7 +1,7 @@
 import Editor from "./Editor";
 import Category from "./Category";
 
-export class Game {
+class Game {
 
     // Attributes
     private _id: number;

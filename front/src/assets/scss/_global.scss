@@ -166,7 +166,10 @@ section.full-height {
 // Templating
 section {
     position: relative;
+    display: flex;
+    flex-flow: column nowrap;
     .wrapper {
+        flex-grow: 1;
         padding-top: 5vh;
         > h2 {
             margin-bottom: 2.5rem;
@@ -182,7 +185,9 @@ section {
     }
     
     &.index:not(.landing) {
-        padding: 0 7.5rem;
+        .wrapper {
+            padding: 0 7.5rem;
+        }
 
         &:before, &:after {
             content: '';
