@@ -31,7 +31,7 @@ export class GameService {
    * @param id
    */
   public findGameById(id: number) {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id` + id).subscribe(data => {
+    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
       // console.log("data:", data),
       data = data;
     }, error => {console.log("Error", error);
@@ -67,7 +67,7 @@ export class GameService {
    * Remove a game from Database
    * @param id
    */
-  public deleteGame(id: number, game: Game) {
+  public deleteGame(id: number) {
     return this.http.delete<any>(`${this.baseUrl}/${ENDPOINT}/remove-game` + id).subscribe(data => {
       // console.log("data:", data),
       data = data;

@@ -10,6 +10,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -39,7 +40,7 @@ public class OfferController {
         this.offerService = offerService;
     }
 
-    @GetMapping("find-all")
+    @GetMapping("/find-all")
     public ResponseEntity<List<OfferSummary>> getAll() {
         List<Offer> offerList = repository.findAll();
         List<OfferSummary> offers = new ArrayList<>();
@@ -49,8 +50,8 @@ public class OfferController {
         return ResponseEntity.ok().body(offers);
     }
 
-    @GetMapping("find-id")
-    public Optional<Offer> findById(@Valid @RequestBody Long id) {
+    @GetMapping("/find-id/{id}")
+    public Optional<Offer> findById(@PathVariable(value = "id") long id) {
         Optional<Offer> offer = repository.findById(id);
         return offer;
     }
@@ -60,13 +61,13 @@ public class OfferController {
         return offerService.registerNewOffer(offerDto);
     }
 
-    @PostMapping("/edit-offer")
-    public void editOffer(@Valid @RequestBody OfferDTO offerDto) {
+    @PostMapping("/edit-offer/{id}")
+    public void editOffer(@PathVariable(value = "id") long id, @Valid @RequestBody Offer offer) {
 //        return offerService.registerNewOffer(offerDto);
     }
 
-    @DeleteMapping("remove-offer")
-    private void deleteById(@Valid @RequestBody Long id) {
+    @DeleteMapping("/remove-offer/{id}")
+    private void deleteById(@PathVariable(value = "id") long id) {
         repository.deleteById(id);;
     }
 

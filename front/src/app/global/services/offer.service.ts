@@ -1,9 +1,77 @@
 import { Injectable } from '@angular/core';
+import { environment } from 'src/environments/environment';
+import { HttpClient } from '@angular/common/http';
+import { Offer } from '../models/Offer';
+
+const ENDPOINT = 'offer';
 
 @Injectable({
   providedIn: 'root'
 })
 export class OfferService {
 
-  constructor() { }
+  baseUrl = environment.baseUrl; // base de l'url utilisable dans les requetes
+
+  constructor(private http: HttpClient) {
+  }
+
+  /**
+   * return all offers stored in database
+   */
+  public getAllOffers() {
+    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
+      // console.log("data:", data),
+      data = data;
+    }, error => {console.log("Error", error);
+    });
+  }
+
+  /**
+   * return specified offer stored in database
+   * @param id
+   */
+  public findOfferById(id: number) {
+    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
+      // console.log("data:", data),
+      data = data;
+    }, error => {console.log("Error", error);
+    });
+  }
+
+  /**
+   * Save an offer into Database
+   * @param offer
+   */
+  public addOffer(offer: Offer) {
+    return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add-offer`, offer).subscribe(data => {
+      // console.log("data:", data),
+      data = data;
+    }, error => {console.log("Error", error);
+    });
+  }
+
+  // /**
+  //  * Update an offer
+  //  * @param id
+  //  * @param offer
+  //  */
+  // public updateGame(id: number, offer: Offer) {
+  //   return this.http.put<any>(`${this.baseUrl}/${ENDPOINT}/edit-game` + id , offer).subscribe(data => {
+  //     // console.log("data:", data),
+  //     data = offer;
+  //   }, error => {console.log("Error", error);
+  //   });
+  // }
+
+  // /**
+  //  * Remove an offer from Database
+  //  * @param id
+  //  */
+  // public deleteGame(id: number) {
+  //   return this.http.delete<any>(`${this.baseUrl}/${ENDPOINT}/remove-game` + id).subscribe(data => {
+  //     // console.log("data:", data),
+  //     data = data;
+  //   }, error => {console.log("Error", error);
+  //   });
+  // }
 }
