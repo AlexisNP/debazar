@@ -172,6 +172,7 @@ body.hourglass-bg {
         bottom: 0;
         border-top: 50vh solid transparent;
         border-bottom: 50vh solid transparent;
+        z-index: 500;
     }
     &:before {
         left: 0;

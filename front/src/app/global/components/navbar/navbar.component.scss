@@ -7,7 +7,7 @@ header.global {
     width: 100%;
     background: $gray--ghost;
     box-shadow: .2rem .2rem 1rem rgba($gray, 0.2);
-    z-index: 2000;
+    z-index: 9999;
 
     nav {
         position: relative;
