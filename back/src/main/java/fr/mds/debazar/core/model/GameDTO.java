@@ -10,103 +10,103 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class GameDTO {
 
-	@NotNull
-	@NotEmpty
-	private String name;
-	
-	private String image;
-	
-	@NotNull
-	@NotEmpty
-	private String description;
-	
-	@NotNull
-	@NotEmpty
-	private String editor;
-	
-	@NotNull
-	@NotEmpty
-	private String players;
-	
-	private String duration;
-	private String published;
-	
-	@NotNull
-	@NotEmpty
-	private int age;
-	
-	private float price;
+    @NotNull
+    @NotEmpty
+    private String name;
 
-	public String getName() {
-		return name;
-	}
+    private String image;
 
-	public void setName(String name) {
-		this.name = name;
-	}
+    @NotNull
+    @NotEmpty
+    private String description;
 
-	public String getImage() {
-		return image;
-	}
+    @NotNull
+    @NotEmpty
+    private String editor;
 
-	public void setImage(String image) {
-		this.image = image;
-	}
+    @NotNull
+    @NotEmpty
+    private String players;
 
-	public String getDescription() {
-		return description;
-	}
+    private String duration;
+    private String published;
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    @NotNull
+    @NotEmpty
+    private int age;
 
-	public String getEditor() {
-		return editor;
-	}
+    private float price;
 
-	public void setEditor(String editor) {
-		this.editor = editor;
-	}
+    public String getName() {
+        return name;
+    }
 
-	public String getPlayers() {
-		return players;
-	}
+    public void setName(String name) {
+        this.name = name;
+    }
 
-	public void setPlayers(String players) {
-		this.players = players;
-	}
+    public String getImage() {
+        return image;
+    }
 
-	public String getDuration() {
-		return duration;
-	}
+    public void setImage(String image) {
+        this.image = image;
+    }
 
-	public void setDuration(String duration) {
-		this.duration = duration;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public String getPublished() {
-		return published;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setPublished(String published) {
-		this.published = published;
-	}
+    public String getEditor() {
+        return editor;
+    }
 
-	public int getAge() {
-		return age;
-	}
+    public void setEditor(String editor) {
+        this.editor = editor;
+    }
 
-	public void setAge(int age) {
-		this.age = age;
-	}
+    public String getPlayers() {
+        return players;
+    }
 
-	public float getPrice() {
-		return price;
-	}
+    public void setPlayers(String players) {
+        this.players = players;
+    }
 
-	public void setPrice(float price) {
-		this.price = price;
-	}
+    public String getDuration() {
+        return duration;
+    }
+
+    public void setDuration(String duration) {
+        this.duration = duration;
+    }
+
+    public String getPublished() {
+        return published;
+    }
+
+    public void setPublished(String published) {
+        this.published = published;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
 
 }

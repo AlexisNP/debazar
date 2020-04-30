@@ -32,6 +32,7 @@ import { PopularGamesComponent } from './global/components/index/popular-games/p
 import { GameSpotlightComponent } from './global/components/index/game-spotlight/game-spotlight.component';
 import { GameCardComponent } from './global/components/game-card/game-card.component';
 import { SellGamesComponent } from './global/components/index/sell-games/sell-games.component';
+import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SellGamesComponent } from './global/components/index/sell-games/sell-ga
     GameSpotlightComponent,
     GameCardComponent,
     SellGamesComponent,
+    AddGameComponent,
   ],
   imports: [
     BrowserModule,

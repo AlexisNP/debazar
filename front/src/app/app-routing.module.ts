@@ -24,18 +24,19 @@ const routes: Routes = [
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
 
-    { 
-        path: 'mon-compte', 
-        component: AccountComponent, 
-        canActivate: [AuthGuard],
-        children: [
+    // { 
+    //     path: 'mon-compte', 
+    //     component: AccountComponent, 
+    //     canActivate: [AuthGuard],
+    //     children: [
             {
                 path: '', 
                 canActivateChild: [AuthGuard],
                 children: [
+                    { path: 'mon-compte', component: AccountComponent},
                     { path: 'gamebox', component: GameboxComponent},
-                ]
-            }
+            //     ]
+            // }
         ]
     },
     { path: 'vendre-mon-jeu', component: SellGameComponent, canActivate: [AuthGuard] },
