@@ -21,28 +21,34 @@ import fr.mds.debazar.core.repository.EditorRepository;
 @CrossOrigin
 @RequestMapping("/api/editor")
 public class EditorController {
-	
-	private EditorRepository repository;
-	
-	public EditorController(EditorRepository repository) {
-		this.repository = repository;
-	}
 
-	@PostMapping("/add")
-	public Editor addAuthor(@Valid @RequestBody String name) {
-		return repository.save(new Editor(name));
-	}
+    private EditorRepository repository;
 
-	@GetMapping()
-	public ResponseEntity<List<Editor>> getAll() {
-		List<Editor> editors = repository.findAll();
-		return ResponseEntity.ok().body(editors);
-	}
-	
-	@GetMapping("/findId/{id}")
-	public Optional<Editor> findById(@PathVariable(value = "id") long id) {
-		Optional<Editor> editor = repository.findById(id);
-		return editor;
-	}
+    public EditorController(EditorRepository repository) {
+        this.repository = repository;
+    }
+
+    @PostMapping("/add")
+    public Editor addEditor(@Valid @RequestBody String name) {
+        return repository.save(new Editor(name));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<Editor>> getAll() {
+        List<Editor> editors = repository.findAll();
+        return ResponseEntity.ok().body(editors);
+    }
+
+    @GetMapping("/findId/{id}")
+    public Optional<Editor> findById(@PathVariable(value = "id") long id) {
+        Optional<Editor> editor = repository.findById(id);
+        return editor;
+    }
+
+    @GetMapping("/findName")
+    public Editor findByName(@Valid @RequestBody String name) {
+        Editor editor = repository.findByName(name);
+        return editor;
+    }
 
 }
