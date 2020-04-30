@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import Advert from 'src/app/global/models/Advert';
@@ -12,7 +12,7 @@ import Category from 'src/app/global/models/Category';
   templateUrl: './recent-adverts.component.html',
   styleUrls: ['./recent-adverts.component.scss']
 })
-export class RecentAdvertsComponent implements OnInit {
+export class RecentAdvertsComponent implements OnInit, OnDestroy {
 
     private adverts: Advert[];
     private games: Game[];
@@ -40,7 +40,13 @@ export class RecentAdvertsComponent implements OnInit {
     }
 
     ngOnInit() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.add('hourglass-bg');
+    }
 
+    ngOnDestroy() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.remove('hourglass-bg');
     }
 
 }

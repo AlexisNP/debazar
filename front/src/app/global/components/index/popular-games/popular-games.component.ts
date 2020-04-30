@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import Game from 'src/app/global/models/Game';
@@ -10,7 +10,7 @@ import Category from 'src/app/global/models/Category';
   templateUrl: './popular-games.component.html',
   styleUrls: ['./popular-games.component.scss']
 })
-export class PopularGamesComponent implements OnInit {
+export class PopularGamesComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
@@ -24,7 +24,13 @@ export class PopularGamesComponent implements OnInit {
     }
 
     ngOnInit() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.add('hourglass-bg');
+    }
 
+    ngOnDestroy() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.remove('hourglass-bg');
     }
 
 }

@@ -2,7 +2,7 @@
 
 .landing {
     .wrapper {
-        padding: 20vh 20% 0;
+        padding: 0 20%;
         display: flex;
         flex-flow: column nowrap;
         align-items: center;
@@ -15,6 +15,7 @@
         }
     
         h1 {
+            margin: 10vh 0 0;
             font-family: 'Nunito', sans-serif;
             font-size: 7rem;
             font-weight: $heavy;
@@ -23,6 +24,7 @@
         }
     
         h2 {
+            margin: 0 0 2.5rem;
             font-size: 3rem;
             font-weight: $bold;
         }

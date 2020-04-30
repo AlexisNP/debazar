@@ -14,3 +14,16 @@
         }
     }
 }
+
+@media only screen and (max-width: 1400px) {
+    .recent-adverts {
+        overflow-x: hidden;
+        .wrapper {
+            .advert-list-container {
+                > * {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
