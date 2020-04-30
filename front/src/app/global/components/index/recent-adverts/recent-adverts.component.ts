@@ -1,4 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, OnDestroy } from '@angular/core';
+import { Title } from '@angular/platform-browser';
+import { Router } from '@angular/router';
 
 import Advert from 'src/app/global/models/Advert';
 import Game from 'src/app/global/models/Game';
@@ -11,13 +13,14 @@ import Category from 'src/app/global/models/Category';
   templateUrl: './recent-adverts.component.html',
   styleUrls: ['./recent-adverts.component.scss']
 })
-export class RecentAdvertsComponent implements OnInit {
+export class RecentAdvertsComponent implements OnInit, OnDestroy {
 
     private adverts: Advert[];
     private games: Game[];
     private users: User[];
 
-    constructor() {
+    constructor(private titleService: Title, private router: Router) {
+        this.titleService.setTitle("Annonces récentes - Débazar");
         this.games = [
             new Game(942, "Monopoly", "https://www.kroger.com/product/images/xlarge/front/0063050951263", "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.", 4, "Éternité", new Date(), 3, 4, new Editor(1, "Bob"), new Category(1, "Jeu de plateau")),
             new Game(14887, "Uno", "https://images-na.ssl-images-amazon.com/images/I/810US3NaiqL._AC_SX425_.jpg", "Description", 8, "Éternité", new Date(), 2, 4, new Editor(2, "Jean-Luc Games"), new Category(2, "Jeu à deux")),
@@ -38,7 +41,21 @@ export class RecentAdvertsComponent implements OnInit {
     }
 
     ngOnInit() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.add('hourglass-bg');
+    }
 
+    ngOnDestroy() {
+        const body = document.getElementsByTagName('body')[0];
+        body.classList.remove('hourglass-bg');
+    }
+
+    mouseWheelUpFunc() {
+        this.router.navigate(['/']);
+    }
+
+    mouseWheelDownFunc() {
+        this.router.navigate(['/vendre-mes-jeux']);
     }
 
 }

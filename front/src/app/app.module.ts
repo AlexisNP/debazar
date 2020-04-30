@@ -35,6 +35,8 @@ import { SellGamesComponent } from './global/components/index/sell-games/sell-ga
 import { ScrollerComponent } from './global/components/index/scroller/scroller.component';
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
+import { MouseWheelDirective } from './global/directives/mousewheel.directive';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -61,6 +63,7 @@ import { AddGameComponent } from './administration/components/add-game/add-game.
     SellGamesComponent,
     ScrollerComponent,
     AddGameComponent,
+    MouseWheelDirective,
   ],
   imports: [
     BrowserModule,

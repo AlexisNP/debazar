@@ -1,21 +1,15 @@
 <div class="index-scroll">
     <div class="step-before" *ngIf="prev_url">
-        <div class="btn btn-primary btn-round">
-            <a [routerLink]="[prev_url]">
-                <fa-icon [icon]="faChevronLeft" size="lg"></fa-icon>
-            </a>
-        </div>
+        <a [routerLink]="[prev_url]" class="btn btn-primary btn-round">
+            <fa-icon [icon]="faChevronLeft" size="lg"></fa-icon>
+        </a>
     </div>
     <div class="step-page" *ngIf="page_url">
-        <div class="btn btn-primary">
-            <a [routerLink]="[page_url]">{{ page_title }}</a>
-        </div>
+        <a [routerLink]="[page_url]" class="btn btn-primary">{{ page_title }}</a>
     </div>
     <div class="step-after" *ngIf="next_url">
-        <div class="btn btn-primary btn-round">
-            <a [routerLink]="[next_url]">
-                <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
-            </a>
-        </div>
+        <a [routerLink]="[next_url]" class="btn btn-primary btn-round">
+            <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
+        </a>
     </div>
 </div>
