@@ -14,7 +14,6 @@ import { ButtonComponent } from './global/components/button/button.component';
 import { AdvertCardComponent } from './global/components/advert-card/advert-card.component';
 import { SidebarComponent } from './global/components/navbar/sidebar/sidebar.component';
 
-import { IndexComponent } from './global/components/index/index.component';
 import { AdvertsComponent } from "./global/components/adverts/adverts.component";
 
 import { SellGameComponent } from "./user/components/sell-game/sell-game.component";
@@ -41,7 +40,6 @@ import { MouseWheelDirective } from './global/directives/mousewheel.directive';
   declarations: [
     AppComponent,
     NavbarComponent,
-    IndexComponent,
     AdvertsComponent,
     LoginComponent,
     SellGameComponent,

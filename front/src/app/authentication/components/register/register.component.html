@@ -1,5 +1,5 @@
-<section class="register-page">
-    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="wrapper">
+<section class="register-page full-height">
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="wrapper current-step-{{step}}">
 
         <div class="step step-1">
             <div class="title"><h2>Inscris-toi !</h2></div>
@@ -53,11 +53,27 @@
                     <input type="text" name="register_phone" formControlName="register_phone">
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-primary btn-small">Connexion</button>
+            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
+            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
         </div>
 
-        <div class="step stp-2">
-            
+        <div class="step step-2">
+            <div class="title"><h2>Informations complémentaires</h2></div>
+            <fieldset>
+
+            </fieldset>
+            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
+            <button (click)="step1()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+            <button (click)="step3()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+        </div>
+
+        <div class="step step-3">
+            <div class="title"><h2>Inscris-toi !</h2></div>
+            <fieldset>
+
+            </fieldset>
+            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
+            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
         </div>
 
     </form>
