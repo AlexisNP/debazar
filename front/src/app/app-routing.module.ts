@@ -1,8 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { IndexComponent } from './global/components/index/index.component';
-
 import { LandingComponent } from "./global/components/index/landing/landing.component";
 import { RecentAdvertsComponent } from "./global/components/index/recent-adverts/recent-adverts.component";
 import { SellGamesComponent } from "./global/components/index/sell-games/sell-games.component";
@@ -67,7 +65,7 @@ const routes: Routes = [
         ]
     },
 
-    { path: '**', component: IndexComponent }
+    { path: '**', component: LandingComponent }
 ];
 
 @NgModule({

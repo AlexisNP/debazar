@@ -13,10 +13,12 @@ import { AuthService } from 'src/app/Authentication/services/auth.service';
 export class RegisterComponent implements OnInit {
 
     private registerForm: FormGroup;
-    public submitted = false;
-    public loading = true;
-    public returnUrl: string;
-    public emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    private submitted = false;
+    private loading = true;
+    private returnUrl: string;
+    private emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
+    private step: number;
+
 
     constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService, private titleService: Title) {
         this.titleService.setTitle("Inscription - Débazar");
@@ -38,7 +40,6 @@ export class RegisterComponent implements OnInit {
             register_city: new FormControl('', Validators.required),
             register_phone: new FormControl('', Validators.required),
         })
-        
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
@@ -60,7 +61,7 @@ export class RegisterComponent implements OnInit {
     })
 
     ngOnInit() {
-        
+        this.step = 1;
     }
 
     onSubmit() {
@@ -82,5 +83,17 @@ export class RegisterComponent implements OnInit {
                 this.router.navigate(['']);
             }, 2000);
         }, 1000);
+    }
+
+    step1() {
+        this.step = 1;
+    }
+
+    step2() {
+        this.step = 2;
+    }
+
+    step3() {
+        this.step = 3;
     }
 }
