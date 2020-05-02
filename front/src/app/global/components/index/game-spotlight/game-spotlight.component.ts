@@ -15,6 +15,8 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
+    private topinc: number = 0;
+
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Meilleurs Jeux - Débazar");
 
@@ -34,7 +36,14 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
     }
 
     mouseWheelUpFunc() {
-        this.router.navigate(['/top-jeux-societe']);
+        if (window.scrollY == 0) {
+            this.topinc++;
+            if (this.topinc >= 7) {
+                this.router.navigate(['/top-jeux-societe']);
+            }
+        } else {
+            this.topinc = 0;
+        }
     }
 
 }

@@ -13,6 +13,8 @@ export class LandingComponent implements OnInit {
 
     faChevronRight = faChevronRight;
 
+    private botinc: number = 0;
+
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Accueil - Débazar");
     }
@@ -22,7 +24,14 @@ export class LandingComponent implements OnInit {
     }
 
     mouseWheelDownFunc() {
-        this.router.navigate(['/annonces-jeux-recentes']);
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            this.botinc++;
+            if (this.botinc >= 7) {
+                this.router.navigate(['/annonces-jeux-recentes']);
+            }
+        } else {
+            this.botinc = 0;
+        }
     }
 
 }

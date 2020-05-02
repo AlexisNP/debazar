@@ -19,6 +19,9 @@ export class RecentAdvertsComponent implements OnInit, OnDestroy {
     private games: Game[];
     private users: User[];
 
+    private topinc: number = 0;
+    private botinc: number = 0;
+
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Annonces récentes - Débazar");
         this.games = [
@@ -51,11 +54,25 @@ export class RecentAdvertsComponent implements OnInit, OnDestroy {
     }
 
     mouseWheelUpFunc() {
-        this.router.navigate(['/']);
+        if (window.scrollY == 0) {
+            this.topinc++;
+            if (this.topinc >= 7) {
+                this.router.navigate(['/']);
+            }
+        } else {
+            this.topinc = 0;
+        }
     }
 
     mouseWheelDownFunc() {
-        this.router.navigate(['/vendre-mes-jeux']);
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
+            this.botinc++;
+            if (this.botinc >= 7) {
+                this.router.navigate(['/vendre-mes-jeux']);
+            }
+        } else {
+            this.botinc = 0;
+        }
     }
 
 }
