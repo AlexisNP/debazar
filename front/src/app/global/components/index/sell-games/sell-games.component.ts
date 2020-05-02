@@ -9,6 +9,9 @@ import { Router } from '@angular/router';
 })
 export class SellGamesComponent implements OnInit, OnDestroy {
 
+    private topinc: number = 0;
+    private botinc: number = 0;
+
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Vendre son jeu - Débazar");
     }
@@ -24,11 +27,25 @@ export class SellGamesComponent implements OnInit, OnDestroy {
     }
 
     mouseWheelUpFunc() {
-        this.router.navigate(['/annonces-jeux-recentes']);
+        if (window.scrollY == 0) {
+            this.topinc++;
+            if (this.topinc >= 7) {
+                this.router.navigate(['/annonces-jeux-recentes']);
+            }
+        } else {
+            this.topinc = 0;
+        }
     }
 
     mouseWheelDownFunc() {
-        this.router.navigate(['/top-jeux-societe']);
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            this.botinc++;
+            if (this.botinc >= 7) {
+                this.router.navigate(['/top-jeux-societe']);
+            }
+        } else {
+            this.botinc = 0;
+        }
     }
 
 }

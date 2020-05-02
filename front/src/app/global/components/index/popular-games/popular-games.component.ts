@@ -15,6 +15,9 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
+    private topinc: number = 0;
+    private botinc: number = 0;
+
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Top Jeux - Débazar");
         this.games = [
@@ -35,11 +38,25 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
     }
 
     mouseWheelUpFunc() {
-        this.router.navigate(['/vendre-mes-jeux']);
+        if (window.scrollY == 0) {
+            this.topinc++;
+            if (this.topinc >= 5) {
+                this.router.navigate(['/vendre-mes-jeux']);
+            }
+        } else {
+            this.topinc = 0;
+        }
     }
 
     mouseWheelDownFunc() {
-        this.router.navigate(['/meilleurs-jeux-societe']);
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
+            this.botinc++;
+            if (this.botinc >= 7) {
+                this.router.navigate(['/meilleurs-jeux-societe']);
+            }
+        } else {
+            this.botinc = 0;
+        }
     }
 
 }

@@ -53,27 +53,25 @@
                     <input type="text" name="register_phone" formControlName="register_phone">
                 </div>
             </fieldset>
-            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
             <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
         </div>
 
         <div class="step step-2">
-            <div class="title"><h2>Informations complémentaires</h2></div>
+            <div class="title"><h2>Personnalisation du compte</h2></div>
             <fieldset>
 
             </fieldset>
-            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
-            <button (click)="step1()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
-            <button (click)="step3()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+            <button (click)="step3()" type="button" class="btn btn-primary btn-small">Finalisation</button>
+            <button (click)="step1()" type="button" class="btn btn-primary btn-small">Retour</button>
         </div>
 
         <div class="step step-3">
-            <div class="title"><h2>Inscris-toi !</h2></div>
+            <div class="title"><h2>Bienvenue sur Débazar !</h2></div>
             <fieldset>
-
+    
             </fieldset>
             <button type="submit" class="btn btn-primary btn-small">Inscription</button>
-            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Retour</button>
         </div>
 
     </form>

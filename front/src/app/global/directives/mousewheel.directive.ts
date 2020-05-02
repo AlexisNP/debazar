@@ -25,12 +25,6 @@ export class MouseWheelDirective {
     } else if(delta < 0) {
         this.mouseWheelDown.emit(event);
     }
-    // for IE
-    event.returnValue = false;
-    // for Chrome and Firefox
-    if(event.preventDefault) {
-        event.preventDefault();
-    }
   }
 
 }

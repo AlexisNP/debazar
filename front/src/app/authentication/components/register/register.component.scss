@@ -7,7 +7,7 @@
         display: flex;
         flex-flow: row nowrap;
         align-items: center;
-        transition: transform 1s linear;
+        transition: transform 1s ease-out;
         .step {
             min-height: calc(100vh - 6rem);
             max-height: calc(100vh - 6rem);
@@ -26,7 +26,6 @@
             &.step-1 {
                 fieldset {
                     width: 60%;
-                    border: none;
                     .input-group {
                         input {
                             background: $white;
