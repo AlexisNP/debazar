@@ -8,6 +8,8 @@ import { PopularGamesComponent } from "./global/components/index/popular-games/p
 import { GameSpotlightComponent } from "./global/components/index/game-spotlight/game-spotlight.component";
 
 import { AdvertsComponent } from "./global/components/adverts/adverts.component";
+import { AdvertSingleComponent } from './global/components/advert-single/advert-single.component';
+import { GameSingleComponent } from './global/components/game-single/game-single.component';
 
 import { LoginComponent } from "./Authentication/components/login/login.component";
 import { RegisterComponent } from "./Authentication/components/register/register.component";
@@ -21,6 +23,7 @@ import { GameboxComponent } from "./user/components/gamebox/gamebox.component";
 
 import { AdminHomeComponent } from './administration/components/admin-home/admin-home.component';
 import { ManagementComponent } from './administration/components/management/management.component';
+import { GamesComponent } from './global/components/games/games.component';
 
 const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -31,6 +34,12 @@ const routes: Routes = [
     
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
+
+    { path: 'annonces', component: AdvertsComponent },
+    { path: 'annonces/:id', component: AdvertSingleComponent },
+
+    { path: 'jeux', component: GamesComponent },
+    { path: 'jeux/:id', component: GameSingleComponent },
 
     {
         path: 'mon-compte',

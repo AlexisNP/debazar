@@ -35,6 +35,9 @@ import { ScrollerComponent } from './global/components/index/scroller/scroller.c
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
 import { MouseWheelDirective } from './global/directives/mousewheel.directive';
+import { AdvertSingleComponent } from './global/components/advert-single/advert-single.component';
+import { GameSingleComponent } from './global/components/game-single/game-single.component';
+import { GamesComponent } from './global/components/games/games.component';
 
 @NgModule({
   declarations: [
@@ -62,6 +65,9 @@ import { MouseWheelDirective } from './global/directives/mousewheel.directive';
     ScrollerComponent,
     AddGameComponent,
     MouseWheelDirective,
+    AdvertSingleComponent,
+    GameSingleComponent,
+    GamesComponent,
   ],
   imports: [
     BrowserModule,
