@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import Advert from '../../models/Advert';
 
 
 @Component({
@@ -8,6 +9,8 @@ import { Title } from '@angular/platform-browser';
   styleUrls: ['./adverts.component.scss']
 })
 export class AdvertsComponent implements OnInit {
+
+    private adverts: Advert[];
 
     constructor(private titleService: Title) {
         this.titleService.setTitle("Annonces - Débazar");

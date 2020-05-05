@@ -145,6 +145,14 @@ fieldset {
     }
 }
 
+// Components
+.rating-stars {
+    color: $orange;
+    > * {
+        display: inline-block;
+    }
+}
+
 // Text align
 .txt-center { text-align: center }
 .txt-left { text-align: left }
