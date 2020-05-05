@@ -122,6 +122,19 @@ class User {
         this._wishlist = value;
     }
 
+    public ratingStars(stars: number) {
+        let output = [];
+        for (let index = 0; index < 5; index++) {
+            if (stars > 0) {
+                output.push(1);
+            } else {
+                output.push(0);
+            }
+            stars--;
+        }
+        return output;
+    }
+
 }
 
 export default User;

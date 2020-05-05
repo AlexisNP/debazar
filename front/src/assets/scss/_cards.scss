@@ -70,14 +70,6 @@
                         font-size: 1.6rem;
                         font-weight: $bold;
                     }
-                    .rating {
-                        color: $orange;
-                        ul {
-                            > * {
-                                display: inline-block;
-                            }
-                        }
-                    }
                 }
             }
         }

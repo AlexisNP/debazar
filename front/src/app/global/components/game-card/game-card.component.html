@@ -14,9 +14,9 @@
                     <p class="genre">{{ game.category.name }}</p>
                 </div>
                 <div class="row">
-                    <div class="rating">
-                        <ul class="stars">
-                            <li *ngFor="let star of ratingStars(game.rating)">
+                    <div>
+                        <ul class="rating-stars">
+                            <li *ngFor="let star of game.ratingStars(game.rating)">
                                 <span *ngIf="star; else emptyStar">
                                     <fa-icon [icon]="fasStar"></fa-icon>
                                 </span>
