@@ -5,8 +5,13 @@
                 <div class="inner">
                     <figure [ngStyle]="{'background-image': 'url(' + advert.game.image + ')'}"></figure>
                     <main>
-                        <h1>Bloodborne</h1>
+                        <h1 class="txt-heavy">Bloodborne</h1>
                         <div>
+                            <var class="txt-heavy txt-orange">{{ advert.price }}€</var>
+                            <p>Date de mise en ligne : {{ advert.publishedAt }}</p>
+                            <p>Betton 35830</p>
+                            <p><b>État :</b> {{ advert.state }}</p>
+                            <p><b>Catégorie : </b> {{ advert.game.category.name }}</p>
                             <div class="rating">
                                 <span>Note du jeu : </span>
                                 <ul class="rating-stars">
@@ -22,11 +27,6 @@
                                     </li>
                                 </ul>
                             </div>
-                            <var>{{ advert.price }}€</var>
-                            <p>Date de mise en ligne : {{ advert.publishedAt }}</p>
-                            <p>Betton 35830</p>
-                            <p><b>État :</b> {{ advert.state }}</p>
-                            <p><b>Catégorie : </b> {{ advert.game.category.name }}</p>
                         </div>
                     </main>
                     <div class="infos">
@@ -39,7 +39,7 @@
             </article>
             <aside>
                 <div class="user">
-                    <h3>{{ advert.user.username }}</h3>
+                    <h3 class="txt-heavy">{{ advert.user.username }}</h3>
                     <div class="infos">
                         <figure></figure>
                         <div>
