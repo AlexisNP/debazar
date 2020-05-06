@@ -35,11 +35,11 @@ section {
 
                         h1 {
                             font-size: 2.75rem;
+                            font-family: 'Nunito', sans-serif;
                         }
 
                         var {
                             font-size: 2.5rem;
-                            color: $orange;
                             font-weight: $heavy;
                             font-style: normal;
                         }
@@ -77,6 +77,29 @@ section {
                     @include before-triangle(right);
                     box-shadow: 0 0 .5rem rgba($black, .2);
                     border-radius: 1rem;
+
+                    h3 {
+                        font-size: 2rem;
+                        font-family: 'Nunito', sans-serif;
+                    }
+
+                    .infos {
+                        display: flex;
+                        > * {
+                            width: 50%;
+                        }
+                        figure {
+                            margin: auto;
+                            background-repeat: no-repeat;
+                            background-position: center center;
+                            background-size: cover;
+                        }
+                        .btn {
+                            margin-top: 1.5rem;
+                            display: block;
+                            text-align: center;
+                        }
+                    }
                 }
                 .actions {
                     .btn {
