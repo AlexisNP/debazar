@@ -3,27 +3,14 @@
 .card {
     display: block;
     padding: 2rem;
-    position: relative;
     background: $white;
     border-radius: 1.25rem;
     box-shadow: 0 0 1.5rem rgba($black, .2);
-    overflow: hidden;
 
-    &:before {
-        content: '';
-        display: block;
-        position: absolute;
-        top: -2.5rem;
-        left: -2.5rem;
-        height: 5rem;
-        width: 5rem;
-        background: $orange;
-        transform: rotate(45deg);
-    }
+    @include before-triangle(left);
 
     .card-wrapper {
         .main-container {
-
             aside {
                 padding-right: .75rem;
 
