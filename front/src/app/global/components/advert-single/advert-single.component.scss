@@ -1,0 +1,78 @@
+@import "../scss/_variables.scss";
+@import "../scss/_mixins.scss";
+
+section {
+    .wrapper {
+        .advert-body {
+            padding: 0 2.5rem 2.5rem 2.5rem;
+            display: flex;
+            flex-flow: row nowrap;
+
+            article {
+                width: 70%;
+                padding: 2.5rem;
+                .inner {
+                    padding: 2.5rem;
+                    @include before-triangle(left);
+                    box-shadow: 0 0 .5rem rgba($black, .2);
+                    border-radius: 1rem;
+                    
+                    figure {
+                        min-height: 40rem;
+                        width: 100%;
+                        margin: auto;
+                        background-repeat: no-repeat;
+                        background-position: center center;
+                        background-size: contain;
+                    }
+
+                    main {
+                        margin: 2.5rem 0 0;
+                        padding: 2.5rem 0 1rem;
+                        border-top: .2rem solid $orange;
+
+                        h1 {
+                            font-size: 2.75rem;
+                        }
+                        var {
+                            font-size: 2.5rem;
+                            color: $orange;
+                            font-weight: $heavy;
+                            font-style: normal;
+                        }
+                        .rating {
+                            float: right;
+                            font-weight: $bold;
+                            > * {
+                                display: inline-block;
+                            }
+                            .rating-stars {
+                                margin-left: .5rem;
+                            }
+                            &:after {
+                                clear: both;
+                            }
+                        }
+                    }
+                    .infos {
+                        margin-bottom: 2.5rem;
+                        .description-annonce {
+                            margin-top: 1.5rem;
+                        }
+                    }
+                }
+            }
+
+            aside {
+                width: 30%;
+                padding: 2.5rem;
+                .user {
+                    padding: 2.5rem;
+                    @include before-triangle(right);
+                    box-shadow: 0 0 .5rem rgba($black, .2);
+                    border-radius: 1rem;
+                }
+            }
+        }
+    }
+}

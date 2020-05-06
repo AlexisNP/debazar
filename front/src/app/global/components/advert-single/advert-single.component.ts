@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
-import { faStar as fasStar } from '@fortawesome/free-solid-svg-icons';
+import { faStar as fasStar, faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 import Advert from '../../models/Advert';
@@ -21,6 +21,8 @@ export class AdvertSingleComponent implements OnInit {
 
     fasStar = fasStar;
     farStar = farStar;
+    faEnvelope = faEnvelope;
+    faPhone = faPhone;
 
     constructor(private titleService: Title) {
     }

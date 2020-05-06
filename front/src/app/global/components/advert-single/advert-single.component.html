@@ -2,46 +2,62 @@
     <div class="wrapper">
         <div class="advert-body">
             <article>
-                <figure>
-
-                </figure>
-                <main>
-                    <h1>Bloodborne</h1>
-                    <div>
-                        <var>{{ advert.price }}</var>
+                <div class="inner">
+                    <figure [ngStyle]="{'background-image': 'url(' + advert.game.image + ')'}"></figure>
+                    <main>
+                        <h1>Bloodborne</h1>
                         <div>
-                            <span>Note du jeu :</span>
-                            <ul class="rating-stars">
-                                <li *ngFor="let star of advert.game.ratingStars(advert.game.rating)">
-                                    <span *ngIf="star; else emptyStar">
-                                        <fa-icon [icon]="fasStar"></fa-icon>
-                                    </span>
-                                    <ng-template #emptyStar>
-                                        <span>
-                                            <fa-icon [icon]="farStar"></fa-icon>
+                            <div class="rating">
+                                <span>Note du jeu : </span>
+                                <ul class="rating-stars">
+                                    <li *ngFor="let star of advert.game.ratingStars(advert.game.rating)">
+                                        <span *ngIf="star; else emptyStar">
+                                            <fa-icon [icon]="fasStar"></fa-icon>
                                         </span>
-                                    </ng-template>
-                                </li>
-                            </ul>
+                                        <ng-template #emptyStar>
+                                            <span>
+                                                <fa-icon [icon]="farStar"></fa-icon>
+                                            </span>
+                                        </ng-template>
+                                    </li>
+                                </ul>
+                            </div>
+                            <var>{{ advert.price }}€</var>
+                            <p>Date de mise en ligne : {{ advert.publishedAt }}</p>
+                            <p>Betton 35830</p>
+                            <p><b>État :</b> {{ advert.state }}</p>
+                            <p><b>Catégorie : </b> {{ advert.game.category.name }}</p>
                         </div>
-                        <p>Date de mise en ligne : {{ advert.publishedAt }}</p>
-                        <p>Betton 35830</p>
+                    </main>
+                    <div class="infos">
+                        <div class="description-annonce">
+                            <p class="txt-bold txt-orange">Description du vendeur :</p>
+                            <p>{{ advert.text }}</p>
+                        </div>
                     </div>
-                </main>
-                <div class="infos">
-                    <p><b>État :</b> {{ advert.state }}</p>
-                    <p><b>Catégorie : </b> {{ advert.game.category.name }}</p>
-                    <p>{{ advert.text }}</p>
-                    <p>{{ advert.game.description }}</p>
                 </div>
-                <footer>
-                    <a href="" class="btn btn-primary btn-small">Acheter</a>
-                    <a href="/jeux/{{ advert.game.id }}" class="btn btn-secondary btn-small">Fiche du jeu</a>
-                </footer>
             </article>
             <aside>
                 <div class="user">
-
+                    <h3>{{ advert.user.username }}</h3>
+                    <div class="infos">
+                        <figure></figure>
+                        <div>
+                            <p>Note du vendeur : 4,5 / 5</p>
+                            <button class="btn btn-primary btn-small">
+                                <fa-icon [icon]="faEnvelope" size="lg"></fa-icon>
+                                Message au vendeur
+                            </button>
+                            <button class="btn btn-primary btn-small">
+                                <fa-icon [icon]="faPhone" size="lg"></fa-icon>
+                                Appeller le vendeur
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <a href="/jeux/{{ advert.game.id }}" class="btn btn-secondary">Fiche du jeu</a>
+                    <a href="" class="btn btn-primary">Acheter</a>
                 </div>
             </aside>
         </div>
