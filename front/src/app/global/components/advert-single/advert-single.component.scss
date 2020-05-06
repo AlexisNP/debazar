@@ -13,6 +13,7 @@ section {
                 padding: 2.5rem;
                 .inner {
                     padding: 2.5rem;
+                    font-size: 1.6rem;
                     @include before-triangle(left);
                     box-shadow: 0 0 .5rem rgba($black, .2);
                     border-radius: 1rem;
@@ -29,19 +30,24 @@ section {
                     main {
                         margin: 2.5rem 0 0;
                         padding: 2.5rem 0 1rem;
+                        position: relative;
                         border-top: .2rem solid $orange;
 
                         h1 {
                             font-size: 2.75rem;
                         }
+
                         var {
                             font-size: 2.5rem;
                             color: $orange;
                             font-weight: $heavy;
                             font-style: normal;
                         }
+
                         .rating {
-                            float: right;
+                            position: absolute;
+                            top: 2.5rem;
+                            right: 2.5rem;
                             font-weight: $bold;
                             > * {
                                 display: inline-block;
@@ -71,6 +77,13 @@ section {
                     @include before-triangle(right);
                     box-shadow: 0 0 .5rem rgba($black, .2);
                     border-radius: 1rem;
+                }
+                .actions {
+                    .btn {
+                        margin-top: 2.5rem;
+                        display: block;
+                        text-align: center;
+                    }
                 }
             }
         }
