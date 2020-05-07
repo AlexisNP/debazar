@@ -19,6 +19,9 @@ export class RegisterComponent implements OnInit {
     private emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
     private step: number;
 
+    private topinc: number = 0;
+    private botinc: number = 0;
+
 
     constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService, private titleService: Title) {
         this.titleService.setTitle("Inscription - Débazar");
@@ -39,6 +42,7 @@ export class RegisterComponent implements OnInit {
             register_address: new FormControl('', Validators.required),
             register_city: new FormControl('', Validators.required),
             register_phone: new FormControl('', Validators.required),
+            register_avatar: new FormControl(''),
         })
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -58,6 +62,7 @@ export class RegisterComponent implements OnInit {
         address: new FormControl(),
         city: new FormControl(),
         phone: new FormControl(),
+        avatar: new FormControl(),
     })
 
     ngOnInit() {
@@ -95,5 +100,38 @@ export class RegisterComponent implements OnInit {
 
     step3() {
         this.step = 3;
+    }
+
+    mouseWheelUpFunc() {
+        this.botinc = 0;
+        if (window.scrollY == 0) {
+            this.topinc++;
+            if (this.topinc >= 7) {
+                if (this.step > 0) {
+                    this.step--;
+                }
+                this.topinc = 0;
+            }
+        } else {
+            this.topinc = 0;
+        }
+        console.log(this.step, this.topinc)
+    }
+
+    mouseWheelDownFunc() {
+        this.topinc = 0;
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+            this.botinc++;
+            if (this.botinc >= 7) {
+                if (this.step <= 2) {
+                    this.step++;
+                }
+                this.botinc = 0;
+            }
+        } else {
+            this.botinc = 0;
+        }
+        console.log(this.step, this.botinc)
+
     }
 }
