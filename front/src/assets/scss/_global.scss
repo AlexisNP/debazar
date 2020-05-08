@@ -100,7 +100,8 @@ fieldset {
     }
     
     &.btn-full {
-        width: 100%;
+        display: block;
+        text-align: center;
     }
 }
 
@@ -116,9 +117,9 @@ fieldset {
         padding: 1rem 2.5rem;
         color: $orange;
         font-weight: $bold;
-        border: 2px solid $orange--light;
+        border: 1px solid $orange--light;
         border-radius: 5rem;
-        background: none;
+        background: $white;
         &::placeholder {
             color: $orange;
         }
