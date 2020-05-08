@@ -1,6 +1,7 @@
 @import "../scss/_variables.scss";
 
 .recent-adverts {
+    min-height: calc(100vh - 7.5rem);
     .wrapper {
         .advert-list-container {
             padding: 0 2.5rem;
@@ -9,7 +10,7 @@
             justify-content: space-around;
             > * {
                 width: 50%;
-                padding: 2.5rem;
+                padding: 1rem;
             }
         }
     }
@@ -20,7 +21,7 @@
         height: 2rem;
         right: 0;
         left: 0;
-        background: linear-gradient($white, transparent);
+        background: linear-gradient($background--fill, transparent);
     }
 }
 
