@@ -58,6 +58,8 @@ const routes: Routes = [
     },
     { path: 'vendre-mon-jeu', component: SellGameComponent, canActivate: [AuthGuard] },
     { path: 'autour-de-moi', component: NearMeComponent, canActivate: [AuthGuard] },
+    { path: 'mon-bazar', component: GameboxComponent },
+
 
     {
         path: 'admin',
