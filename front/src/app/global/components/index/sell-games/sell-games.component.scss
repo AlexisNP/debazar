@@ -1,4 +1,27 @@
+@import "../scss/_variables.scss";
+
 .sell-games {
-    padding-top: 10vh;
+    height: 100vh;
     text-align: center;
+    main {
+        max-width: 40%;
+        min-width: 35rem;
+        margin: auto;
+        padding: 2.5rem;
+        background: $white;
+        border-radius: 1rem;
+        p {
+            margin-bottom: 1.5rem;
+        }
+        .connect-to-us {
+            div {
+                display: flex;
+                flex-flow: column nowrap;
+                align-items: center;
+                .btn {
+                    margin-bottom: 1.5rem;
+                }
+            }
+        }
+    }
 }
