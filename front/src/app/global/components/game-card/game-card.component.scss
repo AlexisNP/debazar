@@ -15,6 +15,24 @@
                 .description {
                     flex-grow: 1;
                 }
+                .showcase {
+                    text-align: center;
+                    p {
+                        font-size: 2rem;
+                    }
+                    .medal {
+                        margin-top: 1rem;
+                        display: inline-block;
+                        position: relative;
+                        .rating {
+                            position: absolute;
+                            top: 1.8rem;
+                            right: 40%;
+                            font-size: 2.5rem;
+                            text-align: center;
+                        }
+                    }
+                }
                 footer {
                     .btn-primary {
                         display: block;
