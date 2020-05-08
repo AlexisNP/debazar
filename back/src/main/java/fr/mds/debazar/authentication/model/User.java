@@ -61,9 +61,9 @@ public class User {
 
     @ManyToMany(fetch= FetchType.LAZY)
     @JoinTable(
-            name = "interest",
-            joinColumns = @JoinColumn(name = "users_categories"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
+            name = "users_categories",
+            joinColumns = @JoinColumn(name = "id_user"),
+            inverseJoinColumns = @JoinColumn(name = "id_category"))
     private Set<Category> interest = new HashSet<>();
 
     public Long getId() {

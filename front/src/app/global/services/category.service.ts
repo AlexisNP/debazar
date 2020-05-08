@@ -19,11 +19,7 @@ export class CategoryService {
    * return all categories stored in database
    */
   public getAllCategories() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
+    return this.http.get<Category[]>(`${this.baseUrl}/${ENDPOINT}/find-all`);
   }
 
   /**

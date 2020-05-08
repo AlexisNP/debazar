@@ -6,6 +6,7 @@ import { FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 import { AuthService } from 'src/app/Authentication/services/auth.service';
 import Category from 'src/app/global/models/Category';
 import { element } from 'protractor';
+import { CategoryService } from 'src/app/global/services/category.service';
 
 @Component({
   selector: 'app-register',
@@ -27,7 +28,9 @@ export class RegisterComponent implements OnInit {
     private botinc: number = 0;
 
 
-    constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService, private titleService: Title) {
+    constructor( private route: ActivatedRoute, private router: Router,
+        private auth: AuthService, private titleService: Title,
+        private categoryServ: CategoryService) {
         this.titleService.setTitle("Inscription - Débazar");
         this.registerForm = new FormGroup({
             register_first_name: new FormControl('', Validators.required),
@@ -68,22 +71,28 @@ export class RegisterComponent implements OnInit {
         address: new FormControl(),
         city: new FormControl(),
         phone: new FormControl(),
-        avatar: new FormControl(),
+        // avatar: new FormControl(),
+        interest: new FormArray([])
     })
 
     ngOnInit() {
         this.step = 1;
-        this.listCategories = [
-            new Category(1, 'Jeux de plateau'),
-            new Category(2, 'Jeux de dessin'),
-            new Category(3, 'Jeux à deux'),
-            new Category(4, 'Escape Game'),
-            new Category(5, 'Jeux pour enfant'),
-            new Category(6, 'Jeux de stratégie'),
-            new Category(7, 'Jeux de cartes'),
-            new Category(8, 'Jeux de coopération'),
-            new Category(9, 'Jeux en bois'),
-        ]
+        // this.listCategories = [
+        //     new Category(1, 'Jeux de plateau'),
+        //     new Category(2, 'Jeux de dessin'),
+        //     new Category(3, 'Jeux à deux'),
+        //     new Category(4, 'Escape Game'),
+        //     new Category(5, 'Jeux pour enfant'),
+        //     new Category(6, 'Jeux de stratégie'),
+        //     new Category(7, 'Jeux de cartes'),
+        //     new Category(8, 'Jeux de coopération'),
+        //     new Category(9, 'Jeux en bois'),
+        // ]
+        this.categoryServ.getAllCategories().subscribe(data => {
+            // console.log("data:", data),
+            this.listCategories = data;
+          }, error => {console.log("Error", error);
+          });
     }
 
     togglePreferences(v) {
@@ -111,9 +120,15 @@ export class RegisterComponent implements OnInit {
         this.data.get('address').setValue(this.registerForm.get('register_address').value);
         this.data.get('city').setValue(this.registerForm.get('register_city').value);
         this.data.get('phone').setValue(this.registerForm.get('register_phone').value);
+
+        // this.data.get('avatar').setValue(this.registerForm.get('register_avatar').value);
+        const structure = this.registerForm.get('register_chosen_categories') as FormArray;
+        const interests = this.data.get('interest') as FormArray;
+        structure.value.forEach(element => {
+            interests.push(new FormControl(element));
+        });
         setTimeout(() => {
             // console.log("inscription");
-            // console.log(this.data.value);
             this.auth.registerUser(this.data.value);
             setTimeout(() => {
                 this.router.navigate(['']);

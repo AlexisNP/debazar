@@ -1,14 +1,8 @@
 <aside class="side-menu" role="navigation" [ngClass]="{'active' : active}">
     <nav>
         <div class="title">Nos Catégories</div>
-        <div class="element"><a href="#">Jeux de plateau</a></div>
-        <div class="element"><a href="#">Jeux à deux</a></div>
-        <div class="element"><a href="#">Jeux pour enfants</a></div>
-        <div class="element"><a href="#">Jeux de cartes</a></div>
-        <div class="element"><a href="#">Jeux de coopération</a></div>
-        <div class="element"><a href="#">Jeux en bois</a></div>
-        <div class="element"><a href="#">Jeux de dessin</a></div>
-        <div class="element"><a href="#">Jeux de stratégie</a></div>
-        <div class="element"><a href="#">Escape game</a></div>
+        <div *ngFor="let i of categories">
+            <div class="element"><a href="#">{{i.name}}</a></div>
+        </div>
     </nav>
 </aside>

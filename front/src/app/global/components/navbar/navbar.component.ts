@@ -1,7 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { faUser } from '@fortawesome/free-solid-svg-icons';
 import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
-// import { ClickOutsideDirective } from "../../../directives/ClickOutsideElementDirective";
+import Category from '../../models/Category';
 
 @Component({
   selector: 'navbar',
@@ -9,6 +9,8 @@ import { faBoxOpen } from '@fortawesome/free-solid-svg-icons';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+    @Input() categories: Category[];
 
     faUser = faUser;
     faBoxOpen = faBoxOpen;
