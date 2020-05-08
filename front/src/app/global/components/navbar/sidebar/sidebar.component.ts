@@ -1,4 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
+import Category from 'src/app/global/models/Category';
 
 @Component({
   selector: 'app-sidebar',
@@ -8,6 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 export class SidebarComponent implements OnInit {
 
     @Input() active: boolean;
+    @Input() categories: Category[];
 
     constructor() {
         this.active = false;
