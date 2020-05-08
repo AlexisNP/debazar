@@ -19,11 +19,7 @@ export class GameService {
    * return all games stored in database
    */
   public getAllGames() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
+    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`)
   }
 
   /**

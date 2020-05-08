@@ -77,17 +77,6 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.step = 1;
-        // this.listCategories = [
-        //     new Category(1, 'Jeux de plateau'),
-        //     new Category(2, 'Jeux de dessin'),
-        //     new Category(3, 'Jeux à deux'),
-        //     new Category(4, 'Escape Game'),
-        //     new Category(5, 'Jeux pour enfant'),
-        //     new Category(6, 'Jeux de stratégie'),
-        //     new Category(7, 'Jeux de cartes'),
-        //     new Category(8, 'Jeux de coopération'),
-        //     new Category(9, 'Jeux en bois'),
-        // ]
         this.categoryServ.getAllCategories().subscribe(data => {
             // console.log("data:", data),
             this.listCategories = data;
