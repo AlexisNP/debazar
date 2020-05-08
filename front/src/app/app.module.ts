@@ -38,6 +38,7 @@ import { MouseWheelDirective } from './global/directives/mousewheel.directive';
 import { AdvertSingleComponent } from './global/components/advert-single/advert-single.component';
 import { GameSingleComponent } from './global/components/game-single/game-single.component';
 import { GamesComponent } from './global/components/games/games.component';
+import { ToggleButtonComponent } from './global/components/toggle-button/toggle-button.component';
 
 @NgModule({
   declarations: [
@@ -68,6 +69,7 @@ import { GamesComponent } from './global/components/games/games.component';
     AdvertSingleComponent,
     GameSingleComponent,
     GamesComponent,
+    ToggleButtonComponent,
   ],
   imports: [
     BrowserModule,
