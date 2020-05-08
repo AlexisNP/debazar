@@ -1,0 +1,17 @@
+@import "../scss/_variables.scss";
+
+.all-games {
+    .wrapper {
+        .game-list-container {
+            padding: 0 2.5rem;
+            display: flex;
+            flex-flow: column wrap;
+            align-items: center;
+            > * {
+                min-width: 40rem;
+                width: 40%;
+                padding: 1rem;
+            }
+        }
+    }
+}
