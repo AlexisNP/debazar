@@ -100,7 +100,8 @@ fieldset {
     }
     
     &.btn-full {
-        width: 100%;
+        display: block;
+        text-align: center;
     }
 }
 
