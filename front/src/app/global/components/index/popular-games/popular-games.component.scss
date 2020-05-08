@@ -1,6 +1,7 @@
 @import "../scss/_variables.scss";
 
 .popular-games {
+    min-height: calc(100vh - 7.5rem);
     .wrapper {
         .popular-games-list-container {
             padding: 0 2.5rem;
@@ -10,7 +11,7 @@
             align-items: stretch;
             > * {
                 width: 33%;
-                padding: 2.5rem;
+                padding: 1rem;
             }
         }
     }
@@ -21,7 +22,7 @@
         height: 2rem;
         right: 0;
         left: 0;
-        background: linear-gradient($white, transparent);
+        background: linear-gradient($background--fill, transparent);
     }
 }
 
