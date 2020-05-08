@@ -1,3 +1,9 @@
-<p>
-  games works!
-</p>
+<section class="all-games full-height">
+    <div class="wrapper">
+        <h2>Annonces du Bazar</h2>
+        <div class="game-list-container">
+            <app-game-card *ngFor="let game of games" [game]=game></app-game-card>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</section>

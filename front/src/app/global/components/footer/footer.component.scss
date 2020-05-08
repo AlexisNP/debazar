@@ -1,0 +1,28 @@
+@import "../scss/_variables.scss";
+
+footer {
+    padding: 2.5rem 8%;
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    color: $white;
+    background: $orange;
+    h4 {
+        margin-bottom: 1.5rem;
+        font-size: 2rem;
+    }
+    li {
+        margin-bottom: 1rem;
+    }
+    .social-links {
+        ul {
+            > * {
+                margin-right: 2rem;
+                display: inline-block;
+                a {
+                    display: inline-block;
+                }
+            }
+        }
+    }
+}

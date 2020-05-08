@@ -39,6 +39,7 @@ import { AdvertSingleComponent } from './global/components/advert-single/advert-
 import { GameSingleComponent } from './global/components/game-single/game-single.component';
 import { GamesComponent } from './global/components/games/games.component';
 import { ToggleButtonComponent } from './global/components/toggle-button/toggle-button.component';
+import { FooterComponent } from './global/components/footer/footer.component';
 
 @NgModule({
   declarations: [
@@ -70,6 +71,7 @@ import { ToggleButtonComponent } from './global/components/toggle-button/toggle-
     GameSingleComponent,
     GamesComponent,
     ToggleButtonComponent,
+    FooterComponent,
   ],
   imports: [
     BrowserModule,
