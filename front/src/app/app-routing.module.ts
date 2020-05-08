@@ -24,6 +24,7 @@ import { GameboxComponent } from "./user/components/gamebox/gamebox.component";
 import { AdminHomeComponent } from './administration/components/admin-home/admin-home.component';
 import { ManagementComponent } from './administration/components/management/management.component';
 import { GamesComponent } from './global/components/games/games.component';
+import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
 const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -75,6 +76,7 @@ const routes: Routes = [
             }
         ]
     },
+    { path: 'add_game', component: AddGameComponent },
 
     { path: '**', component: LandingComponent }
 ];

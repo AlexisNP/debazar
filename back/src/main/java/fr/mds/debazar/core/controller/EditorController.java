@@ -33,7 +33,7 @@ public class EditorController {
         return repository.save(new Editor(name));
     }
 
-    @GetMapping()
+    @GetMapping("/find-all")
     public ResponseEntity<List<Editor>> getAll() {
         List<Editor> editors = repository.findAll();
         return ResponseEntity.ok().body(editors);

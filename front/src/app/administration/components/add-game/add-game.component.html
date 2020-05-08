@@ -1,3 +1,99 @@
-<p>
-  add-game works!
-</p>
+<section>
+  <form [formGroup]="gameForm" (ngSubmit)="submitForm()" class="wrapper current-step-{{step}}">
+
+    <div class="step step-1">
+        <header>
+            <div class="title"><h2>Ajouter un jeu.</h2></div>
+        </header>
+        <fieldset>
+          <div class="input-group">
+                <label for="game_name">Nom du jeu</label>
+                <input type="text" name="game_name" formControlName="game_name" required>
+            </div>
+            <div class="input-group">
+                <label for="game_image">Image ?</label>
+                <input type="text" name="game_image" formControlName="game_image">
+            </div>
+            <div class="input-group">
+                <label for="game_description">Description</label>
+                <input type="text" name="game_description" formControlName="game_description" required>
+            </div>
+            <div class="input-group">
+                <label for="game_editor">Editeur (dropdown)</label>
+                <div class="group-gap">
+                  <div class="d-block my-3">
+                    <div class="mb-3">
+                        <select class="custom-select" (change)="changeEditor($event)" formControlName="game_editor">
+                          <option value="">Selectionner un éditeur</option>
+                          <option *ngFor="let editor of listEditors" [ngValue]="game_editor">{{editor.name}}</option>
+                        </select>
+                        <!-- error block -->
+                        <div class="invalid-feedback" *ngIf="isSubmitted && game_editor.errors?.required">
+                          <sup>*</sup>Selectionner un éditeur
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="game_players">Nombre de joueurs</label>
+                <input type="text" name="game_players" formControlName="game_players" required>
+            </div>
+            <div class="input-group">
+                <label for="game_duration">Durée d'une partie</label>
+                <input type="text" name="game_duration" formControlName="game_duration" required>
+            </div>
+            <div class="input-group">
+                <label for="game_published">Publication</label>
+                <input type="text" name="game_published" formControlName="game_published" required>
+            </div>
+            <div class="input-group">
+                <label for="game_age">Age:</label>
+                <input type="text" name="game_age" formControlName="game_age" required>
+            </div>
+            <div class="input-group">
+                <label for="game_price">Prix de vente initial</label>
+                <input type="text" name="game_price" formControlName="game_price">
+            </div>
+            <div class="input-group">
+                <label for="game_rating">Evaluation</label>
+                <div class="group-gap">
+                  <div class="d-block my-3">
+                    <div class="mb-3">
+                        <select class="custom-select" (change)="changeRating($event)" formControlName="game_rating">
+                          <option value="">Selectionner une évaluation</option>
+                          <option *ngFor="let rating of ratingList" [ngValue]="game_rating">{{rating}}</option>
+                        </select>
+                        <!-- error block -->
+                        <div class="invalid-feedback" *ngIf="isSubmitted && game_rating.errors?.required">
+                          <sup>*</sup>Selectionner une évaluation
+                        </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="game_category">Catégorie (checkbox list)</label>
+                <div *ngFor="let category of listCategories">
+                  <input type="checkbox" (change)="onChangeCat(category, $event.target.checked)">{{category.name}}
+                </div>
+            </div>
+            <div class="input-group">
+                <label for="game_extension">Ce jeu est une extension de :</label>
+                <div class="group-gap">
+                  <div class="d-block my-3">
+                    <div class="mb-3">
+                        <select class="custom-select" (change)="changeRating($event)" formControlName="game_extension">
+                          <option value="">Selectionner le jeu de base</option>
+                          <option *ngFor="let game of listGames" [ngValue]="game">{{game.name}}</option>
+                        </select>
+                      </div>
+                  </div>
+                </div>
+            </div>
+        </fieldset>
+        <button type="submit" class="btn btn-primary btn-small">Ajouter le jeu</button>
+    </div>
+
+  </form>
+</section>
