@@ -1,9 +1,12 @@
 package fr.mds.debazar.authentication.model;
 
+import java.util.Set;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 import fr.mds.debazar.authentication.validation.ValidEmail;
+import fr.mds.debazar.core.model.Category;
 import lombok.AllArgsConstructor;
 import lombok.NoArgsConstructor;
 
@@ -53,6 +56,10 @@ public class UserDTO {
     @NotNull
     @NotEmpty
     private String phone;
+
+    @NotNull
+    @NotEmpty
+    private Set<Category> interest;
 
     public String getFirstname() {
         return firstname;
@@ -132,6 +139,14 @@ public class UserDTO {
 
     public void setPhone(String phone) {
         this.phone = phone;
+    }
+
+    public Set<Category> getInterest() {
+        return interest;
+    }
+
+    public void setInterest(Set<Category> interest) {
+        this.interest = interest;
     }
 
 }
