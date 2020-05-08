@@ -1,9 +1,11 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormGroup, Validators, FormControl } from '@angular/forms';
+import { FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 
 import { AuthService } from 'src/app/Authentication/services/auth.service';
+import Category from 'src/app/global/models/Category';
+import { element } from 'protractor';
 
 @Component({
   selector: 'app-register',
@@ -18,6 +20,8 @@ export class RegisterComponent implements OnInit {
     private returnUrl: string;
     private emailPattern = /(?:[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*|"(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21\x23-\x5b\x5d-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])*")@(?:(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?|\[(?:(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?)\.){3}(?:25[0-5]|2[0-4][0-9]|[01]?[0-9][0-9]?|[a-z0-9-]*[a-z0-9]:(?:[\x01-\x08\x0b\x0c\x0e-\x1f\x21-\x5a\x53-\x7f]|\\[\x01-\x09\x0b\x0c\x0e-\x7f])+)\])/;
     private step: number;
+
+    private listCategories: Category[];
 
     private topinc: number = 0;
     private botinc: number = 0;
@@ -43,6 +47,8 @@ export class RegisterComponent implements OnInit {
             register_city: new FormControl('', Validators.required),
             register_phone: new FormControl('', Validators.required),
             register_avatar: new FormControl(''),
+
+            register_chosen_categories: new FormArray([], Validators.required)
         })
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
@@ -67,9 +73,34 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.step = 1;
+        this.listCategories = [
+            new Category(1, 'Jeux de plateau'),
+            new Category(2, 'Jeux de dessin'),
+            new Category(3, 'Jeux à deux'),
+            new Category(4, 'Escape Game'),
+            new Category(5, 'Jeux pour enfant'),
+            new Category(6, 'Jeux de stratégie'),
+            new Category(7, 'Jeux de cartes'),
+            new Category(8, 'Jeux de coopération'),
+            new Category(9, 'Jeux en bois'),
+        ]
     }
 
-    onSubmit() {
+    togglePreferences(v) {
+        const structure = this.registerForm.get('register_chosen_categories') as FormArray;
+
+        let cat = v.element;
+        let state = v.state;
+        
+        if (!state) {
+            const index = structure.controls.findIndex(x => x.value === cat);
+            structure.removeAt(index);
+        } else {
+            structure.push(new FormControl(cat));
+        }
+    }
+
+    submitForm() {
         this.data.get('firstname').setValue(this.registerForm.get('register_first_name').value);
         this.data.get('lastname').setValue(this.registerForm.get('register_last_name').value);
         this.data.get('mailAddress').setValue(this.registerForm.get('register_mail').value);
@@ -115,7 +146,6 @@ export class RegisterComponent implements OnInit {
         } else {
             this.topinc = 0;
         }
-        console.log(this.step, this.topinc)
     }
 
     mouseWheelDownFunc() {
@@ -131,7 +161,5 @@ export class RegisterComponent implements OnInit {
         } else {
             this.botinc = 0;
         }
-        console.log(this.step, this.botinc)
-
     }
 }
