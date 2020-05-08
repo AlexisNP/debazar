@@ -14,6 +14,7 @@ import javax.persistence.Table;
 
 import org.hibernate.annotations.GenericGenerator;
 
+import fr.mds.debazar.core.model.Category;
 import fr.mds.debazar.core.model.Game;
 import lombok.Getter;
 import lombok.Setter;
@@ -57,6 +58,13 @@ public class User {
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "game_id"))
     private Set<Game> whishlist = new HashSet<>();
+
+    @ManyToMany(fetch= FetchType.LAZY)
+    @JoinTable(
+            name = "interest",
+            joinColumns = @JoinColumn(name = "users_categories"),
+            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    private Set<Category> interest = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -153,6 +161,12 @@ public class User {
     }
     public void setWhishlist(Set<Game> games) {
         this.whishlist = games;
+    }
+    public Set<Category> getInterest() {
+        return interest;
+    }
+    public void setInterest(Set<Category> interest) {
+        this.interest = interest;
     }
 
 }

@@ -40,6 +40,7 @@ public class UserService {
         newUser.setAddress(userDto.getAddress());
         newUser.setCity(userDto.getCity());
         newUser.setPhone(userDto.getPhone());
+        newUser.setInterest(userDto.getInterest());
         newUser.setBanned(false);
         newUser.setVerified(false);
 

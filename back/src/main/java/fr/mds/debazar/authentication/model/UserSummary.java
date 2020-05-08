@@ -3,6 +3,7 @@ package fr.mds.debazar.authentication.model;
 import java.util.HashSet;
 import java.util.Set;
 
+import fr.mds.debazar.core.model.Category;
 import fr.mds.debazar.core.model.Game;
 import fr.mds.debazar.core.model.GameSummary;
 
@@ -20,6 +21,7 @@ public class UserSummary {
     private Boolean banned;
     private Set<GameSummary> gamebox = new HashSet<>();
     private Set<GameSummary> whishlist = new HashSet<>();
+    private Set<Category> interset = new HashSet<>();
 
     public UserSummary() {}
 
@@ -40,6 +42,7 @@ public class UserSummary {
         for (Game game : user.getWhishlist()) {
             this.whishlist.add(new GameSummary(game));
         }
+        this.interset = user.getInterest();
     }
 
     public String getUsername() {
@@ -108,11 +111,17 @@ public class UserSummary {
     public void setGamebox(Set<GameSummary> gamebox) {
         this.gamebox = gamebox;
     }
-    public Set<GameSummary> getWishlist() {
+    public Set<GameSummary> getWhishlist() {
         return whishlist;
     }
     public void setWhishlist(Set<GameSummary> whishlist) {
         this.whishlist = whishlist;
+    }
+    public Set<Category> getInterset() {
+        return interset;
+    }
+    public void setInterset(Set<Category> interset) {
+        this.interset = interset;
     }
 
 }
