@@ -20,8 +20,7 @@ export class GameSingleComponent implements OnInit {
     fasStar = fasStar;
     farStar = farStar;
 
-    constructor(private titleService: Title) {
-    }
+    constructor(private titleService: Title) {}
 
     ngOnInit() {
         this.game = new Game(94, "Monopoly", "https://www.kroger.com/product/images/xlarge/front/0063050951263", "Un jeu qui ravira petit et grand", 4, "2 jours", new Date(), 5, 15, new Editor(1, "Jeux&Cie"), new Category(4, "Jeux de plateau"));

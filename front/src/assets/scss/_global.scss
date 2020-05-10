@@ -206,12 +206,14 @@ section {
     flex-flow: column nowrap;
     .wrapper {
         flex-grow: 1;
-        > h2 {
-            margin: 2.5rem 0;
-            font-size: 3.5rem;
-            font-family: 'Nunito', sans-serif;
-            text-align: center;
-            color: $orange;
+        > header {
+            h2 {
+                margin: 2.5rem 0;
+                font-size: 3.5rem;
+                font-family: 'Nunito', sans-serif;
+                text-align: center;
+                color: $orange;
+            }
         }
     }
     
