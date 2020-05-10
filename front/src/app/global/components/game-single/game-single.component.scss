@@ -1,0 +1,48 @@
+@import "../scss/_variables.scss";
+
+section {
+    .wrapper {
+        .game-body {
+            width: 60%;
+            margin: auto;
+            padding: 0 2.5rem;
+
+            h3 {
+                display: inline-block;
+                margin-bottom: 1.5rem;
+                font-size: 1.8rem;
+                &:after {
+                    content: '';
+                    height: 2px;
+                    width: 100%;
+                    display: block;
+                    background: $orange;
+                }
+            }
+
+            ul {
+                li {
+                    margin-bottom: .5rem;
+                }
+            }
+
+            header {
+                display: flex;
+                figure {
+                    min-height: 20rem;
+                    min-width: 20rem;
+                    background-repeat: no-repeat;
+                    background-position: 80%;
+                    background-size: contain;
+                }
+                .description {
+                    flex-grow: 1;
+                }
+            }
+        }
+    }
+    > footer {
+        margin: 2.5rem 0;
+        text-align: center;
+    }
+}

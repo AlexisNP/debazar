@@ -1,6 +1,8 @@
 <section class="recent-adverts index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
     <div class="wrapper">
-        <h2>Annonces récentes</h2>
+        <header>
+            <h2>Annonces récentes</h2>
+        </header>
         <div class="advert-list-container">
             <app-advert-card *ngFor="let advert of adverts" [advert]=advert></app-advert-card>
         </div>

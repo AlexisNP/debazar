@@ -1,7 +1,9 @@
 <section class="spotlight full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)">
     <div *ngFor="let game of games" class="wrapper-all">
         <div class="wrapper">
-            <h2>Le jeu du moment</h2>
+            <header>
+                <h2>Le jeu du moment</h2>
+            </header>
             <main>
                 <aside>
                     <app-game-card [isShowcase]="true" [game]=game></app-game-card>

@@ -1,8 +1,60 @@
-<section>
+<section class="full-height">
     <div class="wrapper">
+        <header>
+            <h2>{{ game.name }}</h2>
+        </header>
         <div class="game-body">
-
+            <article>
+                <div class="inner">
+                    <header>
+                        <figure [ngStyle]="{'background-image': 'url(' + game.image + ')'}"></figure>
+                        <div class="description">
+                            <h3>Description</h3>
+                            <p>{{ game.description }}</p>
+                        </div>
+                    </header>
+                    <footer>
+                        <div class="caracteristiques">
+                            <h3>Caractéristiques</h3>
+                            <ul>
+                                <li>
+                                    <p>
+                                        <b>Catégories:</b>
+                                        <span>{{ game.category.name }}</span>
+                                    </p>
+                                </li>
+                                <li>
+                                    <p>
+                                        <b>Editeur:</b>
+                                        {{ game.editor.name }}
+                                    </p>
+                                </li>
+                                <li>
+                                    <div class="rating">
+                                        <b>Note des utilisateurs : </b>
+                                        <ul class="rating-stars">
+                                            <li *ngFor="let star of game.ratingStars(game.rating)">
+                                                <span *ngIf="star; else emptyStar">
+                                                    <fa-icon [icon]="fasStar"></fa-icon>
+                                                </span>
+                                                <ng-template #emptyStar>
+                                                    <span>
+                                                        <fa-icon [icon]="farStar"></fa-icon>
+                                                    </span>
+                                                </ng-template>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </footer>
+                </div>
+            </article>
         </div>
     </div>
+    <footer>
+        <a href="/annonces/" class="btn btn-primary">Voir les offres sur ce jeu</a>
+    </footer>
     <app-footer></app-footer>
 </section>

@@ -1,6 +1,8 @@
 <section class="popular-games index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
     <div class="wrapper">
-        <h2>Jeux les PLUS populaires</h2>
+        <header>
+            <h2>Jeux les PLUS populaires</h2>
+        </header>
         <div class="popular-games-list-container">
             <app-game-card [game]=game *ngFor="let game of games"></app-game-card>
         </div>
