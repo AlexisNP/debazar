@@ -142,6 +142,19 @@ fieldset {
         font-weight: $bold;
     }
 
+    textarea {
+        min-height: 20rem;
+        max-height: 30rem;
+        width: 100%;
+        padding: 1.5rem;
+        display: block;
+        color: $orange;
+        border: 1px solid $orange--light;
+        border-radius: 1rem;
+        background: $white;
+        resize: vertical;
+    }
+
     @for $i from 1 through 12 {
         &.col-#{$i} {
             .col {
