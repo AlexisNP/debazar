@@ -9,6 +9,7 @@
         align-items: center;
         transition: transform 1s ease-out;
         .step {
+            position: relative;
             min-height: calc(100vh - 6rem);
             max-height: calc(100vh - 6rem);
             min-width: 100%;
@@ -34,6 +35,11 @@
             fieldset {
                 width: 50%;
             }
+            footer {
+                .btn {
+                    margin: .5rem 1rem;
+                }
+            }
             &.step-1 {
                 fieldset {
                     .input-group {
@@ -42,8 +48,24 @@
                         }
                     }
                 }
+                &:after {
+                    content: '';
+                    height: calc(100vh - 7.5rem);
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    border-top: 50vh solid transparent;
+                    border-bottom: 50vh solid transparent;
+                    z-index: 500;
+                    right: 0;
+                    border-right: 7.5rem solid $white;
+                    background: $orange;
+                    transform: rotate(180deg);
+                }
             }
             &.step-2 {
+                color: $white;
+                background: $orange;
                 fieldset {
                     .input-group {
                         text-align: center;
@@ -53,6 +75,20 @@
                             margin: 0 auto 1.5rem;
                         }
                     }
+                }
+                &:after {
+                    content: '';
+                    height: calc(100vh - 7.5rem);
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    border-top: 50vh solid transparent;
+                    border-bottom: 50vh solid transparent;
+                    z-index: 500;
+                    right: 0;
+                    border-right: 7.5rem solid $orange;
+                    background: $white;
+                    transform: rotate(180deg);
                 }
             }
         }

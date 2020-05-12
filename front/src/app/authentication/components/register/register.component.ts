@@ -5,7 +5,6 @@ import { FormGroup, Validators, FormControl, FormArray } from '@angular/forms';
 
 import { AuthService } from 'src/app/Authentication/services/auth.service';
 import Category from 'src/app/global/models/Category';
-import { element } from 'protractor';
 import { CategoryService } from 'src/app/global/services/category.service';
 
 @Component({
@@ -128,42 +127,11 @@ export class RegisterComponent implements OnInit {
     step1() {
         this.step = 1;
     }
-
     step2() {
         this.step = 2;
     }
-
     step3() {
         this.step = 3;
     }
 
-    mouseWheelUpFunc() {
-        this.botinc = 0;
-        if (window.scrollY == 0) {
-            this.topinc++;
-            if (this.topinc >= 7) {
-                if (this.step > 0) {
-                    this.step--;
-                }
-                this.topinc = 0;
-            }
-        } else {
-            this.topinc = 0;
-        }
-    }
-
-    mouseWheelDownFunc() {
-        this.topinc = 0;
-        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
-            this.botinc++;
-            if (this.botinc >= 7) {
-                if (this.step <= 2) {
-                    this.step++;
-                }
-                this.botinc = 0;
-            }
-        } else {
-            this.botinc = 0;
-        }
-    }
 }

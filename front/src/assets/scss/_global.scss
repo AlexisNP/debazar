@@ -77,11 +77,20 @@ fieldset {
     &.btn-primary {
         color: $white;
         background: $orange;
+        &.btn-invert {
+            color: $orange;
+            background: $white;
+            font-weight: $heavy;
+        }
     }
     &.btn-secondary {
         color: $orange;
         font-weight: $heavy;
         background: none;
+        &.btn-invert {
+            color: $white;
+            box-shadow: 0 0 .1rem .1rem $white;
+        }
     }
 
     &.btn-small {
