@@ -1,4 +1,4 @@
-<section class="register-page full-height" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
+<section class="register-page">
     <form [formGroup]="registerForm" (ngSubmit)="submitForm()" class="wrapper current-step-{{step}}">
 
         <div class="step step-1">
@@ -59,12 +59,14 @@
                     </div>
                 </div>
             </fieldset>
-            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+            <footer>
+                <button (click)="step2()" type="button" class="btn btn-primary btn-small">Personnalisation</button>
+            </footer>
         </div>
 
         <div class="step step-2">
             <header>
-                <div class="title"><h2>Personnalisation du compte</h2></div>
+                <div class="title"><h2>Personnalisation</h2></div>
                 <p class="tooltip">Maintenant, nous aimerons en savoir un peu plus sur toi afin de te garantir la meilleure expérience au sein du bazar !</p>
             </header>
             <fieldset>
@@ -80,14 +82,21 @@
                     </span>
                 </div>
             </fieldset>
-            <button (click)="step3()" type="button" class="btn btn-primary btn-small">Finalisation</button>
-            <button (click)="step1()" type="button" class="btn btn-primary btn-small">Retour</button>
+            <footer>
+                <button (click)="step1()" type="button" class="btn btn-secondary btn-small btn-invert">Retour</button>
+                <button (click)="step3()" type="button" class="btn btn-primary btn-small btn-invert">Finalisation</button>
+            </footer>
         </div>
 
         <div class="step step-3">
-            <div class="title"><h2>Bienvenue sur Débazar !</h2></div>
-            <button type="submit" class="btn btn-primary btn-small">Inscription</button>
-            <button (click)="step2()" type="button" class="btn btn-primary btn-small">Retour</button>
+            <header>
+                <div class="title"><h2>Bienvenue sur Débazar !</h2></div>
+                <p class="tooltip">Votre inscription est finalisée ! <br> Il ne vous reste plus qu'à cliquer sur le bouton inscription pour être redirigé vers votre nouveau profil !</p>
+            </header>
+            <footer>
+                <button (click)="step2()" type="button" class="btn btn-secondary btn-small">Retour</button>
+                <button type="submit" class="btn btn-primary btn-small">Inscription</button>
+            </footer>
         </div>
 
     </form>

@@ -3,14 +3,14 @@
     <div class="wrapper">
         <header>
             <img src="../../../assets/images/logo.svg" alt="">
-            <h1><span class="txt-orange">Débazar</span> est ravi de vous revoir !</h1>
+            <h1><span class="txt-orange">Débazar</span> est ravi de te revoir !</h1>
         </header>
     
         <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     
             <div class="input-group" [ngClass]="{ 'is-invalid': submitted && f.login_mail.errors }">
                 <label for="login_mail">Addresse mail</label>
-                <input type="text" name="login_mail" formControlName="login_mail" placeholder="jean.kevin@laposte.fr">
+                <input type="text" name="login_mail" formControlName="login_mail" placeholder="jean.dubazar@debazar.fr">
                 <small *ngIf="submitted && f.login_mail.errors">L'email n'est pas valide</small>
             </div>
     
