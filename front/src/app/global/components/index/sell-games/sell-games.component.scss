@@ -3,23 +3,43 @@
 .sell-games {
     height: 100vh;
     text-align: center;
-    main {
-        max-width: 40%;
-        min-width: 35rem;
-        margin: auto;
-        padding: 2.5rem;
-        background: $white;
-        border-radius: 1rem;
-        p {
-            margin-bottom: 1.5rem;
+    .wrapper {
+        &.user {
+            main {
+                max-width: 60%;
+                min-width: 40rem;
+                margin: auto;
+                form {
+                    fieldset {
+                        .input-group {
+                            label {
+                                text-align: left;
+                            }
+                        }
+                    }
+                }
+            }
         }
-        .connect-to-us {
-            div {
-                display: flex;
-                flex-flow: column nowrap;
-                align-items: center;
-                .btn {
+        &.no-user {
+            main {
+                max-width: 40%;
+                min-width: 35rem;
+                margin: auto;
+                padding: 2.5rem;
+                background: $white;
+                border-radius: 1rem;
+                p {
                     margin-bottom: 1.5rem;
+                }
+                .connect-to-us {
+                    div {
+                        display: flex;
+                        flex-flow: column nowrap;
+                        align-items: center;
+                        .btn {
+                            margin-bottom: 1.5rem;
+                        }
+                    }
                 }
             }
         }

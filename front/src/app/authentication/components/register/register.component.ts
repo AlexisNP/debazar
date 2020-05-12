@@ -27,9 +27,7 @@ export class RegisterComponent implements OnInit {
     private botinc: number = 0;
 
 
-    constructor( private route: ActivatedRoute, private router: Router,
-        private auth: AuthService, private titleService: Title,
-        private categoryServ: CategoryService) {
+    constructor( private route: ActivatedRoute, private router: Router, private auth: AuthService, private titleService: Title, private categoryServ: CategoryService) {
         this.titleService.setTitle("Inscription - Débazar");
         this.registerForm = new FormGroup({
             register_first_name: new FormControl('', Validators.required),

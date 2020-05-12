@@ -1,6 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { CategoryService } from 'src/app/global/services/category.service';
 
 @Component({
   selector: 'app-sell-games',
@@ -9,11 +11,24 @@ import { Router } from '@angular/router';
 })
 export class SellGamesComponent implements OnInit, OnDestroy {
 
+    private postOfferForm: FormGroup;
+    private submitted = false;
+    private loading = true;
+    private returnUrl: string;
+
     private topinc: number = 0;
     private botinc: number = 0;
 
-    constructor(private titleService: Title, private router: Router) {
+    constructor(private route: ActivatedRoute, private router: Router, private titleService: Title, private categoryServ: CategoryService) {
         this.titleService.setTitle("Vendre son jeu - Débazar");
+        this.postOfferForm = new FormGroup({
+            offer_game_name: new FormControl('', Validators.required),
+            offer_game_genre: new FormControl('', Validators.required),
+            offer_game_price: new FormControl('', Validators.required),
+            offer_game_state: new FormControl('', Validators.required),
+            offer_game_description: new FormControl('', Validators.required),
+        });
+        this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
     }
 
     ngOnInit() {
@@ -24,6 +39,10 @@ export class SellGamesComponent implements OnInit, OnDestroy {
     ngOnDestroy() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.remove('hourglass-bg');
+    }
+
+    submitForm() {
+
     }
 
     mouseWheelUpFunc() {

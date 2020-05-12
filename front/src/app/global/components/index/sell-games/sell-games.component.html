@@ -1,24 +1,65 @@
 <section class="sell-games full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
-    <div class="wrapper">
+    <div class="wrapper user" *ngIf="username; else noUser">
         <header>
             <h2>Vendre mes jeux</h2>
         </header>
         <main>
-            <p>Tu es ici sur la page dédiée à la mise en vente d’un jeu en ta possession !</p>
-            <p>Cependant, il semble que tu ne sois pas connecté, hors c’est une étape nécéssaire pour que la mise en vente de ton jeu se passe manière optimale !</p>
-            <p>N’hésite donc pas à t’inscrire ou à te connecter pour poster une annonce !</p>
-            <div class="connect-to-us">
-                <div *ngIf="username; else noUser">
-                    <a [routerLink]="['/annonces']" class="btn btn-primary">Mon espace</a>
-                </div>
-                <ng-template #noUser>
+            <form [formGroup]="postOfferForm" (ngSubmit)="submitForm()">
+                <fieldset>
+                    <div class="input-group">
+                        <div class="col">
+                            <label for="offer_game_name">Nom du jeu</label>
+                            <input type="text" name="offer_game_name" formControlName="offer_game_name" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="col">
+                            <label for="offer_game_genre">Catégorie : </label>
+                            <input type="text" name="offer_game_genre" formControlName="offer_game_genre" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="col">
+                            <label for="offer_game_price">Prix : </label>
+                            <input type="text" name="offer_game_price" formControlName="offer_game_price" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="col">
+                            <label for="offer_game_state">Etat : </label>
+                            <input type="text" name="offer_game_state" formControlName="offer_game_state" required>
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <div class="col">
+                            <label for="offer_game_description">Description : </label>
+                            <textarea name="offer_game_description" formControlName="offer_game_description" required></textarea>
+                        </div>
+                    </div>
+                </fieldset>
+                <footer>
+                    <button type="submit" class="btn btn-primary btn-small">Poster mon annonce</button>
+                </footer>
+            </form>
+        </main>
+    </div>
+    <ng-template #noUser>
+        <div class="wrapper no-user">
+            <header>
+                <h2>Vendre mes jeux</h2>
+            </header>
+            <main>
+                <p>Tu es ici sur la page dédiée à la mise en vente d’un jeu en ta possession !</p>
+                <p>Cependant, il semble que tu ne sois pas connecté, hors c’est une étape nécéssaire pour que la mise en vente de ton jeu se passe manière optimale !</p>
+                <p>N’hésite donc pas à t’inscrire ou à te connecter pour poster une annonce !</p>
+                <div class="connect-to-us">
                     <div>
                         <a [routerLink]="['/inscription']" class="btn btn-primary">M'inscrire</a>
                         <a [routerLink]="['/connexion']" class="btn btn-secondary">Me connecter</a>
                     </div>
-                </ng-template>
-            </div>
-        </main>
-    </div>
-    <app-scroller page_url="/annonces" page_title="Toutes les annonces" prev_url="/annonces-jeux-recentes" next_url="/top-jeux-societe"></app-scroller>
+                </div>
+            </main>
+        </div>
+        <app-scroller page_url="/annonces" page_title="Toutes les annonces" prev_url="/annonces-jeux-recentes" next_url="/top-jeux-societe"></app-scroller>
+    </ng-template>
 </section>
