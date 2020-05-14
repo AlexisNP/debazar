@@ -1,5 +1,5 @@
 import { BrowserModule, Title } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
@@ -40,6 +40,9 @@ import { GameSingleComponent } from './global/components/game-single/game-single
 import { GamesComponent } from './global/components/games/games.component';
 import { ToggleButtonComponent } from './global/components/toggle-button/toggle-button.component';
 import { FooterComponent } from './global/components/footer/footer.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { MaterialModule } from './global/modules/material/material/material.module';
 
 @NgModule({
   declarations: [
@@ -78,11 +81,14 @@ import { FooterComponent } from './global/components/footer/footer.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    FontAwesomeModule
+    FontAwesomeModule,
+    BrowserAnimationsModule,
+    MaterialModule
   ],
   providers: [
       Title
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA ]
 })
 export class AppModule { }

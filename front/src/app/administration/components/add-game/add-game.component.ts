@@ -72,22 +72,76 @@ export class AddGameComponent implements OnInit {
       this.listGames = data;
     }, error => {console.log("Error", error);
     });
+    setTimeout(() => {
+      this.listEditors.push(new Editor(99999, 'Nouvel Editeur'));
+    }, 1000);
+  }
+
+  
+  private chkName: Boolean = false;
+  private chkImg: Boolean = false;
+  private chkDescr: Boolean = false;
+  private chkEditor: Boolean = false;
+  private chkPlayers: Boolean = false;
+  private chkDuration: Boolean = false;
+  private chkPublication: Boolean = false;
+  private chkAge: Boolean = false;
+  private chkPrice: Boolean = false;
+  private chkRating: Boolean = false;
+  private chkCategories: Boolean = false;
+  private isSubmitted: Boolean = false;
+
+  resetChk() {
+    this.chkName = false;
+    this.chkImg = false;
+    this.chkDescr = false;
+    this.chkEditor = false;
+    this.chkPlayers = false;
+    this.chkDuration = false;
+    this.chkPublication = false;
+    this.chkAge = false;
+    this.chkPrice = false;
+    this.chkRating = false;
+    this.chkCategories = false;
+    this.isSubmitted = false;
+  }
+
+  get f() {
+    return this.gameForm.controls;
   }
 
   submitForm() {
+    this.resetChk();
 
-  }
+    this.isSubmitted = true;
 
-  changeRating(e) {
-    this.gameForm.get('game_rating').setValue(e.target.value.substr(3), {
-      onlySelf: true
-    })
-  }
-  
-  changeEditor(e) {
-    this.gameForm.get('game_editor').setValue(e.target.value, {
-      onlySelf: true
-    })
+    console.log(this.gameForm.value);
+    
+    if (this.gameForm.get('game_name').value.trim() == '') {
+      this.chkName = true;
+      console.log("pranked 1");
+      return;
+    }
+    if (this.gameForm.get('game_description').value.trim() == '') {
+      this.chkDescr = true;
+      console.log("pranked 2");
+      return;
+    }
+    if (this.gameForm.get('game_players').value.trim() == '') {
+      this.chkPlayers = true;
+      console.log("pranked 3");
+      return;
+    }
+    if (this.gameForm.get('game_duration').value.trim() == '') {
+      this.chkDuration = true
+      console.log("pranked 4");
+      return;
+    }
+    if (this.gameForm.get('game_age').value.trim() == '') {
+      this.chkAge = true
+      console.log("pranked 5");
+      return;
+    }
   }
 
   /**
@@ -104,5 +158,4 @@ export class AddGameComponent implements OnInit {
       categories.removeAt(index);
     }
   }
-
 }
