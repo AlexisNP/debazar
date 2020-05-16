@@ -38,9 +38,9 @@ export class GameService {
    * Save game into Database
    * @param game
    */
-  public addGame(game: Game) {
+  public addGame(game: any) {
     return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add-game`, game).subscribe(data => {
-      // console.log("data:", data),
+      console.log("data:", data),
       data = data;
     }, error => {console.log("Error", error);
     });

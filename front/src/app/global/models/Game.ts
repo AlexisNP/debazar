@@ -15,9 +15,12 @@ class Game {
     private _age: number;
     private _editor: Editor;
     private _category: Category;
+    private _extension: Game;
 
     // Constructor
-    constructor(id: number, name: string, image: string, description: string, players: number, duration: string, published: Date, rating: number, age: number, editor: Editor, category: Category) {
+    constructor(id: number, name: string, image: string, description: string, players: number, 
+        duration: string, published: Date, rating: number, age: number, 
+        editor: Editor, category: Category, extension: Game) {
         this._id = id;
         this._name = name;
         this._image = image;
@@ -29,6 +32,7 @@ class Game {
         this._age = age;
         this._editor = editor;
         this._category = category;
+        this._extension = extension;
     }
 
     // Getters / Setters
@@ -107,6 +111,13 @@ class Game {
     }
     public set category(value: Category) {
         this._category = value;
+    }
+
+    public get extension(): Game {
+        return this._extension;
+    }
+    public set extension(value: Game) {
+        this._extension = value;
     }
 
     public ratingStars(stars: number) {

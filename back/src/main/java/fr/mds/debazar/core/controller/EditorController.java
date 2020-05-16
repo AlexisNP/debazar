@@ -28,7 +28,7 @@ public class EditorController {
         this.repository = repository;
     }
 
-    @PostMapping("/add")
+    @PostMapping("/add-editor")
     public Editor addEditor(@Valid @RequestBody String name) {
         return repository.save(new Editor(name));
     }
@@ -39,16 +39,15 @@ public class EditorController {
         return ResponseEntity.ok().body(editors);
     }
 
-    @GetMapping("/findId/{id}")
+    @GetMapping("/find-id/{id}")
     public Optional<Editor> findById(@PathVariable(value = "id") long id) {
         Optional<Editor> editor = repository.findById(id);
         return editor;
     }
 
-    @GetMapping("/findName")
-    public Editor findByName(@Valid @RequestBody String name) {
+    @GetMapping("/find-name/{name}")
+    public Editor findByName(@PathVariable(value = " name") String name) {
         Editor editor = repository.findByName(name);
         return editor;
     }
-
 }

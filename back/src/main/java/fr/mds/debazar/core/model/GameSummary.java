@@ -12,7 +12,7 @@ public class GameSummary {
     private String players;
     private String duration;
 //	private String published;
-    private int age;
+    private String age;
     private Set<String> categories = new HashSet<>();
 
     public Long getId() {
@@ -57,10 +57,10 @@ public class GameSummary {
 //	public void setPublished(String published) {
 //		this.published = published;
 //	}
-    public int getAge() {
+    public String getAge() {
         return age;
     }
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
     public Set<String> getCategories() {

@@ -1,5 +1,7 @@
 package fr.mds.debazar.core.model;
 
+import java.util.Set;
+
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
@@ -20,27 +22,37 @@ public class GameDTO {
     @NotEmpty
     private String description;
 
+    private Set<Author> author;
+
     @NotNull
-    @NotEmpty
-    private String editor;
+    private Editor editor;
 
     @NotNull
     @NotEmpty
     private String players;
 
+    @NotNull
+    @NotEmpty
     private String duration;
+
     private String published;
 
     @NotNull
     @NotEmpty
-    private int age;
+    private String age;
 
     private float price;
+
+    @NotNull
+    private int rating;
+
+    private Set<Category> category;
+
+//    private Game extension;
 
     public String getName() {
         return name;
     }
-
     public void setName(String name) {
         this.name = name;
     }
@@ -48,7 +60,6 @@ public class GameDTO {
     public String getImage() {
         return image;
     }
-
     public void setImage(String image) {
         this.image = image;
     }
@@ -56,23 +67,27 @@ public class GameDTO {
     public String getDescription() {
         return description;
     }
-
     public void setDescription(String description) {
         this.description = description;
     }
 
-    public String getEditor() {
-        return editor;
+    public Set<Author> getAuthors() {
+        return author;
+    }
+    public void setAuthor(Set<Author> author) {
+        this.author = author;
     }
 
-    public void setEditor(String editor) {
+    public Editor getEditor() {
+        return editor;
+    }
+    public void setEditor(Editor editor) {
         this.editor = editor;
     }
 
     public String getPlayers() {
         return players;
     }
-
     public void setPlayers(String players) {
         this.players = players;
     }
@@ -80,7 +95,6 @@ public class GameDTO {
     public String getDuration() {
         return duration;
     }
-
     public void setDuration(String duration) {
         this.duration = duration;
     }
@@ -88,25 +102,42 @@ public class GameDTO {
     public String getPublished() {
         return published;
     }
-
     public void setPublished(String published) {
         this.published = published;
     }
 
-    public int getAge() {
+    public String getAge() {
         return age;
     }
-
-    public void setAge(int age) {
+    public void setAge(String age) {
         this.age = age;
     }
 
     public float getPrice() {
         return price;
     }
-
     public void setPrice(float price) {
         this.price = price;
     }
 
+    public int getRating() {
+        return rating;
+    }
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
+    public Set<Category> getCategory() {
+        return category;
+    }
+    public void setCategory(Set<Category> category) {
+        this.category = category;
+    }
+
+//    public Game getExtension() {
+//        return extension;
+//    }
+//    public void setExtension(Game extension) {
+//        this.extension = extension;
+//    }
 }
