@@ -16,5 +16,10 @@ export class EditorService {
   }
 
   getAllEditors() {
-    return this.http.get<Editor[]>(`${this.baseUrl}/${ENDPOINT}/find-all`);}
+    return this.http.get<Editor[]>(`${this.baseUrl}/${ENDPOINT}/find-all`);
+  }
+
+  addEditor(name: string) {
+    return this.http.post<Editor>(`${this.baseUrl}/${ENDPOINT}/add-editor` , name);
+  }
 }

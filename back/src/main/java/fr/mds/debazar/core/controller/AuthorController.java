@@ -21,28 +21,33 @@ import fr.mds.debazar.core.repository.AuthorRepository;
 @CrossOrigin
 @RequestMapping("/api/author")
 public class AuthorController {
-	
-	private AuthorRepository repository;
-	
-	public AuthorController(AuthorRepository repository) {
-		this.repository = repository;
-	}
 
-	@PostMapping("/add")
-	public Author addAuthor(@Valid @RequestBody String name) {
-		return repository.save(new Author(name));
-	}
+    private AuthorRepository repository;
 
-	@GetMapping()
-	public ResponseEntity<List<Author>> getAll() {
-		List<Author> authors = repository.findAll();
-		return ResponseEntity.ok().body(authors);
-	}
-	
-	@GetMapping("/findId/{id}")
-	public Optional<Author> findById(@PathVariable(value = "id") long id) {
-		Optional<Author> author = repository.findById(id);
-		return author;
-	}
+    public AuthorController(AuthorRepository repository) {
+        this.repository = repository;
+    }
 
+    @PostMapping("/add-author")
+    public Author addAuthor(@Valid @RequestBody String name) {
+        return repository.save(new Author(name));
+    }
+
+    @GetMapping("/find-all")
+    public ResponseEntity<List<Author>> getAll() {
+        List<Author> authors = repository.findAll();
+        return ResponseEntity.ok().body(authors);
+    }
+
+    @GetMapping("/findId/{id}")
+    public Optional<Author> findById(@PathVariable(value = "id") long id) {
+        Optional<Author> author = repository.findById(id);
+        return author;
+    }
+
+    @GetMapping("/find-name/{name}")
+    public Author findByName(@PathVariable(value = "name") String name) {
+        Author author = repository.findByName(name);
+        return author;
+    }
 }

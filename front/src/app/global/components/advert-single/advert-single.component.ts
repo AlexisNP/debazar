@@ -28,7 +28,7 @@ export class AdvertSingleComponent implements OnInit {
     }
 
     ngOnInit() {
-        let game = new Game(94, "Monopoly", "https://www.kroger.com/product/images/xlarge/front/0063050951263", "Un jeu qui ravira petits et grands", 4, "2 jours", new Date(), 4, 15, new Editor(1, "Jeux&Cie"), new Category(4, "Jeux de plateau"));
+        let game = new Game(94, "Monopoly", "https://www.kroger.com/product/images/xlarge/front/0063050951263", "Un jeu qui ravira petits et grands", 4, "2 jours", new Date(), 4, 15, new Editor(1, "Jeux&Cie"), new Category(4, "Jeux de plateau"), null);
         let user = new User("Leviathan69", "John", "Doe", "user.name@doe.org", "Homme", null, "#596d7f", true, false, "poulet");
         this.advert = new Advert(94, game, user, new Date(), 150, "Texte de description de l'annonce", "Presque neuf");
         this.titleService.setTitle(this.advert.game.name + " - Annonce Débazar");

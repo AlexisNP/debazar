@@ -108,9 +108,9 @@ export class RegisterComponent implements OnInit {
         this.data.get('phone').setValue(this.registerForm.get('register_phone').value);
 
         // this.data.get('avatar').setValue(this.registerForm.get('register_avatar').value);
-        const structure = this.registerForm.get('register_chosen_categories') as FormArray;
+        const selectedInterest = this.registerForm.get('register_chosen_categories') as FormArray;
         const interests = this.data.get('interest') as FormArray;
-        structure.value.forEach(element => {
+        selectedInterest.value.forEach(element => {
             interests.push(new FormControl(element));
         });
         setTimeout(() => {
