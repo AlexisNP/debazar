@@ -2,6 +2,12 @@
 @import '_fonts.scss';
 @import '_variables.scss';
 @import '_mixins.scss';
+
+// Grid system
+@import '_grille.scss';
+@import '_grille_responsive.scss';
+
+// Card styles
 @import '_cards.scss';
 
 // Normalize library

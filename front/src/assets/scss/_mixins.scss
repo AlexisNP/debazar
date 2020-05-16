@@ -18,3 +18,25 @@
         transform: rotate(45deg);
     }
 }
+
+@mixin clearfix() {
+    &::after {
+        content: '';
+        display: table;
+        clear: both;
+    }
+}
+
+// pour les hide et show selon les breakpoints
+@mixin responsive-visibility($parent) {
+    #{$parent} {
+        display: block !important;
+    }
+}
+
+// [converter] $parent hack
+@mixin responsive-invisibility($parent) {
+    #{$parent} {
+        display: none !important;
+    }
+}
