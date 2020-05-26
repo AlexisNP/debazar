@@ -2,6 +2,9 @@ import { Component, OnInit, OnDestroy } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
+
+import { UserService } from 'src/app/global/services/user.service';
+
 import { CategoryService } from 'src/app/global/services/category.service';
 
 @Component({
@@ -65,6 +68,10 @@ export class SellGamesComponent implements OnInit, OnDestroy {
         } else {
             this.botinc = 0;
         }
+    }
+
+    username() {
+        return sessionStorage.getItem('username') ? true : false;
     }
 
 }

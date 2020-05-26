@@ -1,5 +1,5 @@
 <section class="sell-games full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
-    <div class="wrapper user" *ngIf="username; else noUser">
+    <div class="wrapper user" *ngIf="username(); else noUser">
         <header>
             <h2>Vendre mes jeux</h2>
         </header>

@@ -1,5 +1,5 @@
 <section>
-    <div class="wrapper">
+    <div class="wrapper" *ngIf="!isLoading">
         <header>
             <h2>{{ game.name }}</h2>
         </header>
@@ -20,7 +20,7 @@
                                 <li>
                                     <p>
                                         <b>Catégories:</b>
-                                        <span>{{ game.category.name }}</span>
+                                        <span>{{ game.categories.name }}</span>
                                     </p>
                                 </li>
                                 <li>
@@ -33,7 +33,7 @@
                                     <div class="rating">
                                         <b>Note des utilisateurs : </b>
                                         <ul class="rating-stars">
-                                            <li *ngFor="let star of game.ratingStars(game.rating)">
+                                            <li *ngFor="let star of ratingStars(game.rating)">
                                                 <span *ngIf="star; else emptyStar">
                                                     <fa-icon [icon]="fasStar"></fa-icon>
                                                 </span>

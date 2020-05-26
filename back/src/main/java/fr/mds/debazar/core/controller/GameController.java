@@ -45,7 +45,13 @@ public class GameController {
     }
 
     @GetMapping("/find-all")
-    public ResponseEntity<List<GameSummary>> getAll() {
+    public ResponseEntity<List<Game>> getAll() {
+        List<Game> gameList = repository.findAll();
+        return ResponseEntity.ok().body(gameList);
+    }
+    
+    @GetMapping("/find-all-summary")
+    public ResponseEntity<List<GameSummary>> getAllSummary() {
         List<Game> gameList = repository.findAll();
         List<GameSummary> games = new ArrayList<>();
         for (Game game : gameList) {
@@ -55,8 +61,9 @@ public class GameController {
     }
 
     @GetMapping("/find-id/{id}")
-    public Optional<Game> findById(@PathVariable(value = "id") Long id) {
-        Optional<Game> game = repository.findById(id);
+    public Game findById(@PathVariable(value = "id") Long id) {
+        Game game = repository.findGameById(id);
+        System.out.println(game);
         return game;
     }
 

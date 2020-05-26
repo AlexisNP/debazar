@@ -11,12 +11,16 @@
                     </div>
                 </header>
                 <div class="row">
-                    <p class="genre">{{ game.category.name }}</p>
+                    <div class="genre">
+                        <div *ngFor="let c of game.categories">
+                            {{ c.name }}
+                        </div>
+                    </div>
                 </div>
                 <div class="row" *ngIf="!isShowcase">
                     <div>
                         <ul class="rating-stars">
-                            <li *ngFor="let star of game.ratingStars(game.rating)">
+                            <li *ngFor="let star of this.ratingStars(game.rating)">
                                 <span *ngIf="star; else emptyStar">
                                     <fa-icon [icon]="fasStar"></fa-icon>
                                 </span>
@@ -41,7 +45,6 @@
                 </div>
                 <footer>
                     <a href="/jeux/{{ game.id }}" class="btn btn-secondary btn-small btn-full">Fiche du jeu</a>
-                    <!-- <a href="#" class="btn btn-primary btn-small btn-full">Voir les annonces pour ce jeu</a> -->
                 </footer>
             </div>
         </div>

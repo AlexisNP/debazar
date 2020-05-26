@@ -21,7 +21,7 @@ class Game {
     constructor(id: number, name: string, image: string, description: string, players: number, 
         duration: string, published: Date, rating: number, age: number, 
         editor: Editor, category: Category, extension: Game) {
-        this._id = id;
+        this.id = id;
         this._name = name;
         this._image = image;
         this._description = description;
@@ -37,7 +37,7 @@ class Game {
 
     // Getters / Setters
     public get id(): number {
-        return this._id;
+        return this.id;
     }
     public set id(value: number) {
         this._id = value;
@@ -118,19 +118,6 @@ class Game {
     }
     public set extension(value: Game) {
         this._extension = value;
-    }
-
-    public ratingStars(stars: number) {
-        let output = [];
-        for (let index = 0; index < 5; index++) {
-            if (stars > 0) {
-                output.push(1);
-            } else {
-                output.push(0);
-            }
-            stars--;
-        }
-        return output;
     }
 }
 

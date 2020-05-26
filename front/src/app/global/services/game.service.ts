@@ -27,11 +27,7 @@ export class GameService {
    * @param id
    */
   public findGameById(id: number) {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
+    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id);
   }
 
   /**
