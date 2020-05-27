@@ -21,28 +21,28 @@ import fr.mds.debazar.core.repository.StateRepository;
 @CrossOrigin
 @RequestMapping("/api/state")
 public class StateController {
-	
-	private StateRepository repository;
-	
-	public StateController(StateRepository repository) {
-		this.repository = repository;
-	}
 
-	@PostMapping("/add")
-	public State addAuthor(@Valid @RequestBody String name) {
-		return repository.save(new State(name));
-	}
+    private StateRepository repository;
 
-	@GetMapping()
-	public ResponseEntity<List<State>> getAll() {
-		List<State> states = repository.findAll();
-		return ResponseEntity.ok().body(states);
-	}
-	
-	@GetMapping("/findId/{id}")
-	public Optional<State> findById(@PathVariable(value = "id") long id) {
-		Optional<State> state = repository.findById(id);
-		return state;
-	}
+    public StateController(StateRepository repository) {
+        this.repository = repository;
+    }
+
+    @PostMapping("/add")
+    public State addAuthor(@Valid @RequestBody String name) {
+        return repository.save(new State(name));
+    }
+
+    @GetMapping()
+    public ResponseEntity<List<State>> getAll() {
+        List<State> states = repository.findAll();
+        return ResponseEntity.ok().body(states);
+    }
+
+    @GetMapping("/findId/{id}")
+    public Optional<State> findById(@PathVariable(value = "id") long id) {
+        Optional<State> state = repository.findById(id);
+        return state;
+    }
 
 }

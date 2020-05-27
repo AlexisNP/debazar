@@ -43,6 +43,7 @@ import { FooterComponent } from './global/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './global/modules/material/material/material.module';
+import { MatSelectSearchComponent } from './global/components/index/sell-games/mat-select-search/mat-select-search.component';
 
 @NgModule({
   declarations: [
@@ -75,6 +76,7 @@ import { MaterialModule } from './global/modules/material/material/material.modu
     GamesComponent,
     ToggleButtonComponent,
     FooterComponent,
+    MatSelectSearchComponent,
   ],
   imports: [
     BrowserModule,

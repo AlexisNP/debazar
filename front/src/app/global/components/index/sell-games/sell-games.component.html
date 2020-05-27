@@ -1,35 +1,36 @@
 <section class="sell-games full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" (mouseWheelDown)="mouseWheelDownFunc(event)">
-    <div class="wrapper user" *ngIf="username; else noUser">
+    <div class="wrapper user" *ngIf="chkLogged(); else noUser">
         <header>
             <h2>Vendre mes jeux</h2>
         </header>
         <main>
             <form [formGroup]="postOfferForm" (ngSubmit)="submitForm()">
                 <fieldset>
-                    <div class="input-group">
-                        <div class="col">
-                            <label for="offer_game_name">Nom du jeu</label>
-                            <input type="text" name="offer_game_name" formControlName="offer_game_name" required>
-                        </div>
-                    </div>
-                    <div class="input-group">
-                        <div class="col">
-                            <label for="offer_game_genre">Catégorie : </label>
-                            <input type="text" name="offer_game_genre" formControlName="offer_game_genre" required>
-                        </div>
-                    </div>
+
+                    <mat-form-field>
+                        <mat-label>Nom du jeu</mat-label>
+                    
+                        <mat-select formControlName="offer_game_name">
+                            <!-- <mat-select-search [formControl]="bankFilterCtrl"></mat-select-search> --> <!-- A débugger pus tard -->
+                            <mat-option *ngFor="let game of games" [value]="game">{{ game.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
                     <div class="input-group">
                         <div class="col">
                             <label for="offer_game_price">Prix : </label>
-                            <input type="text" name="offer_game_price" formControlName="offer_game_price" required>
+                            <input type="number" name="offer_game_price" formControlName="offer_game_price" required>
                         </div>
                     </div>
-                    <div class="input-group">
-                        <div class="col">
-                            <label for="offer_game_state">Etat : </label>
-                            <input type="text" name="offer_game_state" formControlName="offer_game_state" required>
-                        </div>
-                    </div>
+
+                    <mat-form-field>
+                        <mat-label>Etat</mat-label>
+                    
+                        <mat-select formControlName="offer_game_state">
+                            <mat-option *ngFor="let state of states" [value]="state">{{ state.name }}</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+
                     <div class="input-group">
                         <div class="col">
                             <label for="offer_game_description">Description : </label>

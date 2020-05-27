@@ -15,4 +15,7 @@ public interface GameRepository extends JpaRepository<Game, Long> {
     @Query("SELECT g FROM Game g WHERE g.name = :gameName")
     Game findByName(@Param("gameName") String gameName);
 
+    @Query("SELECT g FROM Game g WHERE g.id = :gameId")
+    Game findById(@Param("gameId") int gameId);
+
 }
