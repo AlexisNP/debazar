@@ -40,20 +40,36 @@ public class OfferController {
         this.offerService = offerService;
     }
 
+//    @GetMapping("/find-all")
+//    public ResponseEntity<List<OfferSummary>> getAll() {
+//        List<Offer> offerList = repository.findAll();
+//        List<OfferSummary> offers = new ArrayList<>();
+//        for (Offer offer : offerList) {
+//            offers.add(new OfferSummary(offer));
+//        }
+//        return ResponseEntity.ok().body(offers);
+//    }
+
     @GetMapping("/find-all")
-    public ResponseEntity<List<OfferSummary>> getAll() {
-        List<Offer> offerList = repository.findAll();
-        List<OfferSummary> offers = new ArrayList<>();
-        for (Offer offer : offerList) {
-            offers.add(new OfferSummary(offer));
-        }
-        return ResponseEntity.ok().body(offers);
+    public List<Offer> getAll() {;
+        return repository.findAll();
     }
 
     @GetMapping("/find-id/{id}")
     public Optional<Offer> findById(@PathVariable(value = "id") long id) {
         Optional<Offer> offer = repository.findById(id);
         return offer;
+    }
+
+    @GetMapping("/find-category/{category}")
+    public ResponseEntity<List<OfferSummary>> findByCategory(@PathVariable(value = "category") long category) {
+
+        List<Offer> offerList = repository.findByCategory(category);
+        List<OfferSummary> offers = new ArrayList<>();
+        for (Offer offer : offerList) {
+            offers.add(new OfferSummary(offer));
+        }
+        return ResponseEntity.ok().body(offers);
     }
 
     @PostMapping("/add-offer")

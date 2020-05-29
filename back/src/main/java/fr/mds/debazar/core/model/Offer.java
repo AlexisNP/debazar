@@ -6,7 +6,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotNull;
 
 import org.hibernate.annotations.GenericGenerator;
 
@@ -19,73 +18,70 @@ import lombok.Setter;
 @Entity
 @Table(name= "OFFER")
 public class Offer {
-	
-	@Id
-	@GenericGenerator(name = "increment", strategy = "increment") 
-	@GeneratedValue(generator = "increment") 
-	private Long id;
-	@NotNull
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "game",referencedColumnName = "id")
-	private Game game;
-	@NotNull
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "seller",referencedColumnName = "id")
-	private User seller;
-	@NotNull
-	@ManyToOne(optional = false)
-	@JoinColumn(name = "state",referencedColumnName = "id")
-	private State state;
-	
-	private String detail;
-	private float price;
 
-	public Long getId() {
-		return id;
-	}
+    @Id
+    @GenericGenerator(name = "increment", strategy = "increment")
+    @GeneratedValue(generator = "increment")
+    private Long id;
+    @ManyToOne
+    @JoinColumn(name = "game", referencedColumnName = "id")
+    private Game game;
+    @ManyToOne
+    @JoinColumn(name = "seller")
+    private User seller;
+    @ManyToOne
+    @JoinColumn(name = "state")
+    private State state;
 
-	public void setId(Long id) {
-		this.id = id;
-	}
+    private String detail;
+    private float price;
 
-	public Game getGame() {
-		return game;
-	}
+    public Long getId() {
+        return id;
+    }
 
-	public void setGame(Game game) {
-		this.game = game;
-	}
+    public void setId(Long id) {
+        this.id = id;
+    }
 
-	public User getSeller() {
-		return seller;
-	}
+    public Game getGame() {
+        return game;
+    }
 
-	public void setSeller(User seller) {
-		this.seller = seller;
-	}
+    public void setGame(Game game) {
+        this.game = game;
+    }
 
-	public State getState() {
-		return state;
-	}
+    public User getSeller() {
+        return seller;
+    }
 
-	public void setState(State state) {
-		this.state = state;
-	}
+    public void setSeller(User seller) {
+        this.seller = seller;
+    }
 
-	public String getDetail() {
-		return detail;
-	}
+    public State getState() {
+        return state;
+    }
 
-	public void setDetail(String detail) {
-		this.detail = detail;
-	}
+    public void setState(State state) {
+        this.state = state;
+    }
 
-	public float getPrice() {
-		return price;
-	}
+    public String getDetail() {
+        return detail;
+    }
 
-	public void setPrice(float price) {
-		this.price = price;
-	}
-	
+    public void setDetail(String detail) {
+        this.detail = detail;
+    }
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
+
 }
