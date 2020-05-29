@@ -26,7 +26,9 @@ public class OfferService {
 
         Offer newOffer = new Offer();
 
+        System.out.println(offerDto.getGame().getName());
         newOffer.setGame(offerDto.getGame());
+        System.out.println(offerDto.getSeller().getUsername());
         newOffer.setSeller(offerDto.getSeller());
         newOffer.setState(offerDto.getState());
         newOffer.setDetail(offerDto.getDetail());

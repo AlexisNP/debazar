@@ -30,12 +30,15 @@ export class AuthService {
     }
 
     public registerUser(user_data: any) {
-        console.log('2', user_data);
         return this.http.post<any>(`${this.baseUrl}/user/register`, user_data).subscribe(data => {
             // console.log(data),
             data = user_data;
           }, error => {console.log('Error', error);
         });
+    }
+
+    public getUserByUsername(username: String) {
+        return this.http.get<any>(`${this.baseUrl}/user/findByUsername/` + username);
     }
 
     public authenticate(data: any) {
