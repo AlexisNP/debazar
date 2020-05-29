@@ -11,20 +11,10 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public class OfferDTO {
 
-    @NotNull
-    @NotEmpty
     private Game game;
-    @NotNull
-    @NotEmpty
     private User seller;
-    @NotNull
-    @NotEmpty
     private State state;
-    @NotNull
-    @NotEmpty
     private String detail;
-    @NotNull
-    @NotEmpty
     private float price;
 
     public Game getGame() {

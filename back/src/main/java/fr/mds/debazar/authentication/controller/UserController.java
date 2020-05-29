@@ -9,6 +9,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -74,6 +75,12 @@ public class UserController {
     @GetMapping("/findById")
     public User findById(@Valid @RequestBody Long id) {
         User user = repository.getById(id);
+        return user;
+    }
+
+    @GetMapping("/findByUsername/{username}")
+    public User findByUsername(@PathVariable String username) {
+        User user = repository.getByUsername(username);
         return user;
     }
 

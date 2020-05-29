@@ -12,6 +12,7 @@ import { GameService } from 'src/app/global/services/game.service';
 import { StateService } from 'src/app/global/services/state.service';
 import { OfferService } from 'src/app/global/services/offer.service';
 import { AuthService } from 'src/app/Authentication/services/auth.service';
+import User from 'src/app/global/models/User';
 
 @Component({
   selector: 'app-sell-games',
@@ -88,11 +89,11 @@ export class SellGamesComponent implements OnInit, OnDestroy {
         this.chkState = false;
         this.chkDescription = false;
         this.offer = new FormGroup({
-            game: new FormControl('', Validators.required),
-            seller: new FormControl('', Validators.required),
-            state: new FormControl('', Validators.required),
-            detail: new FormControl('', Validators.required),
-            price: new FormControl('', Validators.required),
+            game: new FormControl(''),
+            seller: new FormControl(''),
+            state: new FormControl(''),
+            detail: new FormControl(''),
+            price: new FormControl(''),
         });
     }
 
@@ -105,39 +106,47 @@ export class SellGamesComponent implements OnInit, OnDestroy {
         
         if (this.postOfferForm.get('offer_game_name').value == '') {
           this.chkGame = true;
-          console.log("pranked 1");
+          console.log("Missing game");
           return;
         }
         if (this.postOfferForm.get('offer_game_price').value == '' || this.postOfferForm.get('offer_game_price').value == null) {
           this.chkPrice = true;
-          console.log("pranked 2");
+          console.log("Missing game price");
           return;
         }
         if (this.postOfferForm.get('offer_game_state').value == '') {
           this.chkState = true;
-          console.log("pranked 3");
+          console.log("Missing game state");
           return;
         }
         if (this.postOfferForm.get('offer_game_description').value.trim() == '') {
           this.chkDescription = true;
-          console.log("pranked 4");
+          console.log("Missing description");
           return;
         }
         
         // console.log('passed');
+
+        let username = sessionStorage.getItem('username');
+
+        let seller: User;
+        this.authServ.getUserByUsername(username).subscribe(data => {
+            // console.log(data),
+            seller = data;
+          }, error => {console.log('Error', error);
+        });
     
         setTimeout(() => {
           this.offer.get('game').setValue(this.postOfferForm.get('offer_game_name').value);
           this.offer.get('state').setValue(this.postOfferForm.get('offer_game_state').value);
           this.offer.get('detail').setValue(this.postOfferForm.get('offer_game_description').value);
           this.offer.get('price').setValue(this.postOfferForm.get('offer_game_price').value);
-    
+          this.offer.get('seller').setValue(seller);
 
-    
           setTimeout(() => {
             console.log('before: ' , this.offer.value);
             
-            // this.offerServ.addOffer(this.offer.value);
+            this.offerServ.addOffer(this.offer.value);
           }, 2000);
           
         }, 1000);
