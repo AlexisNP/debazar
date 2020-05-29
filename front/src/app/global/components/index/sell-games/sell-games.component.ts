@@ -3,16 +3,19 @@ import { Title } from '@angular/platform-browser';
 import { Router, ActivatedRoute } from '@angular/router';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 
-import { UserService } from 'src/app/global/services/user.service';
-
-import { CategoryService } from 'src/app/global/services/category.service';
 import Game from 'src/app/global/models/Game';
+import User from 'src/app/global/models/User';
+
+import { UserService } from 'src/app/global/services/user.service';
+import { CategoryService } from 'src/app/global/services/category.service';
+
 import { State } from 'src/app/global/models/State';
 import { GameService } from 'src/app/global/services/game.service';
 import { StateService } from 'src/app/global/services/state.service';
 import { OfferService } from 'src/app/global/services/offer.service';
 import { AuthService } from 'src/app/Authentication/services/auth.service';
-import User from 'src/app/global/models/User';
+
+import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-sell-games',
@@ -37,6 +40,11 @@ export class SellGamesComponent implements OnInit, OnDestroy {
     private chkState = false;
     private chkDescription = false;
     private isSubmitted = false;
+
+    private isAbout = false;
+
+    faQuestion = faQuestion;
+    faTimes = faTimes;
 
     public offer = new FormGroup({
         game: new FormControl(),
@@ -180,6 +188,10 @@ export class SellGamesComponent implements OnInit, OnDestroy {
         } else {
             return false;
         }
+    }
+
+    toggleAbout() {
+        this.isAbout = !this.isAbout
     }
 
 }

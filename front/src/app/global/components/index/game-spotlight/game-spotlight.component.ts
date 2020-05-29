@@ -6,6 +6,8 @@ import Game from 'src/app/global/models/Game';
 import Editor from 'src/app/global/models/Editor';
 import Category from 'src/app/global/models/Category';
 
+import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 @Component({
   selector: 'app-game-spotlight',
   templateUrl: './game-spotlight.component.html',
@@ -15,9 +17,12 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
+    private topinc: number = 0;
+
     private isAbout = false;
 
-    private topinc: number = 0;
+    faQuestion = faQuestion;
+    faTimes = faTimes;
 
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Meilleurs Jeux - Débazar");

@@ -24,4 +24,11 @@
             }
         }
     }
+    &.about {
+        .about-modal {
+            display: block;
+            opacity: 1;
+            pointer-events: initial;
+        }
+    }
 }

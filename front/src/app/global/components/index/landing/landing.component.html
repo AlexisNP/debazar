@@ -1,4 +1,4 @@
-<section class="landing full-height index" mouseWheel (mouseWheelDown)="mouseWheelDownFunc(event)">
+<section class="landing full-height index" [ngClass]="{about: isAbout}" mouseWheel (mouseWheelDown)="mouseWheelDownFunc(event)">
     <div class="wrapper center-flex">
         <h1>DÉBAZAR</h1>
         <h2><span class="txt-bold">Débazar</span> : des jeux de société d’occasion de qualité au meilleur prix !</h2>
@@ -18,5 +18,34 @@
         <a [routerLink]="['/annonces-jeux-recentes']" class="btn btn-primary btn-round">
             <fa-icon [icon]="faChevronRight" size="lg"></fa-icon>
         </a>
+    </div>
+    <footer>
+        <span (click)="toggleAbout()" class="btn btn-primary btn-round">
+            <fa-icon [icon]="faQuestion"></fa-icon>
+        </span>
+    </footer>
+    <div class="about-modal">
+        <div class="content card">
+            <h2>Les meilleurs jeux de société selon Débazar</h2>
+            <p>Notre équipe est constituée de passionnés de jeux de société. C’est pour cela que nous nous sommes lancés dans l’aventure Débazar. Comme nous sommes nous-même des joueurs réguliers, nous avons à cœur de vous proposer notre regard sur les meilleurs jeux du moment. Ceux avec lesquels nous nous éclatons régulièrement. Notre sélection est régulièrement mise à jour. Venez découvrir nos coups de cœur, qui sait, ils sont peut-être déjà à vendre sur notre site ?</p>
+            <h2>Une soirée entre amis avec un bon jeu de société</h2>
+            <p>Une réunion de famille un peu longuette ? Une soirée entre collègues d’entreprise qui s’annonce ennuyeuse ? Quelques amis de passage à la maison ? Il n’y a rien de mieux qu’un bon jeu de société pour animer tout ça et passer un bon moment rassemblés. Passez faire votre sélection grâce à nos jeux mis en avant, ou aux top des jeux de sociétés de nos membres. En quelques clics, vous passez commande en prévision d’un de ces petits moments à égayer. Jeux d’ambiance ou jeux de plateau, du moment que vous connaissez les personnes que vous recevez et que vous choisissez le jeu qui leur correspondra, vous passerez un bon moment ! Et si vous choisissez bien, on vous demandera même une deuxième partie !</p>
+            <h2>Comment choisir le bon jeu de société ?</h2>
+            <p>Evidemment, un jeu c’est comme un bouquin. Chacun aura un avis différent. Mais justement, c’est là-dessus que vous pouvez vous appuyer dans votre choix.</p>
+            <h2>Assumez vos émotions</h2>
+            <p>Vous savez quels jouent ne vous branchent pas du tout, vous savez lesquels vous éclatent. Tenez-en compte au moment de choisir.</p>
+            <h2>Retenez les mécaniques qui vous plaisent</h2>
+            <p>Un jeu de draft de carte, un jeu coopératif, ce n’est pas du tout pareil. Si certaines mécaniques de jeu vous plaisent, alors appuyez-vous dessus. Vous devriez vous faire plaisir.</p>
+            <h2>Explorez l’univers</h2>
+            <p>L’ambiance et l’univers d’un jeu, ça compte aussi. Si vous adorez le Seigneur des Anneaux, ou au contraire Blade Runner, appuyez-vous sur ces mondes pour retrouver des sensations similaires.</p>
+            <h2>Osez la découverte</h2>
+            <p>Entre les recommandations des utilisateurs et nos propres conseils, vous avez la possibilité avec Débazar de sortir de votre zone de confort à moindre prix. Ce serait dommage de s’en priver non ?</p>
+            <h2>Débazar, la meilleure solution pour dénicher le meilleur jeu</h2>
+            <p>Jeux de stratégie, petit jeu, grands classiques des jeux pour enfant ou jeux de plateau dernier cri, il y en a pour tous les goûts sur Débazar. Profitez de tous les conseils proposés sur le site, échangez avec les membres et faites-vous plaisir à moindre prix !</p>
+            <p>A votre tour d’être celui ou celle qui ramène son jeux !</p>
+        </div>
+        <div class="close-btn btn btn-primary btn-round" (click)="toggleAbout()">
+            <fa-icon [icon]="faTimes" size=lg></fa-icon>
+        </div>
     </div>
 </section>

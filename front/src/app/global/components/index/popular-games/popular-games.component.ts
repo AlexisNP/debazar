@@ -6,6 +6,8 @@ import Game from 'src/app/global/models/Game';
 import Editor from 'src/app/global/models/Editor';
 import Category from 'src/app/global/models/Category';
 
+import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 @Component({
   selector: 'app-popular-games',
   templateUrl: './popular-games.component.html',
@@ -18,6 +20,11 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
     private topinc: number = 0;
     private botinc: number = 0;
 
+    private isAbout = false;
+
+    faQuestion = faQuestion;
+    faTimes = faTimes;
+    
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Top Jeux - Débazar");
     }
@@ -52,6 +59,10 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
         } else {
             this.botinc = 0;
         }
+    }
+
+    toggleAbout() {
+        this.isAbout = !this.isAbout;
     }
 
 }

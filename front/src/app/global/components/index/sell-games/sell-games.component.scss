@@ -44,4 +44,16 @@
             }
         }
     }
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &.about {
+        .about-modal {
+            display: block;
+            opacity: 1;
+            pointer-events: initial;
+        }
+    }
 }

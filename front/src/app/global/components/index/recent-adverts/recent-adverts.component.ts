@@ -8,6 +8,8 @@ import User from 'src/app/global/models/User';
 import Editor from 'src/app/global/models/Editor';
 import Category from 'src/app/global/models/Category';
 
+import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
+
 @Component({
   selector: 'app-recent-adverts',
   templateUrl: './recent-adverts.component.html',
@@ -20,6 +22,11 @@ export class RecentAdvertsComponent implements OnInit, OnDestroy {
     private topinc: number = 0;
     private botinc: number = 0;
 
+    private isAbout = false;
+
+    faQuestion = faQuestion;
+    faTimes = faTimes;
+    
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Annonces récentes - Débazar");
     }
@@ -56,4 +63,7 @@ export class RecentAdvertsComponent implements OnInit, OnDestroy {
         }
     }
 
+    toggleAbout() {
+        this.isAbout = !this.isAbout;
+    }
 }
