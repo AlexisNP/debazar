@@ -3,14 +3,25 @@
 .all-games {
     .wrapper {
         .game-list-container {
-            padding: 0 2.5rem;
+            padding: 1rem 5% 2.5rem;
             display: flex;
             flex-flow: row wrap;
-            justify-content: center;
+            justify-content: flex-start;
             > * {
-                min-width: 40rem;
-                width: 50%;
+                min-width: 50%;
                 padding: 1rem;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .all-games {
+        .wrapper {
+            .game-list-container {
+                > * {
+                    min-width: 100%;
+                }
             }
         }
     }
