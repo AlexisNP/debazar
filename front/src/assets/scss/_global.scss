@@ -259,6 +259,7 @@ section {
     position: absolute;
     z-index: 1000;
     width: 100%;
+    min-height: 100%;
     background: rgba($white, .5);
     padding: 2.5%;
     .content {
