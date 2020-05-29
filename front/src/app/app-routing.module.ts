@@ -26,6 +26,8 @@ import { ManagementComponent } from './administration/components/management/mana
 import { GamesComponent } from './global/components/games/games.component';
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
+import { NotFoundComponent } from "./global/components/not-found/not-found.component";
+
 const routes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'annonces-jeux-recentes', component: RecentAdvertsComponent },
@@ -78,7 +80,8 @@ const routes: Routes = [
     },
     { path: 'add_game', component: AddGameComponent },
 
-    { path: '**', component: LandingComponent }
+    { path: '404', component: NotFoundComponent},
+    { path: '**', redirectTo: '404' }
 ];
 
 @NgModule({

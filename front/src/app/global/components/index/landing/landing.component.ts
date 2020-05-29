@@ -29,7 +29,7 @@ export class LandingComponent implements OnInit {
     }
 
     mouseWheelDownFunc() {
-        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight) {
+        if ((window.innerHeight + window.scrollY) >= document.body.scrollHeight - 2) {
             this.botinc++;
             if (this.botinc >= 7) {
                 this.router.navigate(['/annonces-jeux-recentes']);
