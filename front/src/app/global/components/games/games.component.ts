@@ -2,8 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
 
 import Game from '../../models/Game';
-import Category from '../../models/Category';
-import Editor from '../../models/Editor';
 import { GameService } from '../../services/game.service';
 
 @Component({
@@ -22,6 +20,7 @@ export class GamesComponent implements OnInit {
     }
 
     ngOnInit() {
+        
         this.gameService.getAllGames()
         .then(values => {
             this.games = Object.values(values);
