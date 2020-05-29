@@ -68,10 +68,13 @@ export class SellGamesComponent implements OnInit, OnDestroy {
         }, error => {console.log("Error", error);
         });
 
-        this.gameServ.getAllGames().subscribe(data => {
-            this.games = data;
-        }, error => {console.log("Error", error);
-        });
+        this.gameServ.getAllGames()
+        .then(values => {
+            this.games = Object.values(values)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     ngOnDestroy() {

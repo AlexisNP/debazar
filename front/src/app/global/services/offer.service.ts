@@ -15,16 +15,18 @@ export class OfferService {
   constructor(private http: HttpClient) {
   }
 
-  /**
-   * return all offers stored in database
-   */
-  public getAllOffers() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
-  }
+    /**
+     * return all offers stored in database
+     */
+    public getAllOffers = () => {
+        return new Promise((resolve, reject) => {
+            this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
+                resolve(data)
+            }, err => {
+                reject(err)
+            })
+        })
+    }
 
   /**
    * return specified offer stored in database

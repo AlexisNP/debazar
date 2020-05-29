@@ -7,6 +7,7 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import Game from '../../models/Game';
 import { GameService } from '../../services/game.service';
 import { ActivatedRoute } from '@angular/router';
+import Editor from '../../models/Editor';
 
 @Component({
   selector: 'app-game-single',
@@ -25,16 +26,34 @@ export class GameSingleComponent implements OnInit {
     constructor(private titleService: Title, private gameService: GameService, private route: ActivatedRoute) {}
 
     ngOnInit() {
-        let id = this.route.snapshot.paramMap.get('id');
-        this.gameService.findGameById(+id).subscribe(data => {
-            console.log("data:", data),
-            this.game = data;
-          }, error => {console.log("Error", error);
-          });
-        setTimeout(() => {
+        let id = Number(this.route.snapshot.paramMap.get('id'));
+
+        this.gameService.findGameById(id)
+        .then(values => {
+            console.log(Object.keys(values), Object.values(values))
+            values = Object.values(values)
+            
+            this.game = new Game(
+                values[0],
+                values[1],
+                values[2],
+                values[3],
+                values[4],
+                values[5],
+                values[6],
+                values[9],
+                values[7],
+                new Editor(values[10].id, values[10].name),
+                [],
+                values[13])
+        })
+        .then(() => {
             this.titleService.setTitle(this.game.name + " - Fiche Débazar");
             this.isLoading = false;
-        }, 1000);
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     ratingStars(stars: number) {
