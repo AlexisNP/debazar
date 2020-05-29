@@ -1,4 +1,4 @@
-<section class="spotlight full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)">
+<section class="spotlight full-height index" mouseWheel (mouseWheelUp)="mouseWheelUpFunc(event)" >
     <div *ngFor="let game of games" class="wrapper-all">
         <div class="wrapper">
             <header>
@@ -14,6 +14,6 @@
                 </article>
             </main>
         </div>
-        <app-scroller page_url="/jeux/{{ game.id }}" page_title="Voir les offres sur ce jeu" prev_url="/top-jeux-societe"></app-scroller>
+        <app-scroller page_url="/jeux" page_title="Voir nos jeux"></app-scroller>
     </div>
 </section>

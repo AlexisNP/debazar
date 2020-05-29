@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { environment } from 'src/environments/environment';
+
 import Game from '../models/Game';
 
 const ENDPOINT = 'game';
@@ -18,17 +19,29 @@ export class GameService {
   /**
    * return all games stored in database
    */
-  public getAllGames() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`)
+  public getAllGames = () => {
+    return new Promise((resolve, reject) => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-all`).subscribe(data => {
+            resolve(data)
+        }, err => {
+            reject(err)
+        })
+    })
   }
 
-  /**
-   * return all games stored in database
-   * @param id
-   */
-  public findGameById(id: number) {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id);
-  }
+    /**
+     * return all games stored in database
+     * @param id
+     */
+    public findGameById = (id: number) => {
+        return new Promise((resolve, reject) => {
+            this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
+                resolve(data)
+            }, err => {
+                reject(err)
+            })
+        })
+    }
 
   /**
    * Save game into Database

@@ -82,11 +82,21 @@ export class AddGameComponent implements OnInit {
       this.listAuthors = data;
     }, error => {console.log("Error", error);
     });
-    this.gameServ.getAllGames().subscribe(data => {
-      // console.log("data:", data),
-      this.listGames = data;
-    }, error => {console.log("Error", error);
-    });
+
+    this.gameServ.getAllGames()
+    .then(values => {
+        this.listGames = Object.values(values);
+    })
+    .catch(err => {
+        console.log(err)
+    })
+
+    
+    // this.gameServ.getAllGames().subscribe(data => {
+    //   // console.log("data:", data),
+    //   this.listGames = data;
+    // }, error => {console.log("Error", error);
+    // });
     setTimeout(() => {
       this.listEditors.push(this.newEditor);
       this.listAuthors.push(this.newAuthor);

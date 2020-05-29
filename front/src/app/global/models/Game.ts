@@ -14,13 +14,13 @@ class Game {
     private _rating: number;
     private _age: number;
     private _editor: Editor;
-    private _category: Category;
+    private _categories: Category[];
     private _extension: Game;
 
     // Constructor
     constructor(id: number, name: string, image: string, description: string, players: number, 
         duration: string, published: Date, rating: number, age: number, 
-        editor: Editor, category: Category, extension: Game) {
+        editor: Editor, categories: Category[], extension: Game) {
         this.id = id;
         this._name = name;
         this._image = image;
@@ -31,7 +31,7 @@ class Game {
         this._rating = rating;
         this._age = age;
         this._editor = editor;
-        this._category = category;
+        this._categories = categories;
         this._extension = extension;
     }
 
@@ -106,11 +106,11 @@ class Game {
         this._editor = value;
     }
 
-    public get category(): Category {
-        return this._category;
+    public get categories(): Category[] {
+        return this._categories;
     }
-    public set category(value: Category) {
-        this._category = value;
+    public set categories(value: Category[]) {
+        this._categories = value;
     }
 
     public get extension(): Game {
