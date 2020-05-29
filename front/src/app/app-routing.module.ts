@@ -28,10 +28,10 @@ import { AddGameComponent } from './administration/components/add-game/add-game.
 
 const routes: Routes = [
     { path: '', component: LandingComponent },
-        { path: 'annonces-jeux-recentes', component: RecentAdvertsComponent },
-        { path: 'vendre-mes-jeux', component: SellGamesComponent },
-        { path: 'top-jeux-societe', component: PopularGamesComponent },
-        { path: 'meilleurs-jeux-societe', component: GameSpotlightComponent },
+    { path: 'annonces-jeux-recentes', component: RecentAdvertsComponent },
+    { path: 'vendre-mes-jeux', component: SellGamesComponent },
+    { path: 'top-jeux-societe', component: PopularGamesComponent },
+    { path: 'meilleurs-jeux-societe', component: GameSpotlightComponent },
     
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
