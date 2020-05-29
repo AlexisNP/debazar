@@ -3,6 +3,7 @@ import { Title } from '@angular/platform-browser';
 import { Router } from '@angular/router';
 
 import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
+import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
 
 @Component({
   selector: 'app-landing',
@@ -11,9 +12,13 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 })
 export class LandingComponent implements OnInit {
 
-    faChevronRight = faChevronRight;
-
     private botinc: number = 0;
+
+    private isAbout = false;
+
+    faChevronRight = faChevronRight;
+    faQuestion = faQuestion;
+    faTimes = faTimes;
 
     constructor(private titleService: Title, private router: Router) {
         this.titleService.setTitle("Accueil - Débazar");
@@ -32,6 +37,10 @@ export class LandingComponent implements OnInit {
         } else {
             this.botinc = 0;
         }
+    }
+
+    toggleAbout() {
+        this.isAbout = !this.isAbout;
     }
 
 }

@@ -45,4 +45,16 @@
             transform: translateY(-50%);
         }
     }
+    footer {
+        padding: 2rem 0;
+        text-align: center;
+    }
+    &.about {
+        overflow: visible;
+        .about-modal {
+            display: block;
+            opacity: 1;
+            pointer-events: initial;
+        }
+    }
 }

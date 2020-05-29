@@ -23,6 +23,19 @@
         left: 0;
         background: linear-gradient($background--fill, transparent);
     }
+    footer {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    &.about {
+        overflow: visible;
+        .about-modal {
+            display: block;
+            opacity: 1;
+            pointer-events: initial;
+        }
+    }
 }
 
 @media only screen and (max-width: 1400px) {
