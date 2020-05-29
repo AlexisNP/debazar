@@ -49,7 +49,7 @@ public class GameController {
         List<Game> gameList = repository.findAll();
         return ResponseEntity.ok().body(gameList);
     }
-    
+
     @GetMapping("/find-all-summary")
     public ResponseEntity<List<GameSummary>> getAllSummary() {
         List<Game> gameList = repository.findAll();
@@ -63,7 +63,6 @@ public class GameController {
     @GetMapping("/find-id/{id}")
     public Game findById(@PathVariable(value = "id") Long id) {
         Game game = repository.findGameById(id);
-        System.out.println(game);
         return game;
     }
 
