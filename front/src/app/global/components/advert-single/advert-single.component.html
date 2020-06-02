@@ -3,19 +3,19 @@
         <div class="advert-body">
             <article>
                 <div class="inner">
-                    <figure [ngStyle]="{'background-image': 'url(' + advert.game.image + ')'}"></figure>
+                    <figure></figure>
                     <main>
                         <h1 class="txt-heavy">Bloodborne</h1>
                         <div>
-                            <var class="txt-heavy txt-orange">{{ advert.price }}€</var>
-                            <p>Date de mise en ligne : {{ advert.publishedAt }}</p>
+                            <var class="txt-heavy txt-orange"> advert.price €</var>
+                            <p>Date de mise en ligne :  advert.publishedAt </p>
                             <p>Betton 35830</p>
-                            <p><b>État :</b> {{ advert.state }}</p>
-                            <p><b>Catégorie : </b> {{ advert.game.category.name }}</p>
+                            <p><b>État :</b>  advert.state </p>
+                            <p><b>Catégorie : </b>  advert.game.category.name </p>
                             <div class="rating">
                                 <span>Note du jeu : </span>
                                 <ul class="rating-stars">
-                                    <li *ngFor="let star of advert.game.ratingStars(advert.game.rating)">
+                                    <li *ngFor="let star of ratingStars(7)">
                                         <span *ngIf="star; else emptyStar">
                                             <fa-icon [icon]="fasStar"></fa-icon>
                                         </span>
@@ -32,14 +32,14 @@
                     <div class="infos">
                         <div class="description-annonce">
                             <p class="txt-bold txt-orange">Description du vendeur :</p>
-                            <p>{{ advert.text }}</p>
+                            <p> advert.text </p>
                         </div>
                     </div>
                 </div>
             </article>
             <aside>
                 <div class="user">
-                    <h3 class="txt-heavy">{{ advert.user.username }}</h3>
+                    <h3 class="txt-heavy"> advert.user.username </h3>
                     <div class="infos">
                         <figure></figure>
                         <div>
@@ -56,7 +56,7 @@
                     </div>
                 </div>
                 <div class="actions">
-                    <a href="/jeux/{{ advert.game.id }}" class="btn btn-secondary">Fiche du jeu</a>
+                    <a href="/jeux/ advert.game.id " class="btn btn-secondary">Fiche du jeu</a>
                     <a href="" class="btn btn-primary">Acheter</a>
                 </div>
             </aside>
