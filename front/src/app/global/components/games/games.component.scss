@@ -13,6 +13,14 @@
                 padding: 1rem;
             }
         }
+        .spinner-wrapper {
+            padding: 5rem 0;
+            display: flex;
+            justify-content: center;
+            ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+                stroke: $orange;
+            }
+        }
     }
 }
 

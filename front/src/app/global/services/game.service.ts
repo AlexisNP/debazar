@@ -30,7 +30,7 @@ export class GameService {
   }
 
     /**
-     * return all games stored in database
+     * return one game
      * @param id
      */
     public findGameById = (id: number) => {

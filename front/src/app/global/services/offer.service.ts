@@ -32,13 +32,15 @@ export class OfferService {
    * return specified offer stored in database
    * @param id
    */
-  public findOfferById(id: number) {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
-  }
+  public findOfferById = (id: number) => {
+    return new Promise((resolve, reject) => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-id/` + id).subscribe(data => {
+            resolve(data)
+        }, err => {
+            reject(err)
+        })
+    })
+}
 
   /**
    * Save an offer into Database

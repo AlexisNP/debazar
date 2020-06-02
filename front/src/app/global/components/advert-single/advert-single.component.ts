@@ -5,10 +5,8 @@ import { faStar as fasStar, faEnvelope, faPhone } from '@fortawesome/free-solid-
 import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 import Advert from '../../models/Advert';
-import Game from '../../models/Game';
-import Editor from '../../models/Editor';
-import Category from '../../models/Category';
-import User from '../../models/User';
+import { OfferService } from '../../services/offer.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-advert-single',
@@ -24,12 +22,33 @@ export class AdvertSingleComponent implements OnInit {
     faEnvelope = faEnvelope;
     faPhone = faPhone;
 
-    constructor(private titleService: Title) {
+    constructor(private titleService: Title, private offerService: OfferService,  private route: ActivatedRoute) {
     }
 
     ngOnInit() {
+        let id = Number(this.route.snapshot.paramMap.get('id'));
 
-        this.titleService.setTitle(this.advert.game.name + " - Annonce Débazar");
+        this.offerService.findOfferById(id)
+        .then(values => {
+            values = Object.values(values)
+            console.log(values)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }
+
+    ratingStars(stars: number) {
+        let output = [];
+        for (let index = 0; index < 5; index++) {
+            if (stars > 0) {
+                output.push(1);
+            } else {
+                output.push(0);
+            }
+            stars--;
+        }
+        return output;
     }
 
 }
