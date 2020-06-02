@@ -22,7 +22,7 @@ SET time_zone = "+00:00";
 -- Base de données :  `debazar`
 --
 
-CREATE IF NOT EXISTS `debazar`;
+CREATE DATABASE IF NOT EXISTS `debazar`;
 USE `debazar`;
 
 -- --------------------------------------------------------
