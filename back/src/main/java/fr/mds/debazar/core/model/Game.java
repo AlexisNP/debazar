@@ -6,6 +6,7 @@ import java.util.Set;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -13,8 +14,6 @@ import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -26,8 +25,7 @@ import lombok.Setter;
 public class Game {
 
     @Id
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
     private String name;
@@ -46,22 +44,22 @@ public class Game {
     private Editor editor;
 
     @ManyToMany(fetch= FetchType.LAZY)
-    @JoinTable(
-            name = "game_author",
-            joinColumns = @JoinColumn(name = "game_id"),
-            inverseJoinColumns = @JoinColumn(name = "author_id"))
+    @JoinTable(	name = "game_author",
+                joinColumns = @JoinColumn(name = "game_id"),
+                inverseJoinColumns = @JoinColumn(name = "author_id"))
     private Set<Author> author = new HashSet<>();
 
     @ManyToMany(fetch= FetchType.LAZY)
-    @JoinTable(
-            name = "game_category",
-            joinColumns = @JoinColumn(name = "game_id"),
-            inverseJoinColumns = @JoinColumn(name = "category_id"))
+    @JoinTable(	name = "game_category",
+                joinColumns = @JoinColumn(name = "game_id"),
+                inverseJoinColumns = @JoinColumn(name = "category_id"))
     private Set<Category> categories = new HashSet<>();
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "extension",referencedColumnName = "id")
-    private Game extension;
+    @ManyToMany(fetch= FetchType.LAZY)
+    @JoinTable(	name = "expansion",
+                joinColumns = @JoinColumn(name = "base_game_id"),
+                inverseJoinColumns = @JoinColumn(name = "expansion_id"))
+    private Set<Game> expansions = new HashSet<>();
 
     public Long getId() {
         return id;
@@ -117,6 +115,13 @@ public class Game {
     public void setPrice(float price) {
         this.price = price;
     }
+    public int getRating() {
+        return rating;
+    }
+    public void setRating(int rating) {
+        this.rating = rating;
+    }
+
     public Editor getEditor() {
         return editor;
     }
@@ -129,23 +134,18 @@ public class Game {
     public void setAuthor(Set<Author> author) {
         this.author = author;
     }
-    public int getRating() {
-        return rating;
-    }
-    public void setRating(int rating) {
-        this.rating = rating;
-    }
     public Set<Category> getCategories() {
         return categories;
     }
     public void setCategories(Set<Category> categories) {
         this.categories = categories;
     }
-    public Game getExtension() {
-        return extension;
+
+    public Set<Game> getExpansions() {
+        return expansions;
     }
-    public void setExtension(Game extension) {
-        this.extension = extension;
+    public void setExpansions(Set<Game> expansions) {
+        this.expansions = expansions;
     }
 
 }
