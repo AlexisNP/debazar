@@ -3,11 +3,13 @@
         <header>
             <h2>Jeux du Bazar</h2>
         </header>
-        <div class="game-list-container" *ngIf="isLoading; else loading;">
+        <div class="game-list-container" *ngIf="!isLoading; else loading;">
             <app-game-card *ngFor="let game of games" [game]=game></app-game-card>
         </div>
         <ng-template #loading>
-            <mat-progress-spinner></mat-progress-spinner>
+            <div class="spinner-wrapper">
+                <mat-spinner></mat-spinner>
+            </div>
         </ng-template>
     </div>
     <app-footer></app-footer>

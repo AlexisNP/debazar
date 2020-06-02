@@ -30,7 +30,6 @@ export class GameSingleComponent implements OnInit {
 
         this.gameService.findGameById(id)
         .then(values => {
-            console.log(Object.keys(values), Object.values(values))
             values = Object.values(values)
             
             this.game = new Game(
