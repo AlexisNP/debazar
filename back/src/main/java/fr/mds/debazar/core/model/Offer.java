@@ -1,7 +1,10 @@
 package fr.mds.debazar.core.model;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
@@ -20,12 +23,11 @@ import lombok.Setter;
 public class Offer {
 
     @Id
-    @GenericGenerator(name = "increment", strategy = "increment")
-    @GeneratedValue(generator = "increment")
+    @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "game", referencedColumnName = "id")
-    private Game game;
+    private Game game = new Game();
     @ManyToOne
     @JoinColumn(name = "seller")
     private User seller;
@@ -39,7 +41,6 @@ public class Offer {
     public Long getId() {
         return id;
     }
-
     public void setId(Long id) {
         this.id = id;
     }
@@ -47,7 +48,6 @@ public class Offer {
     public Game getGame() {
         return game;
     }
-
     public void setGame(Game game) {
         this.game = game;
     }
@@ -55,7 +55,6 @@ public class Offer {
     public User getSeller() {
         return seller;
     }
-
     public void setSeller(User seller) {
         this.seller = seller;
     }
@@ -63,7 +62,6 @@ public class Offer {
     public State getState() {
         return state;
     }
-
     public void setState(State state) {
         this.state = state;
     }
@@ -71,7 +69,6 @@ public class Offer {
     public String getDetail() {
         return detail;
     }
-
     public void setDetail(String detail) {
         this.detail = detail;
     }
@@ -79,7 +76,6 @@ public class Offer {
     public float getPrice() {
         return price;
     }
-
     public void setPrice(float price) {
         this.price = price;
     }

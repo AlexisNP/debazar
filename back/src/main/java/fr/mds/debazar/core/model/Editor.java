@@ -2,6 +2,7 @@ package fr.mds.debazar.core.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 import javax.validation.Valid;
@@ -18,8 +19,7 @@ import lombok.Setter;
 public class Editor {
 
 	@Id
-	@GenericGenerator(name = "increment", strategy = "increment") 
-	@GeneratedValue(generator = "increment") 
+    @GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 	
 	private String name;

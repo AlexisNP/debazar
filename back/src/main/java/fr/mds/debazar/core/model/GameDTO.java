@@ -48,7 +48,9 @@ public class GameDTO {
 
     private Set<Category> category;
 
-//    private Game extension;
+    private Set<Game> expansion;
+
+    private Game extension;
 
     public String getName() {
         return name;
@@ -134,10 +136,20 @@ public class GameDTO {
         this.category = category;
     }
 
-//    public Game getExtension() {
-//        return extension;
-//    }
-//    public void setExtension(Game extension) {
-//        this.extension = extension;
-//    }
+    public Set<Game> getExpansion() {
+        return expansion;
+    }
+    public void setExpansion(Set<Game> expansion) {
+        this.expansion = expansion;
+    }
+    public Set<Author> getAuthor() {
+        return author;
+    }
+    public Game getExtension() {
+        return extension;
+    }
+    public void setExtension(Game extension) {
+        this.extension = extension;
+    }
+
 }

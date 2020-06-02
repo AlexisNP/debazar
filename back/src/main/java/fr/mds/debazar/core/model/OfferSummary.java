@@ -1,6 +1,7 @@
 package fr.mds.debazar.core.model;
 
 import fr.mds.debazar.authentication.model.UserDetail;
+import fr.mds.debazar.core.controller.GameController;
 
 public class OfferSummary {
 

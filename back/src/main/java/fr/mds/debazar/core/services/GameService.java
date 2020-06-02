@@ -1,13 +1,14 @@
 package fr.mds.debazar.core.services;
 
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.validation.Valid;
 
 import org.springframework.stereotype.Service;
 
 import fr.mds.debazar.core.controller.EditorController;
 import fr.mds.debazar.core.exception.GameExistsException;
-import fr.mds.debazar.core.model.Category;
-import fr.mds.debazar.core.model.Editor;
 import fr.mds.debazar.core.model.Game;
 import fr.mds.debazar.core.model.GameDTO;
 import fr.mds.debazar.core.repository.EditorRepository;
@@ -30,7 +31,7 @@ public class GameService {
         if (gameExist(gameDto.getName())) {
             throw new GameExistsException("Un jeu existe déjà avec ce nom :" + gameDto.getName());
         }
-        return repository.save(createGame(gameDto));
+        return createGame(gameDto);
     }
 
     private Game createGame(GameDTO gameDto) {
@@ -51,7 +52,15 @@ public class GameService {
 
         newGame.setAuthor(gameDto.getAuthors());
 
-        newGame.setExtension(null);
+        repository.save(newGame);
+
+        Game baseGame = repository.getOne(gameDto.getExtension().getId());
+
+        Set<Game> expansionOf = baseGame.getExpansions();
+        expansionOf.add(newGame);
+        baseGame.setExpansions(expansionOf);
+
+        repository.save(baseGame);
 
         return newGame;
     }
