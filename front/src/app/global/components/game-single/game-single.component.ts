@@ -6,7 +6,7 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 
 import Game from '../../models/Game';
 import { GameService } from '../../services/game.service';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import Editor from '../../models/Editor';
 
 @Component({
@@ -23,7 +23,11 @@ export class GameSingleComponent implements OnInit {
     fasStar = fasStar;
     farStar = farStar;
 
-    constructor(private titleService: Title, private gameService: GameService, private route: ActivatedRoute) {}
+    constructor(
+        private titleService: Title,
+        private gameService: GameService,
+        private route: ActivatedRoute,
+        private router: Router) {}
 
     ngOnInit() {
         let id = Number(this.route.snapshot.paramMap.get('id'));
@@ -31,7 +35,6 @@ export class GameSingleComponent implements OnInit {
         this.gameService.findGameById(id)
         .then(values => {
             values = Object.values(values)
-            
             this.game = new Game(
                 values[0],
                 values[1],
@@ -50,8 +53,8 @@ export class GameSingleComponent implements OnInit {
             this.titleService.setTitle(this.game.name + " - Fiche Débazar");
             this.isLoading = false;
         })
-        .catch(err => {
-            console.log(err)
+        .catch(() => {
+            this.router.navigate(['/404'])
         })
     }
 

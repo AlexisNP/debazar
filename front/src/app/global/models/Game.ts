@@ -10,18 +10,18 @@ class Game {
     private _description: string;
     private _players: number;
     private _duration: string;
-    private _published: Date;
+    private _published: string;
     private _rating: number;
     private _age: number;
     private _editor: Editor;
     private _categories: Category[];
-    private _extension: Game;
+    private _extensions: any[];
 
     // Constructor
     constructor(id: number, name: string, image: string, description: string, players: number, 
-        duration: string, published: Date, rating: number, age: number, 
-        editor: Editor, categories: Category[], extension: Game) {
-        this.id = id;
+        duration: string, published: string, rating: number, age: number, 
+        editor: Editor, categories: Category[], extensions: any[]) {
+        this._id = id;
         this._name = name;
         this._image = image;
         this._description = description;
@@ -32,12 +32,12 @@ class Game {
         this._age = age;
         this._editor = editor;
         this._categories = categories;
-        this._extension = extension;
+        this._extensions = extensions;
     }
 
     // Getters / Setters
     public get id(): number {
-        return this.id;
+        return this._id;
     }
     public set id(value: number) {
         this._id = value;
@@ -78,10 +78,10 @@ class Game {
         this._duration = value;
     }
 
-    public get published(): Date {
+    public get published(): string {
         return this._published;
     }
-    public set published(value: Date) {
+    public set published(value: string) {
         this._published = value;
     }
 
@@ -113,11 +113,11 @@ class Game {
         this._categories = value;
     }
 
-    public get extension(): Game {
-        return this._extension;
+    public get extensions(): any[] {
+        return this._extensions;
     }
-    public set extension(value: Game) {
-        this._extension = value;
+    public set extensions(value: any[]) {
+        this._extensions = value;
     }
 }
 
