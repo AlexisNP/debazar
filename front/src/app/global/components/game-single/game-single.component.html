@@ -1,5 +1,5 @@
 <section>
-    <div class="wrapper" *ngIf="!isLoading">
+    <div class="wrapper" *ngIf="!isLoading; else loading;">
         <header>
             <h2>{{ game.name }}</h2>
         </header>
@@ -53,6 +53,11 @@
             </article>
         </div>
     </div>
+    <ng-template #loading>
+        <div class="spinner-wrapper">
+            <mat-spinner></mat-spinner>
+        </div>
+    </ng-template>
     <footer>
         <a href="/annonces/" class="btn btn-primary">Voir les offres sur ce jeu</a>
     </footer>

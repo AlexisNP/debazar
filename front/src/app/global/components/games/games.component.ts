@@ -24,7 +24,6 @@ export class GamesComponent implements OnInit {
         this.gameService.getAllGames()
         .then(values => {
             this.games = Object.values(values);
-            console.log(this.games)
         })
         .then(() => {
             this.isLoading = false;

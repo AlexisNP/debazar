@@ -3,10 +3,18 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule }    from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 
+// FontAwesome Icons
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
+// locale
+import { registerLocaleData } from '@angular/common';
+import localeFr from '@angular/common/locales/fr'
+registerLocaleData(localeFr, 'fr');
+
+// Routing
 import { AppRoutingModule } from './app-routing.module';
 
+// Components
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './global/components/navbar/navbar.component';
 import { SearchBarComponent } from './global/components/navbar/search-bar/search-bar.component';
@@ -34,17 +42,18 @@ import { SellGamesComponent } from './global/components/index/sell-games/sell-ga
 import { ScrollerComponent } from './global/components/index/scroller/scroller.component';
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
-import { MouseWheelDirective } from './global/directives/mousewheel.directive';
 import { AdvertSingleComponent } from './global/components/advert-single/advert-single.component';
 import { GameSingleComponent } from './global/components/game-single/game-single.component';
 import { GamesComponent } from './global/components/games/games.component';
+import { NotFoundComponent } from './global/components/not-found/not-found.component';
 import { ToggleButtonComponent } from './global/components/toggle-button/toggle-button.component';
 import { FooterComponent } from './global/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { MaterialModule } from './global/modules/material/material/material.module';
 import { MatSelectSearchComponent } from './global/components/index/sell-games/mat-select-search/mat-select-search.component';
-import { NotFoundComponent } from './global/components/not-found/not-found.component';
+
+import { MouseWheelDirective } from './global/directives/mousewheel.directive';
 
 @NgModule({
   declarations: [
@@ -87,10 +96,10 @@ import { NotFoundComponent } from './global/components/not-found/not-found.compo
     HttpClientModule,
     FontAwesomeModule,
     BrowserAnimationsModule,
-    MaterialModule
+    MaterialModule,
   ],
   providers: [
-      Title
+      Title,
   ],
   bootstrap: [AppComponent],
   schemas: [ CUSTOM_ELEMENTS_SCHEMA ]

@@ -12,9 +12,7 @@
                 </header>
                 <div class="row">
                     <div class="genre">
-                        <div *ngFor="let c of game.categories">
-                            {{ c.name }}
-                        </div>
+                        <p *ngFor="let c of game.categories">{{ c.name }}</p>
                     </div>
                 </div>
                 <div class="row" *ngIf="!isShowcase">

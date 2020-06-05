@@ -7,13 +7,13 @@ class Advert {
     private _id: number;
     private _game: Game;
     private _user: User;
-    private _publishedAt: Date;
+    private _publishedAt: string;
     private _price: number;
     private _text: string;
     private _state: string;
 
     // Constructor
-    constructor(id: number, game: Game, user: User, publishedAt: Date, price: number, text: string, state: string) {
+    constructor(id: number, game: Game, user: User, publishedAt: string, price: number, text: string, state: string) {
         this._id = id;
         this._game = game;
         this._user = user;
@@ -45,10 +45,10 @@ class Advert {
         this._user = value;
     }
 
-    public get publishedAt(): Date {
+    public get publishedAt(): string {
         return this._publishedAt;
     }
-    public set publishedAt(value: Date) {
+    public set publishedAt(value: string) {
         this._publishedAt = value;
     }
 

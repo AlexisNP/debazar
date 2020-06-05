@@ -3,9 +3,14 @@
         <header>
             <h2>Annonces du Bazar</h2>
         </header>
-        <div class="advert-list-container">
+        <div class="advert-list-container" *ngIf="!isLoading; else loading;">
             <app-advert-card *ngFor="let advert of adverts" [advert]=advert></app-advert-card>
         </div>
+        <ng-template #loading>
+            <div class="spinner-wrapper">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
     </div>
     <app-footer></app-footer>
 </section>

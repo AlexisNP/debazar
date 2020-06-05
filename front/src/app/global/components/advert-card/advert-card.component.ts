@@ -6,6 +6,8 @@ import { faStar as farStar } from '@fortawesome/free-regular-svg-icons';
 import Advert from 'src/app/global/models/Advert';
 import Game from '../../models/Game';
 import User from '../../models/User';
+import { GameService } from '../../services/game.service';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-advert-card',
@@ -23,12 +25,12 @@ export class AdvertCardComponent implements OnInit {
     farStar = farStar;
 
     constructor() {
-        console.log(this.advert)
     }
 
     ngOnInit() {
         this.game = this.advert.game;
         this.user = this.advert.user;
+        console.log(this.game)
     }
 
     ratingStars(stars: number) {
