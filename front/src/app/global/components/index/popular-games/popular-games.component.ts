@@ -7,6 +7,7 @@ import Editor from 'src/app/global/models/Editor';
 import Category from 'src/app/global/models/Category';
 
 import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { PopularGameService } from 'src/app/global/services/popular-game.service';
 
 @Component({
   selector: 'app-popular-games',
@@ -17,6 +18,8 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
+    private isLoading = true;
+
     private topinc: number = 0;
     private botinc: number = 0;
 
@@ -25,13 +28,24 @@ export class PopularGamesComponent implements OnInit, OnDestroy {
     faQuestion = faQuestion;
     faTimes = faTimes;
     
-    constructor(private titleService: Title, private router: Router) {
-        this.titleService.setTitle("Top Jeux - Débazar");
+    constructor(private titleService: Title, private popularGamesAPI: PopularGameService, private router: Router) {
+        this.titleService.setTitle("Le Top Jeux - Débazar");
     }
 
     ngOnInit() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.add('hourglass-bg');
+
+        this.popularGamesAPI.get3populars()
+        .then(values => {
+            this.games = Object.values(values);
+        })
+        .then(() => {
+            this.isLoading = false;
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     ngOnDestroy() {

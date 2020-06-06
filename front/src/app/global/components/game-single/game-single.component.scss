@@ -43,6 +43,14 @@ section {
             }
         }
     }
+    .spinner-wrapper {
+        padding: 5rem 0;
+        display: flex;
+        justify-content: center;
+        ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
+            stroke: $orange;
+        }
+    }
     > footer {
         margin: 2.5rem 0;
         text-align: center;

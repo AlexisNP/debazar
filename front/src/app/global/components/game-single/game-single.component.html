@@ -1,9 +1,9 @@
 <section>
-    <div class="wrapper" *ngIf="!isLoading; else loading;">
-        <header>
+    <div class="wrapper">
+        <header *ngIf="!isLoading">
             <h2>{{ game.name }}</h2>
         </header>
-        <div class="game-body">
+        <div class="game-body" *ngIf="!isLoading; else loading;">
             <article>
                 <div class="inner">
                     <header>
@@ -52,12 +52,12 @@
                 </div>
             </article>
         </div>
+        <ng-template #loading>
+            <div class="spinner-wrapper">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
     </div>
-    <ng-template #loading>
-        <div class="spinner-wrapper">
-            <mat-spinner></mat-spinner>
-        </div>
-    </ng-template>
     <footer>
         <a href="/annonces/" class="btn btn-primary">Voir les offres sur ce jeu</a>
     </footer>

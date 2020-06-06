@@ -18,11 +18,13 @@ export class BestGameService {
    * return all offers stored in database
    */
   public getbest() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last`).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
-    });
+    return new Promise((resolve, reject) => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last`).subscribe(data => {
+            resolve(data)
+        }, err => {
+            reject(err)
+        })
+    })
   }
 
   /**

@@ -5,11 +5,8 @@ section {
     .wrapper {
         .advert-body {
             padding: 0 2.5rem 2.5rem 2.5rem;
-            display: flex;
-            flex-flow: row nowrap;
 
             article {
-                width: 70%;
                 padding: 2.5rem;
                 .inner {
                     padding: 2.5rem;
@@ -70,7 +67,6 @@ section {
             }
 
             aside {
-                width: 30%;
                 padding: 2.5rem;
                 .user {
                     padding: 2.5rem;
@@ -110,5 +106,6 @@ section {
                 }
             }
         }
+
     }
 }

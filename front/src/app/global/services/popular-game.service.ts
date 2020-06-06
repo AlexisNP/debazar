@@ -18,10 +18,12 @@ export class PopularGameService {
    * return all offers stored in database
    */
   public get3populars() {
-    return this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last-3`).subscribe(data => {
-      // console.log("data:", data),
-      data = data;
-    }, error => {console.log("Error", error);
+    return new Promise((resolve, reject) => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last-3/`).subscribe(data => {
+            resolve(data)
+        }, err => {
+            reject(err)
+        })
     });
   }
 
