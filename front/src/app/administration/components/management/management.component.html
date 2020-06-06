@@ -1,3 +1,72 @@
-<p>
-  management works!
-</p>
+<section *ngIf="!isLoadingGames; else loadingGames;">
+  <div *ngIf="!isLoadingPopular; else loadingPopular;">
+  
+    Actuel jeux populaires: <span *ngFor="let game of popularGamesNow">{{game.game.name}} </span>
+  
+    <form [formGroup]="popularForm" (ngSubmit)="submitPopular()" class="wrapper current-step-{{step}}">
+  
+      <div class="step step-1">
+          <header>
+              <div class="title"><h2>Ajouter un jeu populaire.</h2></div>
+          </header>
+          <fieldset>
+  
+              <div class="input-group">
+                <label for="game_popular">Choisissez le jeu:</label>
+                <mat-form-field>
+                  <mat-select formControlName="game_popular" required>
+                    <mat-option *ngFor="let game of listGames" [value]="game.id">{{game.name}}</mat-option>
+                  </mat-select>
+                </mat-form-field>
+  
+              </div>
+          </fieldset>
+          <button [disabled]="popularForm.invalid" type="submit" class="btn btn-primary btn-small">Ajouter</button>
+      </div>
+  
+    </form>
+  </div>
+  <ng-template #loadingPopular>
+      <div class="spinner-wrapper">
+          <mat-spinner></mat-spinner>
+      </div>
+  </ng-template>
+  <!-- <div *ngIf="!isLoadingBest; else loadingBest;">
+
+  Actuel jeu du moment: <span>{{bestGameNow.game.name}}</span>
+
+  <form [formGroup]="bestForm" (ngSubmit)="submitBest()" class="wrapper current-step-{{step}}">
+
+    <div class="step step-1">
+        <header>
+            <div class="title"><h2>Ajouter un jeu du moment.</h2></div>
+        </header>
+        <fieldset>
+
+            <div class="input-group">
+              <label for="game_best">Choisissez le jeu:</label>
+              <mat-form-field>
+                <mat-select formControlName="game_best" required>
+                  <mat-option *ngFor="let game of listGames" [value]="game">{{game.name}}</mat-option>
+                </mat-select>
+              </mat-form-field>
+
+            </div>
+        </fieldset>
+        <button [disabled]="bestForm.invalid" type="submit" class="btn btn-primary btn-small">Ajouter</button>
+      </div>
+
+    </form>
+  </div>
+  <ng-template #loadingBest>
+      <div class="spinner-wrapper">
+          <mat-spinner></mat-spinner>
+      </div>
+  </ng-template> -->
+
+</section>
+<ng-template #loadingGames>
+    <div class="spinner-wrapper">
+        <mat-spinner></mat-spinner>
+    </div>
+</ng-template>

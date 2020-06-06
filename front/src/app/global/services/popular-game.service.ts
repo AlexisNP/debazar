@@ -19,7 +19,7 @@ export class PopularGameService {
    */
   public get3populars() {
     return new Promise((resolve, reject) => {
-        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last-3/`).subscribe(data => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/last`).subscribe(data => {
             resolve(data)
         }, err => {
             reject(err)
@@ -32,7 +32,7 @@ export class PopularGameService {
    * @param offer
    */
   public addPopularGame(data: any) {
-    return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add-popular`, data).subscribe(data => {
+    return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add`, data).subscribe(data => {
       // console.log("data:", data),
       data = data;
     }, error => {console.log("Error", error);

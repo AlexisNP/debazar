@@ -27,6 +27,7 @@ import { GamesComponent } from './global/components/games/games.component';
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
 
 import { NotFoundComponent } from "./global/components/not-found/not-found.component";
+import { HomeComponent } from './user/components/home/home.component';
 
 const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -46,14 +47,13 @@ const routes: Routes = [
 
     {
         path: 'mon-compte',
-        component: AccountComponent,
+        component: HomeComponent,
         canActivate: [AuthGuard],
         children: [
             {
                 path: '', 
-                canActivateChild: [AuthGuard],
                 children: [
-                    { path: 'mon-compte', component: AccountComponent},
+                    { path: '', component: AccountComponent},
                     { path: 'gamebox', component: GameboxComponent},
                 ]
             }
@@ -61,7 +61,7 @@ const routes: Routes = [
     },
     { path: 'vendre-mon-jeu', component: SellGameComponent, canActivate: [AuthGuard] },
     { path: 'autour-de-moi', component: NearMeComponent, canActivate: [AuthGuard] },
-    { path: 'mon-bazar', component: GameboxComponent },
+    { path: 'mon-bazar', redirectTo: 'mon-compte/gamebox'},
 
 
     {
@@ -71,14 +71,13 @@ const routes: Routes = [
         children: [
             {
                 path: '', 
-                canActivateChild: [AuthGuard],
                 children: [
                     { path: 'management', component: ManagementComponent },
+                    { path: 'add_game', component: AddGameComponent },
                 ]
             }
         ]
     },
-    { path: 'add_game', component: AddGameComponent },
 
     { path: '404', component: NotFoundComponent},
     { path: '**', redirectTo: '404' }
