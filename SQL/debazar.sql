@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  mar. 02 juin 2020 à 14:27
+-- Généré le :  sam. 06 juin 2020 à 20:03
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -21,9 +21,6 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `debazar`
 --
-
-CREATE DATABASE IF NOT EXISTS `debazar`;
-USE `debazar`;
 
 -- --------------------------------------------------------
 
@@ -47,71 +44,21 @@ INSERT INTO `author` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
--- Structure de la table `hibernate_sequence`
+-- Structure de la table `best_game`
 --
 
-CREATE TABLE `hibernate_sequence` (
-  `next_val` bigint(20) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `hibernate_sequence`
---
-
-INSERT INTO `hibernate_sequence` (`next_val`) VALUES
-(29);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `state`
---
-
-CREATE TABLE `state` (
+CREATE TABLE `best_game` (
   `id` int(11) NOT NULL,
-  `name` varchar(20) NOT NULL
+  `game` int(11) NOT NULL,
+  `date` date NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
--- Déchargement des données de la table `state`
+-- Déchargement des données de la table `best_game`
 --
 
-INSERT INTO `state` (`id`, `name`) VALUES
-(1, 'comme neuf'),
-(2, 'utilisé'),
-(3, 'abimé'),
-(4, 'incomplet');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `users`
---
-
-CREATE TABLE `users` (
-  `id` int(11) NOT NULL,
-  `username` varchar(32) NOT NULL,
-  `password` varchar(128) NOT NULL,
-  `mail_address` varchar(32) NOT NULL,
-  `firstName` varchar(32) DEFAULT NULL,
-  `lastName` varchar(32) DEFAULT NULL,
-  `gender` varchar(12) DEFAULT NULL,
-  `address` varchar(40) NOT NULL,
-  `city` varchar(30) NOT NULL,
-  `phone` varchar(15) DEFAULT NULL,
-  `avatar` blob,
-  `colour` varchar(12) DEFAULT NULL,
-  `verified` tinyint(1) NOT NULL DEFAULT '0',
-  `banned` tinyint(1) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `users`
---
-
-INSERT INTO `users` (`id`, `username`, `password`, `mail_address`, `firstName`, `lastName`, `gender`, `address`, `city`, `phone`, `avatar`, `colour`, `verified`, `banned`) VALUES
-(1, 'youpi', '$2a$10$hpRvEfMWE09DRH5mffRDJeS6XnW6zaK447fiY6YXINTnSx2pbo.qK', 'azariel.malukker@gmail.com', 'Azariel', 'Malukker', NULL, 'zezazea', 'azeae', '0601000000', NULL, NULL, 0, 0),
-(2, 'testt', '$2a$10$LQrjuHbTP0c9NCbPWpZRg.tRMcivvCevMtJZys.HIIwtLUbFSjupu', 'andrew.conan1@gmail.com', 'Andrew', 'Conan', NULL, 'Urizael', 'Bruz', '0666473256', NULL, NULL, 0, 0);
+INSERT INTO `best_game` (`id`, `game`, `date`) VALUES
+(1, 14, '2020-06-06');
 
 -- --------------------------------------------------------
 
@@ -295,6 +242,25 @@ INSERT INTO `editor` (`id`, `name`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `expansion`
+--
+
+CREATE TABLE `expansion` (
+  `base_game_id` int(11) NOT NULL,
+  `expansion_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `expansion`
+--
+
+INSERT INTO `expansion` (`base_game_id`, `expansion_id`) VALUES
+(14, 18),
+(14, 28);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `game`
 --
 
@@ -320,25 +286,6 @@ INSERT INTO `game` (`id`, `name`, `image`, `description`, `editor`, `players`, `
 (14, '7 Wonders', 'https://www.7wonders.net/wp-content/themes/seven-wonders/css/wonders/7-wonders-box.png', 'Chacun des 2 à 7 joueurs prend la tête d’une ville légendaire (Babylone, Éphèse, Rhodes…), et va disposer de trois Âges pour la faire prospérer et même bâtir la légendaire Merveille du monde qui y est associée. Le but du jeu est d’embellir sa cité et de la rendre plus influente que celle de ses adversaires.', 114, '2 à 7 joueurs', '30 min à 1 heure', '', '10', 39, 4),
 (18, '7 Wonders : Armada', 'https://www.7wonders.net/wp-content/themes/seven-wonders/css/armada/7-wonders-armada-box-boite.png', 'Ajoutez un nouveau plateau de jeu à votre merveille, voguez sur les mers et utilisez votre Armada pour augmenter l’influence de votre cité !', 114, '2 à 7 joueurs', '30 min à 1 heure', '', '10', 20, 4),
 (28, '7 Wonders : Babel', 'https://www.7wonders.net/wp-content/themes/seven-wonders/css/babel/boite-box-7-wonders-babel.png', 'Toutes les civilisations ont le regard tourné vers l’horizon où la somptueuse Tour de Babel \ns’érige lentement vers les cieux. Chaque joueur peut décider d’apporter ou non son aide à \ncette merveille commune en participant à sa construction et en finançant de prestigieux \nprojets annexes.\nBabel est composée de deux extensions qui peuvent être jouées ensemble ou séparément.\nLe jeu de base est nécessaire pour jouer.\nCette extension est compatible avec les autres extensions de 7 Wonders.', 114, '2 à 7 joueurs', '30 min à 1 heure', '', '10', 20, 4);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `expansion`
---
-
-CREATE TABLE `expansion` (
-  `base_game_id` int(11) NOT NULL,
-  `expansion_id` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Déchargement des données de la table `expansion`
---
-
-INSERT INTO `expansion` (`base_game_id`, `expansion_id`) VALUES
-(14, 18),
-(14, 28);
 
 -- --------------------------------------------------------
 
@@ -397,6 +344,23 @@ INSERT INTO `game_category` (`game_id`, `category_id`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `hibernate_sequence`
+--
+
+CREATE TABLE `hibernate_sequence` (
+  `next_val` bigint(20) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `hibernate_sequence`
+--
+
+INSERT INTO `hibernate_sequence` (`next_val`) VALUES
+(49);
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `offer`
 --
 
@@ -406,27 +370,19 @@ CREATE TABLE `offer` (
   `seller` int(11) NOT NULL,
   `state` int(11) NOT NULL,
   `detail` varchar(1000) NOT NULL,
-  `price` float NOT NULL
+  `price` float NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Déchargement des données de la table `offer`
 --
 
-INSERT INTO `offer` (`id`, `game`, `seller`, `state`, `detail`, `price`) VALUES
-(19, 14, 2, 3, 'euh ...', 8);
-
--- --------------------------------------------------------
-
---
--- Structure de la table `best_game`
---
-
-CREATE TABLE `best_game` (
-  `id` int(11) NOT NULL,
-  `game` int(11) NOT NULL,
-  `date` date NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+INSERT INTO `offer` (`id`, `game`, `seller`, `state`, `detail`, `price`, `date`) VALUES
+(19, 14, 2, 3, 'euh ...', 8, '0000-00-00 00:00:00'),
+(31, 14, 2, 3, 'mlijngf', 252, '0000-00-00 00:00:00'),
+(32, 14, 2, 3, 'mlijngf', 252, '0000-00-00 00:00:00'),
+(34, 14, 2, 3, 'mlijngf', 252, '2020-06-06 15:36:06');
 
 -- --------------------------------------------------------
 
@@ -436,9 +392,76 @@ CREATE TABLE `best_game` (
 
 CREATE TABLE `popular_games` (
   `id` int(11) NOT NULL,
-  `id_game` int(11) NOT NULL,
-  `date` date NOT NULL
+  `game` int(11) NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `popular_games`
+--
+
+INSERT INTO `popular_games` (`id`, `game`, `date`) VALUES
+(1, 14, '2020-06-06 00:00:00'),
+(2, 18, '2020-06-06 00:00:00'),
+(3, 28, '2020-06-06 00:00:00'),
+(5, 28, '2020-06-03 00:00:00'),
+(44, 28, '2020-06-06 17:41:24'),
+(45, 28, '2020-06-06 17:43:31'),
+(46, 28, '2020-06-06 17:46:03'),
+(47, 28, '2020-06-06 17:46:30'),
+(48, 18, '2020-06-06 17:50:54');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `state`
+--
+
+CREATE TABLE `state` (
+  `id` int(11) NOT NULL,
+  `name` varchar(20) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `state`
+--
+
+INSERT INTO `state` (`id`, `name`) VALUES
+(1, 'comme neuf'),
+(2, 'utilisé'),
+(3, 'abimé'),
+(4, 'incomplet');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `users`
+--
+
+CREATE TABLE `users` (
+  `id` int(11) NOT NULL,
+  `username` varchar(32) NOT NULL,
+  `password` varchar(128) NOT NULL,
+  `mail_address` varchar(32) NOT NULL,
+  `firstName` varchar(32) DEFAULT NULL,
+  `lastName` varchar(32) DEFAULT NULL,
+  `gender` varchar(12) DEFAULT NULL,
+  `address` varchar(40) NOT NULL,
+  `city` varchar(30) NOT NULL,
+  `phone` varchar(15) DEFAULT NULL,
+  `avatar` blob,
+  `colour` varchar(12) DEFAULT NULL,
+  `verified` tinyint(1) NOT NULL DEFAULT '0',
+  `banned` tinyint(1) NOT NULL DEFAULT '0'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `users`
+--
+
+INSERT INTO `users` (`id`, `username`, `password`, `mail_address`, `firstName`, `lastName`, `gender`, `address`, `city`, `phone`, `avatar`, `colour`, `verified`, `banned`) VALUES
+(1, 'youpi', '$2a$10$hpRvEfMWE09DRH5mffRDJeS6XnW6zaK447fiY6YXINTnSx2pbo.qK', 'azariel.malukker@gmail.com', 'Azariel', 'Malukker', NULL, 'zezazea', 'azeae', '0601000000', NULL, NULL, 0, 0),
+(2, 'testt', '$2a$10$LQrjuHbTP0c9NCbPWpZRg.tRMcivvCevMtJZys.HIIwtLUbFSjupu', 'andrew.conan1@gmail.com', 'Andrew', 'Conan', NULL, 'Urizael', 'Bruz', '0666473256', NULL, NULL, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -555,7 +578,7 @@ ALTER TABLE `offer`
 --
 ALTER TABLE `popular_games`
   ADD PRIMARY KEY (`id`),
-  ADD KEY `id_popular_game` (`id_game`);
+  ADD KEY `id_popular_game` (`game`);
 
 --
 -- Index pour la table `state`
@@ -617,13 +640,13 @@ ALTER TABLE `editor`
 -- AUTO_INCREMENT pour la table `offer`
 --
 ALTER TABLE `offer`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=35;
 
 --
 -- AUTO_INCREMENT pour la table `popular_games`
 --
 ALTER TABLE `popular_games`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=49;
 
 --
 -- AUTO_INCREMENT pour la table `state`
@@ -693,7 +716,7 @@ ALTER TABLE `offer`
 -- Contraintes pour la table `popular_games`
 --
 ALTER TABLE `popular_games`
-  ADD CONSTRAINT `id_popular_game` FOREIGN KEY (`id_game`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
+  ADD CONSTRAINT `id_popular_game` FOREIGN KEY (`game`) REFERENCES `game` (`id`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 --
 -- Contraintes pour la table `users_categories`
