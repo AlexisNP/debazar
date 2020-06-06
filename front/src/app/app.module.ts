@@ -41,6 +41,8 @@ import { GameCardComponent } from './global/components/game-card/game-card.compo
 import { SellGamesComponent } from './global/components/index/sell-games/sell-games.component';
 import { ScrollerComponent } from './global/components/index/scroller/scroller.component';
 import { AddGameComponent } from './administration/components/add-game/add-game.component';
+import { HomeComponent } from './user/components/home/home.component';
+import { MyOffersComponent } from './user/components/my-offers/my-offers.component';
 
 import { AdvertSingleComponent } from './global/components/advert-single/advert-single.component';
 import { GameSingleComponent } from './global/components/game-single/game-single.component';
@@ -50,11 +52,11 @@ import { ToggleButtonComponent } from './global/components/toggle-button/toggle-
 import { FooterComponent } from './global/components/footer/footer.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { MaterialModule } from './global/modules/material/material/material.module';
+import { MaterialModule } from './global/modules/material/material.module';
+import { PrimeNgModule } from './global/modules/prime-ng/prime-ng.module';
 import { MatSelectSearchComponent } from './global/components/index/sell-games/mat-select-search/mat-select-search.component';
 
 import { MouseWheelDirective } from './global/directives/mousewheel.directive';
-import { HomeComponent } from './user/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -90,6 +92,7 @@ import { HomeComponent } from './user/components/home/home.component';
     MatSelectSearchComponent,
     NotFoundComponent,
     HomeComponent,
+    MyOffersComponent,
   ],
   imports: [
     BrowserModule,
@@ -99,6 +102,7 @@ import { HomeComponent } from './user/components/home/home.component';
     FontAwesomeModule,
     BrowserAnimationsModule,
     MaterialModule,
+    PrimeNgModule,
   ],
   providers: [
       Title,

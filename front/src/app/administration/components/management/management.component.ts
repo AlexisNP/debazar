@@ -7,6 +7,7 @@ import { PopularGameService } from 'src/app/global/services/popular-game.service
 import { PopularGame } from 'src/app/global/models/PopularGame';
 import { BestGame } from 'src/app/global/models/BestGame';
 import Editor from 'src/app/global/models/Editor';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-management',
@@ -32,7 +33,7 @@ export class ManagementComponent implements OnInit {
   private isLoadingGames = true;
 
   constructor(private gameServ: GameService, private bestServ: BestGameService, 
-              private popularServ: PopularGameService) { }
+              private popularServ: PopularGameService, private router: Router) { }
 
   public popularGame = new FormGroup({
     game: new FormControl(),
@@ -131,11 +132,19 @@ export class ManagementComponent implements OnInit {
     this.resetForm();
     this.popularServ.addPopularGame(this.popularForm.get('game_popular').value);
     console.log('manque un reload');
+    setTimeout(() => {
+      this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() =>
+      this.router.navigate(['./admin/management']));
+    }, 1000);
   }
 
   submitPopular() {
     this.resetForm();
     this.popularServ.addPopularGame(this.popularForm.get('game_popular').value);
     console.log('manque un reload');
+    setTimeout(() => {
+      this.router.navigateByUrl('/RefrshComponent', {skipLocationChange: true}).then(() =>
+      this.router.navigate(['./admin/management']));
+    }, 1000);
   }
 }
