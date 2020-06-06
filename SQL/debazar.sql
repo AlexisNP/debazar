@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1
--- Généré le :  sam. 06 juin 2020 à 20:03
+-- Généré le :  sam. 06 juin 2020 à 23:58
 -- Version du serveur :  10.1.35-MariaDB
 -- Version de PHP :  7.2.9
 
@@ -21,6 +21,10 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `debazar`
 --
+
+DROP DATABASE IF EXISTS `debazar`;
+CREATE DATABASE `debazar`;
+USE `debazar`;
 
 -- --------------------------------------------------------
 
@@ -379,9 +383,6 @@ CREATE TABLE `offer` (
 --
 
 INSERT INTO `offer` (`id`, `game`, `seller`, `state`, `detail`, `price`, `date`) VALUES
-(19, 14, 2, 3, 'euh ...', 8, '0000-00-00 00:00:00'),
-(31, 14, 2, 3, 'mlijngf', 252, '0000-00-00 00:00:00'),
-(32, 14, 2, 3, 'mlijngf', 252, '0000-00-00 00:00:00'),
 (34, 14, 2, 3, 'mlijngf', 252, '2020-06-06 15:36:06');
 
 -- --------------------------------------------------------
