@@ -3,12 +3,13 @@
 .all-adverts {
     .wrapper {
         .advert-list-container {
-            padding: 0 2.5rem;
+            padding: 1rem 5% 2.5rem;
             display: flex;
-            flex-flow: column nowrap;
-            align-items: center;
+            flex-flow: row wrap;
+            justify-content: flex-start;
             > * {
-                width: 50%;
+                max-width: 50%;
+                min-width: 50%;
                 padding: 1rem;
             }
         }
@@ -18,6 +19,18 @@
             justify-content: center;
             ::ng-deep .mat-progress-spinner circle, .mat-spinner circle {
                 stroke: $orange;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 900px) {
+    .all-adverts {
+        .wrapper {
+            .advert-list-container {
+                > * {
+                    min-width: 100%;
+                }
             }
         }
     }

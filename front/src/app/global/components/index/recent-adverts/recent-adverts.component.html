@@ -3,9 +3,14 @@
         <header>
             <h2>Annonces récentes</h2>
         </header>
-        <div class="advert-list-container">
+        <div class="advert-list-container" *ngIf="!isLoading; else loading;">
             <app-advert-card *ngFor="let advert of adverts" [advert]=advert></app-advert-card>
         </div>
+        <ng-template #loading>
+            <div class="spinner-wrapper">
+                <mat-spinner></mat-spinner>
+            </div>
+        </ng-template>
     </div>
     <footer>
         <app-scroller page_url="/jeux" page_title="Voir nos jeux"></app-scroller>

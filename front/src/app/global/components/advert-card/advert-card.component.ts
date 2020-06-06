@@ -30,7 +30,6 @@ export class AdvertCardComponent implements OnInit {
     ngOnInit() {
         this.game = this.advert.game;
         this.user = this.advert.user;
-        console.log(this.game)
     }
 
     ratingStars(stars: number) {

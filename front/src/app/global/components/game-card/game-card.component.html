@@ -5,40 +5,42 @@
                 <figure [ngStyle]="{'background-image': 'url(' + game.image + ')'}"></figure>
             </aside>
             <div class="informations">
-                <header>
-                    <div class="title">
-                        <h2>{{ game.name }}</h2>
+                <div class="container-fluid">
+                    <header class="row">
+                        <div class="title">
+                            <h2>{{ game.name }}</h2>
+                        </div>
+                    </header>
+                    <div class="row">
+                        <div class="genre">
+                            <p><span *ngFor="let c of game.categories; let i = index">{{ c.name }}<span *ngIf="(i < game.categories.length - 1)"> | </span> </span></p>
+                        </div>
                     </div>
-                </header>
-                <div class="row">
-                    <div class="genre">
-                        <p *ngFor="let c of game.categories">{{ c.name }}</p>
-                    </div>
-                </div>
-                <div class="row" *ngIf="!isShowcase">
-                    <div>
-                        <ul class="rating-stars">
-                            <li *ngFor="let star of this.ratingStars(game.rating)">
-                                <span *ngIf="star; else emptyStar">
-                                    <fa-icon [icon]="fasStar"></fa-icon>
-                                </span>
-                                <ng-template #emptyStar>
-                                    <span>
-                                        <fa-icon [icon]="farStar"></fa-icon>
+                    <div class="row" *ngIf="!isShowcase">
+                        <div>
+                            <ul class="rating-stars">
+                                <li *ngFor="let star of this.ratingStars(game.rating)">
+                                    <span *ngIf="star; else emptyStar">
+                                        <fa-icon [icon]="fasStar"></fa-icon>
                                     </span>
-                                </ng-template>
-                            </li>
-                        </ul>
+                                    <ng-template #emptyStar>
+                                        <span>
+                                            <fa-icon [icon]="farStar"></fa-icon>
+                                        </span>
+                                    </ng-template>
+                                </li>
+                            </ul>
+                        </div>
                     </div>
-                </div>
-                <div class="row description" *ngIf="!isShowcase">
-                    <p>{{ game.description }}</p>
-                </div>
-                <div class="row showcase" *ngIf="isShowcase">
-                    <p class="txt-heavy txt-orange">Rang du bazar</p>
-                    <div class="medal">
-                        <div class="rating txt-heavy txt-orange">1</div>
-                        <fa-icon [icon]="faAward" size="7x" class="txt-orange"></fa-icon>
+                    <div class="row description" *ngIf="!isShowcase">
+                        <p>{{ game.description }}</p>
+                    </div>
+                    <div class="row showcase" *ngIf="isShowcase">
+                        <p class="txt-heavy txt-orange">Rang du bazar</p>
+                        <div class="medal">
+                            <div class="rating txt-heavy txt-orange">1</div>
+                            <fa-icon [icon]="faAward" size="7x" class="txt-orange"></fa-icon>
+                        </div>
                     </div>
                 </div>
                 <footer>

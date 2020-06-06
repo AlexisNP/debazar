@@ -20,7 +20,6 @@ export class GamesComponent implements OnInit {
     }
 
     ngOnInit() {
-        
         this.gameService.getAllGames()
         .then(values => {
             this.games = Object.values(values);

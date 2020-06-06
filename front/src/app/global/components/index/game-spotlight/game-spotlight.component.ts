@@ -7,6 +7,7 @@ import Editor from 'src/app/global/models/Editor';
 import Category from 'src/app/global/models/Category';
 
 import { faQuestion, faTimes } from "@fortawesome/free-solid-svg-icons";
+import { BestGameService } from 'src/app/global/services/best-game.service';
 
 @Component({
   selector: 'app-game-spotlight',
@@ -17,6 +18,8 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
 
     private games: Game[];
 
+    private isLoading = true;
+
     private topinc: number = 0;
 
     private isAbout = false;
@@ -24,13 +27,24 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
     faQuestion = faQuestion;
     faTimes = faTimes;
 
-    constructor(private titleService: Title, private router: Router) {
-        this.titleService.setTitle("Meilleurs Jeux - Débazar");
+    constructor(private titleService: Title, private bestGameAPI: BestGameService, private router: Router) {
+        this.titleService.setTitle("Notre sélection - Débazar");
     }
 
     ngOnInit() {
         const body = document.getElementsByTagName('body')[0];
         body.classList.add('hourglass-bg');
+
+        this.bestGameAPI.getbest()
+        .then(values => {
+            this.games = Object.values(values);
+        })
+        .then(() => {
+            this.isLoading = false;
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     ngOnDestroy() {
