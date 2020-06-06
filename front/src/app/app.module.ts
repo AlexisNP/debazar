@@ -54,6 +54,7 @@ import { MaterialModule } from './global/modules/material/material/material.modu
 import { MatSelectSearchComponent } from './global/components/index/sell-games/mat-select-search/mat-select-search.component';
 
 import { MouseWheelDirective } from './global/directives/mousewheel.directive';
+import { HomeComponent } from './user/components/home/home.component';
 
 @NgModule({
   declarations: [
@@ -88,6 +89,7 @@ import { MouseWheelDirective } from './global/directives/mousewheel.directive';
     FooterComponent,
     MatSelectSearchComponent,
     NotFoundComponent,
+    HomeComponent,
   ],
   imports: [
     BrowserModule,

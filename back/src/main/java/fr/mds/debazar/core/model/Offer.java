@@ -1,5 +1,8 @@
 package fr.mds.debazar.core.model;
 
+import java.sql.Date;
+import java.sql.Timestamp;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -9,8 +12,6 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-
-import org.hibernate.annotations.GenericGenerator;
 
 import fr.mds.debazar.authentication.model.User;
 import lombok.Getter;
@@ -37,6 +38,8 @@ public class Offer {
 
     private String detail;
     private float price;
+
+    private Timestamp date;
 
     public Long getId() {
         return id;
@@ -78,6 +81,13 @@ public class Offer {
     }
     public void setPrice(float price) {
         this.price = price;
+    }
+
+    public Timestamp getDate() {
+        return date;
+    }
+    public void setDate(Timestamp	 date) {
+        this.date = date;
     }
 
 }

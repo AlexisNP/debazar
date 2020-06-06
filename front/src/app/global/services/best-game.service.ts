@@ -31,8 +31,8 @@ export class BestGameService {
    * Save an offer into Database
    * @param offer
    */
-  public addPopularGame(data: any) {
-    return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add-popular`, data).subscribe(data => {
+  public addBestGame(data: any) {
+    return this.http.post<any>(`${this.baseUrl}/${ENDPOINT}/add`, data).subscribe(data => {
       // console.log("data:", data),
       data = data;
     }, error => {console.log("Error", error);
