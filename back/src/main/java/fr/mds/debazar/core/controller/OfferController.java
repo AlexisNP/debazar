@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import fr.mds.debazar.authentication.model.User;
 import fr.mds.debazar.authentication.model.UserSummary;
+import fr.mds.debazar.authentication.repository.UserRepository;
 import fr.mds.debazar.core.exception.GameExistsException;
 import fr.mds.debazar.core.model.Game;
 import fr.mds.debazar.core.model.GameDTO;
@@ -34,10 +35,12 @@ public class OfferController {
 
     private OfferRepository repository;
     private OfferService offerService;
+    private UserRepository userRepo;
 
-    public OfferController(OfferRepository repository, OfferService offerService) {
+    public OfferController(OfferRepository repository, OfferService offerService, UserRepository userRepo) {
         this.repository = repository;
         this.offerService = offerService;
+        this.userRepo = userRepo;
     }
 
 //    @GetMapping("/find-all")
@@ -65,6 +68,19 @@ public class OfferController {
     public ResponseEntity<List<OfferSummary>> findByCategory(@PathVariable(value = "category") long category) {
 
         List<Offer> offerList = repository.findByCategory(category);
+        List<OfferSummary> offers = new ArrayList<>();
+        for (Offer offer : offerList) {
+            offers.add(new OfferSummary(offer));
+        }
+        return ResponseEntity.ok().body(offers);
+    }
+
+    @GetMapping("/find-seller/{seller}")
+    public ResponseEntity<List<OfferSummary>> findBySeller(@PathVariable(value = "seller") long seller) {
+
+        User user = userRepo.getById(seller);
+
+        List<Offer> offerList = repository.findBySeller(user);
         List<OfferSummary> offers = new ArrayList<>();
         for (Offer offer : offerList) {
             offers.add(new OfferSummary(offer));

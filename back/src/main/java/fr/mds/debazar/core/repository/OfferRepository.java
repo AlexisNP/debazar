@@ -7,6 +7,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import fr.mds.debazar.authentication.model.User;
 import fr.mds.debazar.core.model.Offer;
 
 @Repository
@@ -18,5 +19,7 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
             "JOIN game_category gc ON gc.game_id = g.id " +
             "WHERE gc.category_id = :categorie", nativeQuery=true)
     List<Offer> findByCategory(@Param("categorie") long categorie);
+
+    List<Offer> findBySeller(User user);
 
 }

@@ -1,0 +1,72 @@
+<p-table id="table" [columns]="cols" [value]="offers" dataKey="id" *ngIf="offers; else loading"
+[paginator]="true" [rowsPerPageOptions]="[10,25,50,100]" [rows]=numrows 
+[totalRecords]="offers.length" pageLinkSize="3" (onPage)="onPage($event)">
+  <ng-template pTemplate="header" let-columns>
+      <tr>
+          <th style="width: 3em"></th>
+          <th *ngFor="let col of columns">
+              {{col.header}}
+          </th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-offer let-expanded="expanded" let-columns="columns">
+      <tr>
+        <td>
+          <a href="#" [pRowToggler]="offer">
+            <i [ngClass]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></i>
+          </a>
+        </td>
+        <td *ngFor="let col of columns">
+          <div *ngIf="[col.field] == 'name'; else categories">
+            <td >
+              {{offer.game.name}}
+            </td>
+          </div>
+          <ng-template #categories>
+            <div *ngIf="[col.field] == 'categories'; else delete">
+              <p><span *ngFor="let c of offer.game.categories; let i = index">{{ c.name }}
+                <span *ngIf="(i < offer.game.categories.length - 1)"> | </span> 
+              </span></p>
+            </div>
+            <ng-template #delete>
+              <div *ngIf="[col.field] == 'delete'; else autres">
+                <button id="remove" (click)="deleteOffer(offer.id)">Supprimer</button>
+              </div>
+              <ng-template #autres>
+                {{offer[col.field]}}
+              </ng-template>
+            </ng-template>
+          </ng-template>
+        </td>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="rowexpansion" let-offer let-columns="columns">
+      <tr>
+        <!-- <td style="width: 3em"></td> -->
+        <td [attr.colspan]="columns.length">
+          <div class="p-grid -fluid" style="font-size:16px;padding:20px">
+            <div class="col-md-4">
+              <figure [ngStyle]="{'background-image': 'url(' + offer.game.image + ')'}"></figure>
+            </div>
+            <div class="col-md-8">
+              <p>Nom du jeu: {{offer.game.name}}</p>
+              <p>Style de jeu:</p>
+              <p>&nbsp;&nbsp;&nbsp;<span *ngFor="let c of offer.game.categories; let i = index">{{ c.name }}
+                <span *ngIf="(i < offer.game.categories.length - 1)"> | </span> 
+              </span></p>
+              <p>Date de mise en ligne: {{offer.date}}</p>
+              <p>Etat du jeu: {{offer.state.name}}</p>
+              <p>Prix du jeu: {{offer.price}}</p>
+              <p>Détail de l'offre: {{offer.detail}}</p>
+            </div>
+          </div>
+        </td>
+      </tr>
+  </ng-template>
+</p-table>
+
+<ng-template #loading>
+    <div *ngIf="spinValid" class="spinner">
+        <p-progressSpinner></p-progressSpinner>
+    </div>
+</ng-template>

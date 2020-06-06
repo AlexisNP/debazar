@@ -28,6 +28,7 @@ import { AddGameComponent } from './administration/components/add-game/add-game.
 
 import { NotFoundComponent } from "./global/components/not-found/not-found.component";
 import { HomeComponent } from './user/components/home/home.component';
+import { MyOffersComponent } from './user/components/my-offers/my-offers.component';
 
 const routes: Routes = [
     { path: '', component: LandingComponent },
@@ -39,11 +40,13 @@ const routes: Routes = [
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
 
-    { path: 'annonces', component: AdvertsComponent },
-    { path: 'annonces/:id', component: AdvertSingleComponent },
+    { path: 'annonces', component: AdvertsComponent, children: [
+        { path: ':id', component: AdvertSingleComponent },
+    ] },
 
-    { path: 'jeux', component: GamesComponent },
-    { path: 'jeux/:id', component: GameSingleComponent },
+    { path: 'jeux', component: GamesComponent, children: [
+        { path: ':id', component: GameSingleComponent },
+    ] },
 
     {
         path: 'mon-compte',
@@ -55,6 +58,7 @@ const routes: Routes = [
                 children: [
                     { path: '', component: AccountComponent},
                     { path: 'gamebox', component: GameboxComponent},
+                    { path: 'mes-offres', component: MyOffersComponent},
                 ]
             }
         ]
