@@ -32,7 +32,11 @@ export class SearchBarComponent implements OnInit {
     }
 
     onSubmit() {
-
+        console.log(this.searchForm.get('search_website').value);
+        this.router.navigate(['/recherche/' + this.searchForm.get('search_website').value])
+        .then(() => {
+            window.location.reload();
+        });
     }
 
 }

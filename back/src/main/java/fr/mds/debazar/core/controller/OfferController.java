@@ -75,6 +75,17 @@ public class OfferController {
         return ResponseEntity.ok().body(offers);
     }
 
+    @GetMapping("/find-name/{name}")
+    public ResponseEntity<List<OfferSummary>> findByName(@PathVariable(value = "name") String name) {
+
+        List<Offer> offerList = repository.findByName(name);
+        List<OfferSummary> offers = new ArrayList<>();
+        for (Offer offer : offerList) {
+            offers.add(new OfferSummary(offer));
+        }
+        return ResponseEntity.ok().body(offers);
+    }
+
     @GetMapping("/find-seller/{seller}")
     public ResponseEntity<List<OfferSummary>> findBySeller(@PathVariable(value = "seller") long seller) {
 

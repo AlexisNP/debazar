@@ -43,6 +43,20 @@ export class OfferService {
   }
 
   /**
+   * return specified offer stored in database 
+   * @param id
+   */
+  public findOfferByName = (name: string) => {
+    return new Promise((resolve, reject) => {
+        this.http.get<any>(`${this.baseUrl}/${ENDPOINT}/find-name/` + name).subscribe(data => {
+            resolve(data)
+        }, err => {
+            reject(err)
+        })
+    })
+  }
+
+  /**
    * return offers stored in database with specific game category
    * @param id
    */

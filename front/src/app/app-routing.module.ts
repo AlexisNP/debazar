@@ -48,6 +48,10 @@ const routes: Routes = [
         { path: ':id', component: AdvertsComponent },
     ] },
 
+    { path: 'recherche', children: [
+        { path: ':game', component: AdvertsComponent },
+    ] },
+
     { path: 'jeux', component: GamesComponent, children: [
         { path: ':id', component: GameSingleComponent },
     ] },
