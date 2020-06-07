@@ -44,6 +44,10 @@ const routes: Routes = [
         { path: ':id', component: AdvertSingleComponent },
     ] },
 
+    { path: 'categorie', children: [
+        { path: ':id', component: AdvertsComponent },
+    ] },
+
     { path: 'jeux', component: GamesComponent, children: [
         { path: ':id', component: GameSingleComponent },
     ] },
@@ -90,7 +94,7 @@ const routes: Routes = [
 @NgModule({
     imports: [RouterModule.forRoot(
         routes,
-        { enableTracing: true }
+        // { enableTracing: true }
         )],
     exports: [RouterModule]
 })
