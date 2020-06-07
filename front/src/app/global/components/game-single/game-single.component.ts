@@ -34,7 +34,13 @@ export class GameSingleComponent implements OnInit {
 
         this.gameService.findGameById(id)
         .then(values => {
-            values = Object.values(values)
+            values = Object.values(values);
+            console.log(values);
+            
+            let categories = [];
+            values[12].forEach(c => {
+                categories.push({ id: c.id, name: c.name});
+            });
             this.game = new Game(
                 values[0],
                 values[1],
@@ -46,11 +52,13 @@ export class GameSingleComponent implements OnInit {
                 values[9],
                 values[7],
                 new Editor(values[10].id, values[10].name),
-                [],
-                values[13])
+                categories,
+                values[13]);
         })
         .then(() => {
             this.titleService.setTitle(this.game.name + " - Fiche Débazar");
+            console.log(this.game);
+            
             this.isLoading = false;
         })
         .catch(() => {

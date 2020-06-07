@@ -40,9 +40,8 @@ const routes: Routes = [
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
 
-    { path: 'annonces', component: AdvertsComponent, children: [
-        { path: ':id', component: AdvertSingleComponent },
-    ] },
+    { path: 'annonces', component: AdvertsComponent },
+    { path: 'annonces/:id', component: AdvertSingleComponent },
 
     { path: 'categorie', children: [
         { path: ':id', component: AdvertsComponent },
@@ -52,9 +51,8 @@ const routes: Routes = [
         { path: ':game', component: AdvertsComponent },
     ] },
 
-    { path: 'jeux', component: GamesComponent, children: [
-        { path: ':id', component: GameSingleComponent },
-    ] },
+    { path: 'jeux', component: GamesComponent },
+    { path: 'jeux/:id', component: GameSingleComponent },
 
     {
         path: 'mon-compte',

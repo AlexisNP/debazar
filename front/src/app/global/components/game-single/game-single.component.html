@@ -1,6 +1,6 @@
 <section>
     <div class="wrapper">
-        <header *ngIf="!isLoading">
+        <header>
             <h2>{{ game.name }}</h2>
         </header>
         <div class="game-body" *ngIf="!isLoading; else loading;">
@@ -20,7 +20,7 @@
                                 <li>
                                     <p>
                                         <b>Catégories:</b>
-                                        <span>{{ game.categories.name }}</span>
+                                        <span *ngFor="let c of game.categories; let i = index">{{ c.name }}<span *ngIf="(i < game.categories.length - 1)"> | </span> </span>
                                     </p>
                                 </li>
                                 <li>
@@ -59,7 +59,9 @@
         </ng-template>
     </div>
     <footer>
-        <a href="/annonces/" class="btn btn-primary">Voir les offres sur ce jeu</a>
+        <a [href]="'/recherche/' + game.name" class="btn btn-primary">Voir les offres sur ce jeu</a>
     </footer>
+
+
     <app-footer></app-footer>
 </section>
