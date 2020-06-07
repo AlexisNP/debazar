@@ -24,7 +24,6 @@ export class GameCardComponent implements OnInit {
     }
 
     ngOnInit() {
-        
     }
 
     ratingStars(stars: number) {

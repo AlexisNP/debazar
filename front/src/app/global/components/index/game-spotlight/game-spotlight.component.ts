@@ -16,7 +16,7 @@ import { BestGameService } from 'src/app/global/services/best-game.service';
 })
 export class GameSpotlightComponent implements OnInit, OnDestroy {
 
-    private games: Game[];
+    private games = [];
 
     private isLoading = true;
 
@@ -37,7 +37,8 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
 
         this.bestGameAPI.getbest()
         .then(values => {
-            this.games = Object.values(values);
+            this.games = []
+            this.games.push(Object.values(values)[1])
         })
         .then(() => {
             this.isLoading = false;

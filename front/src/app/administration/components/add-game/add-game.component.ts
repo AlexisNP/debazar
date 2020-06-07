@@ -67,11 +67,13 @@ export class AddGameComponent implements OnInit {
   })
 
   ngOnInit() {
-    this.categoryServ.getAllCategories().subscribe(data => {
-      // console.log("data:", data),
-      this.listCategories = data;
-    }, error => {console.log("Error", error);
-    });
+    this.categoryServ.getAllCategories()
+    .then(values => {
+        this.listCategories = Object.values(values)
+    })
+    .catch(err => {
+        console.log(err)
+    })
     this.editorServ.getAllEditors().subscribe(data => {
       // console.log("data:", data),
       this.listEditors = data;

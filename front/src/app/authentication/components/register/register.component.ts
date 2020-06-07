@@ -74,11 +74,13 @@ export class RegisterComponent implements OnInit {
 
     ngOnInit() {
         this.step = 1;
-        this.categoryServ.getAllCategories().subscribe(data => {
-            // console.log("data:", data),
-            this.listCategories = data;
-          }, error => {console.log("Error", error);
-          });
+        this.categoryServ.getAllCategories()
+        .then(values => {
+            this.listCategories = Object.values(values)
+        })
+        .catch(err => {
+            console.log(err)
+        })
     }
 
     togglePreferences(v) {

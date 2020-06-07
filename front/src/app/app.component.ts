@@ -18,10 +18,11 @@ export class AppComponent implements OnInit {
     }
 
     ngOnInit() {
-      this.categoryServ.getAllCategories().subscribe((data) => {
-        // console.log('data: ',data);
-        this.categories = data; },
-        (err) => console.log(err));  
+        this.categoryServ.getAllCategories()
+        .then(values => {
+            this.categories = Object.values(values)
+        })
+
     }
 
 }
