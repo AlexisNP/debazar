@@ -1,8 +1,10 @@
-<aside class="side-menu" role="navigation" [ngClass]="{'active' : active}">
+<aside class="side-menu" role="navigation" [ngClass]="{'active' : active}" *ngIf="categories">
     <nav>
         <div class="title">Nos Catégories</div>
-        <div *ngFor="let i of categories">
-            <div class="element"><a href="#">{{i.name}}</a></div>
+        <div *ngFor="let c of categories">
+            <div class="element">
+                <a href="jeux/categorie/{{c.id}}">{{c.name}}</a>
+            </div>
         </div>
     </nav>
 </aside>
