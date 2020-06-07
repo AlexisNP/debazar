@@ -29,8 +29,12 @@ export class AdvertsComponent implements OnInit {
         
         let id = Number(this.route.snapshot.paramMap.get('id'));
         console.log(id);
+        let game = String(this.route.snapshot.paramMap.get('game'));
+        console.log(game);
         
-        if (id == 0) {
+        if (id == 0 && game == 'null') { // recherche globale
+            console.log("globale");
+            
             this.offerService.getAllOffers()
             .then(values => {
                 this.adverts = Object.values(values);
@@ -40,8 +44,10 @@ export class AdvertsComponent implements OnInit {
             })
             .catch(err => {
                 console.log(err)
-            })
-        } else {
+            });
+        } else if (id != 0 && game == 'null') { // recherche par catégorie
+            console.log("catégorie");
+
             this.offerService.findOfferByCategory(id)
             .then(values => {
                 this.adverts = Object.values(values);
@@ -51,8 +57,33 @@ export class AdvertsComponent implements OnInit {
             })
             .catch(err => {
                 console.log(err)
+            });
+        } else if (id == 0 && game != 'null') { // recherche par nom
+            console.log("nom");
+
+            this.offerService.findOfferByName(game)
+            .then(values => {
+                this.adverts = Object.values(values);
             })
+            .then(() => {
+                this.isLoading = false;
+            })
+            .catch(err => {
+                console.log(err)
+            });
+        } else { // cas par défaut
+            console.log("else");
+
+            this.offerService.getAllOffers()
+            .then(values => {
+                this.adverts = Object.values(values);
+            })
+            .then(() => {
+                this.isLoading = false;
+            })
+            .catch(err => {
+                console.log(err)
+            });
         }
     }
-
 }

@@ -22,4 +22,10 @@ public interface OfferRepository extends JpaRepository<Offer, Long> {
 
     List<Offer> findBySeller(User user);
 
+    @Query(value="SELECT * " +
+            "FROM Offer offer " +
+            "JOIN Game g ON offer.game = g.id " +
+            "WHERE g.name LIKE %:name%", nativeQuery=true)
+    List<Offer> findByName(String name);
+
 }

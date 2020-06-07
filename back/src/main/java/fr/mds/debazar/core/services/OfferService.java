@@ -1,5 +1,6 @@
 package fr.mds.debazar.core.services;
 
+import java.sql.Timestamp;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -37,6 +38,12 @@ public class OfferService {
         newOffer.setState(offerDto.getState());
         newOffer.setDetail(offerDto.getDetail());
         newOffer.setPrice(offerDto.getPrice());
+
+        Date date = new Date();
+        Long time = date.getTime();
+        Timestamp ts = new Timestamp(time);
+
+        newOffer.setDate(ts);
 
         return newOffer;
     }
