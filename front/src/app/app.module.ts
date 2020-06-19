@@ -58,6 +58,11 @@ import { MatSelectSearchComponent } from './global/components/index/sell-games/m
 
 import { MouseWheelDirective } from './global/directives/mousewheel.directive';
 
+import { CgvComponent } from './global/components/cgv/cgv.component';
+import { PersonnalDataComponent } from './global/components/personnal-data/personnal-data.component';
+import { CookiesComponent } from './global/components/cookies/cookies.component';
+import { LegalStuffComponent } from './global/components/legal-stuff/legal-stuff.component';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -93,6 +98,10 @@ import { MouseWheelDirective } from './global/directives/mousewheel.directive';
     NotFoundComponent,
     HomeComponent,
     MyOffersComponent,
+    CgvComponent,
+    PersonnalDataComponent,
+    CookiesComponent,
+    LegalStuffComponent,
   ],
   imports: [
     BrowserModule,

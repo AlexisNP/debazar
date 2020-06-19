@@ -30,12 +30,22 @@ import { NotFoundComponent } from "./global/components/not-found/not-found.compo
 import { HomeComponent } from './user/components/home/home.component';
 import { MyOffersComponent } from './user/components/my-offers/my-offers.component';
 
+import { CgvComponent } from './global/components/cgv/cgv.component';
+import { PersonnalDataComponent } from './global/components/personnal-data/personnal-data.component';
+import { CookiesComponent } from './global/components/cookies/cookies.component';
+import { LegalStuffComponent } from './global/components/legal-stuff/legal-stuff.component';
+
 const routes: Routes = [
     { path: '', component: LandingComponent },
     { path: 'annonces-jeux-recentes', component: RecentAdvertsComponent },
     { path: 'vendre-mes-jeux', component: SellGamesComponent },
     { path: 'top-jeux-societe', component: PopularGamesComponent },
     { path: 'meilleurs-jeux-societe', component: GameSpotlightComponent },
+
+    { path: 'conditions-generales', component: CgvComponent },
+    { path: 'donnes-personnelles', component: PersonnalDataComponent },
+    { path: 'cookies', component: CookiesComponent },
+    { path: 'mentions-legales', component: LegalStuffComponent },
     
     { path: 'connexion', component: LoginComponent },
     { path: 'inscription', component: RegisterComponent },
