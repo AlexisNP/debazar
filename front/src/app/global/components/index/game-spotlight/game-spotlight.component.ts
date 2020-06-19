@@ -17,6 +17,7 @@ import { BestGameService } from 'src/app/global/services/best-game.service';
 export class GameSpotlightComponent implements OnInit, OnDestroy {
 
     private games = [];
+    private debazar_opinion: String;
 
     private isLoading = true;
 
@@ -29,6 +30,7 @@ export class GameSpotlightComponent implements OnInit, OnDestroy {
 
     constructor(private titleService: Title, private bestGameAPI: BestGameService, private router: Router) {
         this.titleService.setTitle("Notre sélection - Débazar");
+        this.debazar_opinion = "The Mind vous occupera des heures, rigolade garantie, avec beaucoup de fun et de lol !";
     }
 
     ngOnInit() {
