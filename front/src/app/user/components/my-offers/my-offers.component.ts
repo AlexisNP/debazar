@@ -97,7 +97,7 @@ export class MyOffersComponent implements OnInit {
     }
   }
   onPage(event: any) {
-    this.temDataLength = this.offers.slice(event.first, event.first + 10).length;
+    this.temDataLength = this.offers.slice(event.first, event.first + this.numrows).length;
     console.log(this.temDataLength);
     this.isExpanded = false;
     this.expandedRows={};
